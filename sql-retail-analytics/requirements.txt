@@ -1,0 +1,24 @@
+# ============================================================================
+# SQL RETAIL ANALYTICS - SOFTWARE REQUIREMENTS
+# ============================================================================
+# This project is designed with zero external Python library dependencies
+# to ensure zero friction for recruiters running this on local machines.
+# ============================================================================
+
+# 1. Core Runtime
+# Compatible with Python 3.8 or newer (Standard Library only)
+# - csv
+# - sqlite3
+# - random
+# - datetime
+# - math
+# - os
+
+# 2. Database Compatibility
+# - SQLite (standard local relational database engine, pre-bundled)
+# - MySQL 8.0+ or PostgreSQL 14+ (if migrating standard ANSI SQL scripts)
+
+# 3. Recommended Tools for Review
+# - DBeaver Community Edition (excellent GUI for reviewing SQLite DBs and queries)
+# - DB Browser for SQLite (lightweight local database reader)
+# - VS Code SQLite Viewer Extension

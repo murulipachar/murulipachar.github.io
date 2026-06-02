@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ffff" stop-opacity="1" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="1" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Background circle (optional/translucent) -->
+  <circle cx="50" cy="50" r="45" fill="none" stroke="url(#cyan-glow)" stroke-width="2" opacity="0.2" />
+  
+  <!-- Data Node Chart Representation -->
+  <path d="M 25 75 L 25 55 A 5 5 0 0 1 35 55 L 35 75 Z" fill="url(#cyan-glow)" filter="url(#glow)" />
+  <path d="M 45 75 L 45 35 A 5 5 0 0 1 55 35 L 55 75 Z" fill="url(#cyan-glow)" filter="url(#glow)" />
+  <path d="M 65 75 L 65 20 A 5 5 0 0 1 75 20 L 75 75 Z" fill="url(#cyan-glow)" filter="url(#glow)" />
+  
+  <!-- Trending Trendline with Glow -->
+  <path d="M 20 60 L 40 45 L 60 25 L 80 15" fill="none" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round" filter="url(#glow)" />
+  <circle cx="80" cy="15" r="5" fill="#8b5cf6" filter="url(#glow)" />
+</svg>

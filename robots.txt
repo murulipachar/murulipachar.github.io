@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+
+Sitemap: https://murulipachar.github.io/sitemap.xml

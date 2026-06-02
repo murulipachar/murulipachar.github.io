@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Optimization -->
+  <title>Muruli H P | Aspiring Data Analyst & BI Developer Portfolio</title>
+  <meta name="description" content="Personal portfolio website of Muruli H P. Explore business analytics case studies, SQL databases DDL schemas, and Power BI dashboards. Bangalore, India.">
+  <meta name="keywords" content="Data Analyst, BI Analyst, SQL Developer, Business Analyst, Power BI Developer, Portfolio, Muruli H P, Bangalore, Star Schema, Churn Prediction">
+  <meta name="author" content="Muruli H P">
+  <link rel="canonical" href="https://murulipachar.github.io/">
+
+  <!-- OpenGraph / Social Sharing Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Muruli H P | Data Analyst & BI Developer Portfolio">
+  <meta property="og:description" content="Explore interactive dashboard case studies, advanced relational SQL analytics, and Python customer churn statistics.">
+  <meta property="og:url" content="https://murulipachar.github.io/">
+  <meta property="og:image" content="assets/favicon.svg">
+  <meta property="og:site_name" content="Muruli H P Portfolio">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Muruli H P | Data Analyst & BI Developer Portfolio">
+  <meta name="twitter:description" content="Explore interactive dashboard case studies, advanced relational SQL analytics, and Python customer churn statistics.">
+  <meta name="twitter:image" content="assets/favicon.svg">
+
+  <!-- Favicon Link -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Structured Data JSON-LD Schema for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Muruli H P",
+    "jobTitle": "Data Analyst",
+    "url": "https://murulipachar.github.io",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bangalore",
+      "addressRegion": "Karnataka",
+      "addressCountry": "India"
+    },
+    "colleague": "AMC Engineering College",
+    "email": "murulipachar58@gmail.com",
+    "telephone": "+919980278235",
+    "sameAs": [
+      "https://github.com/murulipachar",
+      "https://linkedin.com/in/muruli-h-p-9825651a5"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Background Particle Network -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="preloader-logo">
+      <div class="preloader-circle"></div>
+      <svg class="preloader-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+      </svg>
+    </div>
+    <div class="preloader-text">MHP ANALYTICS</div>
+    <div class="preloader-bar-bg">
+      <div class="preloader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-container">
+    <div class="scroll-progress-bar" id="progress-bar"></div>
+  </div>
+
+  <!-- Sticky Glass Navigation Header -->
+  <header>
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Primary Navigation">
+      <a href="#home" class="nav-logo">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="url(#logo-grad)" stroke-width="6" opacity="0.3" />
+          <path d="M 30 70 L 30 50 A 6 6 0 0 1 42 50 L 42 70 Z" fill="url(#logo-grad)" />
+          <path d="M 50 70 L 50 35 A 6 6 0 0 1 62 35 L 62 70 Z" fill="url(#logo-grad)" />
+          <path d="M 70 70 L 70 20 A 6 6 0 0 1 82 20 L 82 70 Z" fill="url(#logo-grad)" />
+          <defs>
+            <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00f0ff" />
+              <stop offset="100%" stop-color="#8b5cf6" />
+            </linearGradient>
+          </defs>
+        </svg>
+        MHP <span>Analytics</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#why-hire">Why Hire Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-socials">
+        <a href="https://github.com/murulipachar" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="GitHub Profile">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 721 192 888.4 369.6 947.4c22.4 4.1 30.6-9.7 30.6-21.6 0-10.7-.4-39-32.3-39-30-.3-40.4-32.6-40.4-32.6-18.7-47.5-45.7-60.2-45.7-60.2-31.1-21.2 2.3-20.8 2.3-20.8 34.4 2.4 52.5 35.3 52.5 35.3 30.5 52.4 80.1 37.3 99.6 28.5 3.1-22.1 11.9-37.3 21.7-45.9-262.4-29.8-538.2-131.2-538.2-583.9 0-129 46-234.5 121.4-317.2-12.2-29.9-52.6-150.1 11.5-312.9 0 0 99.2-31.7 325 121.1 94.2-26.2 195.3-39.2 295.9-39.7 100.6.5 201.7 13.5 296.1 39.7 225.4-152.9 324.2-121.1 324.2-121.1 64.3 162.8 23.9 283 11.7 312.9 75.7 82.7 121.2 188.2 121.2 317.2 0 453.9-276.3 553.8-539.6 582.9 42.4 36.6 80.3 108.7 80.3 219.2 0 158.3-1.4 285.9-1.4 324.8 0 12 8.1 26 30.8 21.5C832.1 888.1 960 720.8 960 523.5 960 276.4 759.5 76.3 511.6 76.3z"></path></svg>
+        </a>
+        <a href="https://linkedin.com/in/muruli-h-p-9825651a5" target="_blank" rel="noopener noreferrer" class="nav-social-btn" aria-label="LinkedIn Profile">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zM349.3 776.7h-125V375.9h125v400.8zM286.9 324c-40 0-72.5-32.5-72.5-72.5s32.5-72.5 72.5-72.5 72.5 32.5 72.5 72.5-32.5 72.5-72.5 72.5zm489.8 452.7h-125V581c0-46.7-.8-106.8-65-106.8-65.1 0-75.1 50.9-75.1 103.4v199.1h-125V375.9h119.9v54.7h1.7c16.7-31.7 57.5-65.1 118.5-65.1 126.8 0 150.2 83.5 150.2 191.9v219.3z"></path></svg>
+        </a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">&#9776;</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="home">
+      <div class="hero-container">
+        <div class="hero-content">
+          <!-- Recruiter Availability Banner -->
+          <div class="recruiter-banner-hero">
+            <span class="pulse-dot"></span>
+            <div class="banner-text">
+              <strong>Open to:</strong> Data Analyst, BI Analyst, Reporting Analyst, SQL Developer Roles &amp; Internships
+            </div>
+          </div>
+          
+          <h1 class="hero-name">Muruli H P</h1>
+          
+          <div class="hero-title-wrapper">
+            <h2 class="hero-title">
+              Aspiring <span class="hero-typing">Data Analyst</span>
+            </h2>
+          </div>
+          
+          <p class="hero-intro">
+            Focused on bridging database transactions to clear visualizations. Trained in relational modeling (Star Schema), database indexing, Python data analytics, and interactive dashboard builds.
+          </p>
+          
+          <div class="hero-skills-preview">
+            <div class="hero-skills-label">Featured Tech:</div>
+            <span class="hero-skill-badge">SQL</span>
+            <span class="hero-skill-badge">Power BI</span>
+            <span class="hero-skill-badge">Python</span>
+            <span class="hero-skill-badge">Excel</span>
+            <span class="hero-skill-badge">Tableau</span>
+          </div>
+          
+          <div class="hero-btns">
+            <a href="#projects" class="btn btn-primary">
+              View Projects
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.1em" width="1.1em" aria-hidden="true"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg>
+            </a>
+            <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              Preview Resume
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="1.1em" width="1.1em" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+            <a href="assets/resume.pdf" download="Muruli_HP_Resume.pdf" class="btn btn-tertiary">
+              Download Resume
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.1em" width="1.1em" aria-hidden="true"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"></path></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="hero-visual">
+          <div class="profile-card glass-card">
+            <div class="profile-img-container">
+              <!-- Actual profile picture with SVG vector avatar fallback -->
+              <img src="assets/profile.png" alt="Muruli H P Profile Picture" class="profile-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" loading="lazy">
+              <div class="profile-placeholder" style="display: none;">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+                <span class="placeholder-name" style="font-size:0.9rem; font-weight:700; color:var(--text-primary); margin-top:8px;">Muruli H P</span>
+              </div>
+            </div>
+            <div class="profile-card-glow"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verifiable statistics from code portfolios -->
+      <div class="stats-banner glass-card reveal">
+        <div class="stat-item">
+          <div class="stat-number">46+</div>
+          <div class="stat-label">Relational SQL Queries</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12,500+</div>
+          <div class="stat-label">Ingested Transaction Rows</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">7,043</div>
+          <div class="stat-label">Cleaned Subscriber Rows</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">8.2</div>
+          <div class="stat-label">Academic CGPA</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="reveal">
+      <div class="section-title-wrapper">
+        <span class="section-tag">Academic Background</span>
+        <h2 class="section-title">About <span>Myself</span></h2>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-info">
+          <h3>Computer Science Engineering Student</h3>
+          <p class="about-text">
+            I am currently completing my Bachelor of Engineering in Computer Science and Engineering at AMC Engineering College, Bangalore. I focus on database management, scripting clean data transformations, compiling metrics, and translating operational figures into interactive BI reports.
+          </p>
+          <p class="about-text">
+            Through my academic studies and hands-on projects, I have developed solid foundational skills in SQL relational design (Star Schema), data manipulation in Python (Pandas), and visual dashboard builds in Power BI and Excel. I am eager to apply this training in a collaborative entry-level Data Analyst, BI Analyst, or Reporting Analyst role.
+          </p>
+          
+          <div class="about-details">
+            <div class="detail-node">
+              <div class="detail-node-label">Based In</div>
+              <div class="detail-node-value">Bangalore, India</div>
+            </div>
+            <div class="detail-node">
+              <div class="detail-node-label">Target Role</div>
+              <div class="detail-node-value">Data Analyst / BI Analyst</div>
+            </div>
+            <div class="detail-node">
+              <div class="detail-node-label">Technical Specialty</div>
+              <div class="detail-node-value">SQL schema & BI reporting</div>
+            </div>
+            <div class="detail-node">
+              <div class="detail-node-label">Availability Status</div>
+              <div class="detail-node-value">Immediate Joiner</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-timeline glass-card">
+          <h3 class="timeline-heading" style="margin-bottom: 20px; font-family: 'Outfit', sans-serif;">Education <span>Timeline</span></h3>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2023 - 2026</div>
+            <div class="timeline-title">Bachelor of Engineering (BE)</div>
+            <div class="timeline-subtitle">AMC Engineering College, Bangalore</div>
+            <div class="timeline-meta">Current CGPA: 8.2</div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2020 - 2023</div>
+            <div class="timeline-title">Diploma in Computer Engineering</div>
+            <div class="timeline-subtitle">D.A.C.G Government Polytechnic</div>
+            <div class="timeline-meta">Final CGPA: 8.0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY HIRE ME SECTION -->
+    <section id="why-hire" class="reveal">
+      <div class="section-title-wrapper">
+        <span class="section-tag">Value Proposition</span>
+        <h2 class="section-title">Why <span>Hire Me</span></h2>
+      </div>
+      
+      <div class="why-hire-grid">
+        <!-- 1. SQL Querying -->
+        <div class="why-hire-card glass-card reveal">
+          <div class="why-hire-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 4.02 2 6.5s4.48 4.5 10 4.5 10-2.02 10-4.5S17.52 2 12 2zm0 18c-5.52 0-10-2.02-10-4.5v-3.5c0 2.48 4.48 4.5 10 4.5s10-2.02 10-4.5v3.5c0 2.48-4.48 4.5-10 4.5zm0-5.5c-5.52 0-10-2.02-10-4.5v-3.5c0 2.48 4.48 4.5 10 4.5s10-2.02 10-4.5v3.5c0 2.48-4.48 4.5-10 4.5z"/></svg>
+          </div>
+          <h4>SQL Querying</h4>
+          <p>Proficient in writing relational queries using JOINs, CTEs, Subqueries, and Window Functions. Skilled in mapping out relational database schemas.</p>
+        </div>
+
+        <!-- 2. Dashboard Development -->
+        <div class="why-hire-card glass-card reveal">
+          <div class="why-hire-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+          </div>
+          <h4>Dashboard Development</h4>
+          <p>Capable of designing interactive BI dashboards in Power BI and Excel. Experienced in structuring DAX metrics and layout visuals.</p>
+        </div>
+
+        <!-- 3. Data Cleaning -->
+        <div class="why-hire-card glass-card reveal">
+          <div class="why-hire-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15c0 .55.45 1 1 1s1-.45 1-1-.45-1-1-1-.45.45-1 1zm0-8h2v6h-2V9z"/></svg>
+          </div>
+          <h4>Data Cleaning</h4>
+          <p>Skilled in data cleaning using Python (Pandas) and SQL. Experienced in handling missing values, filtering duplicates, and normalizing data types.</p>
+        </div>
+
+        <!-- 4. Data Visualization -->
+        <div class="why-hire-card glass-card reveal">
+          <div class="why-hire-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 21.9l-8.5-8.5c.9-1.2 1.4-2.7 1.4-4.4C14.8 5 10.8 1 5.9 1c-1.7 0-3.2.5-4.4 1.4l8.5 8.5c-.9 1.2-1.4 2.7-1.4 4.4C8.6 20.2 12.6 24 17.5 24c1.7 0 3.2-.5 4.4-1.4z"/></svg>
+          </div>
+          <h4>Data Visualization</h4>
+          <p>Focused on visual storytelling. Capable of designing intuitive and appropriate charts to present trends, concentrations, and margins clearly.</p>
+        </div>
+
+        <!-- 5. Analytical Thinking -->
+        <div class="why-hire-card glass-card reveal">
+          <div class="why-hire-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+          </div>
+          <h4>Analytical Thinking</h4>
+          <p>Trained in translating business scenarios and requirements into technical SQL database queries. Passionate about logical troubleshooting.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="reveal">
+      <div class="section-title-wrapper">
+        <span class="section-tag">Competencies</span>
+        <h2 class="section-title">Featured <span>Skills</span></h2>
+      </div>
+      
+      <div class="skills-container">
+        <!-- 1. SQL -->
+        <div class="skill-card featured-skill reveal">
+          <div class="skill-header">
+            <div class="skill-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 4.02 2 6.5s4.48 4.5 10 4.5 10-2.02 10-4.5S17.52 2 12 2zm0 18c-5.52 0-10-2.02-10-4.5v-3.5c0 2.48 4.48 4.5 10 4.5s10-2.02 10-4.5v3.5c0 2.48-4.48 4.5-10 4.5zm0-5.5c-5.52 0-10-2.02-10-4.5v-3.5c0 2.48 4.48 4.5 10 4.5s10-2.02 10-4.5v3.5c0 2.48-4.48 4.5-10 4.5z"/></svg>
+            </div>
+            <span class="skill-badge">Core</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-name">SQL</div>
+            <div class="skill-progress-container">
+              <div class="skill-progress-header">
+                <span>Expertise</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar" data-width="85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Power BI -->
+        <div class="skill-card featured-skill reveal">
+          <div class="skill-header">
+            <div class="skill-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 17H7v-6h2v6zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+            </div>
+            <span class="skill-badge">Core</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-name">Power BI</div>
+            <div class="skill-progress-container">
+              <div class="skill-progress-header">
+                <span>Expertise</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar" data-width="80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Python -->
+        <div class="skill-card featured-skill reveal">
+          <div class="skill-header">
+            <div class="skill-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.95 2c-2.6 0-2.45 1.1-2.45 1.1v1.65h2.5v.7h-3.6c-1.6 0-2.75 1.25-2.75 2.85v2.5s-.1 1.45 1.3 1.45h1.2v-1.65c0-1.4 1.15-2.55 2.55-2.55h3.65s1.3-.05 1.3-1.25V4.65c0-1.5-1.45-2.65-3.7-2.65zm2.5 7.65c0 1.4-1.15 2.55-2.55 2.55H8.25s-1.3.05-1.3 1.25v2.25c0 1.5 1.45 2.65 3.7 2.65 2.6 0 2.45-1.1 2.45-1.1v-1.65h-2.5v-.7h3.6c1.6 0 2.75-1.25 2.75-2.85V11.1s.1-1.45-1.3-1.45h-1.2z"/></svg>
+            </div>
+            <span class="skill-badge">Core</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-name">Python</div>
+            <div class="skill-progress-container">
+              <div class="skill-progress-header">
+                <span>Expertise</span>
+                <span>75%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar" data-width="75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Excel -->
+        <div class="skill-card featured-skill reveal">
+          <div class="skill-header">
+            <div class="skill-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.3 2H2.7C2.1 2 1.6 2.5 1.6 3.1v17.8c0 .6.5 1.1 1.1 1.1h18.6c.6 0 1.1-.5 1.1-1.1V3.1c0-.6-.5-1.1-1.1-1.1zM8.5 17L5.5 12l3-5h2.2l-2 3.5 2 3.5H8.5zm11 0h-7v-2h7v2zm0-4h-7v-2h7v2zm0-4h-7V7h7v2z"/></svg>
+            </div>
+            <span class="skill-badge">Core</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-name">Excel</div>
+            <div class="skill-progress-container">
+              <div class="skill-progress-header">
+                <span>Expertise</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar" data-width="80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Tableau -->
+        <div class="skill-card featured-skill reveal">
+          <div class="skill-header">
+            <div class="skill-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="2" x2="12" y2="22" /><line x1="2" y1="12" x2="22" y2="12" /><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /><circle cx="12" cy="12" r="2" fill="currentColor"/></svg>
+            </div>
+            <span class="skill-badge">Core</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-name">Tableau</div>
+            <div class="skill-progress-container">
+              <div class="skill-progress-header">
+                <span>Expertise</span>
+                <span>70%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar" data-width="70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. MySQL -->
+        <div class="skill-card reveal">
+          <div class="skill-header">
+            <div class="skill-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 4.02 2 6.5S6.48 11 12 11s10-2.02 10-4.5S17.52 2 12 2zm0 18c-5.52 0-10-2.02-10-4.5v-3.5c0 2.48 4.48 4.5 10 4.5s10-2.02 10-4.5v3.5c0 2.48-4.48 4.5-10 4.5z"/><circle cx="6" cy="6.5" r="1" fill="#00f0ff"/><circle cx="6" cy="15.5" r="1" fill="#00f0ff"/></svg>
+            </div>
+          </div>
+          <div class="skill-info">
+            <div class="skill-name">MySQL</div>
+            <div class="skill-progress-container">
+              <div class="skill-progress-header">
+                <span>Expertise</span>
+                <span>75%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar" data-width="75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Pandas -->
+        <div class="skill-card reveal">
+          <div class="skill-header">
+            <div class="skill-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 4v3h4V7H4zm6 0v3h4V7h-4zm6 0v3h4V7h-4zM4 12v3h4v-3H4zm6 0v3h4v-3h-4zm6 0v3h4v-3h-4zm-12 5v2h4v-2H4zm6 0v2h4v-2H4zm6 0v2h4v-2H4z"/></svg>
+            </div>
+          </div>
+          <div class="skill-info">
+            <div class="skill-name">Pandas</div>
+            <div class="skill-progress-container">
+              <div class="skill-progress-header">
+                <span>Expertise</span>
+                <span>70%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar" data-width="70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Data Visualization -->
+        <div class="skill-card reveal">
+          <div class="skill-header">
+            <div class="skill-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" stroke="var(--accent-cyan)" stroke-width="2.5"/></svg>
+            </div>
+          </div>
+          <div class="skill-info">
+            <div class="skill-name">Data Visualization</div>
+            <div class="skill-progress-container">
+              <div class="skill-progress-header">
+                <span>Expertise</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-progress-bar-bg">
+                <div class="skill-progress-bar" data-width="80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="reveal">
+      <div class="section-title-wrapper">
+        <span class="section-tag">Case Studies Portfolio</span>
+        <h2 class="section-title">Featured <span>Projects</span></h2>
+      </div>
+      
+      <!-- Project Category Filters -->
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="sql">SQL &amp; Databases</button>
+        <button class="filter-btn" data-filter="python">Python &amp; Analytics</button>
+        <button class="filter-btn" data-filter="powerbi">Power BI</button>
+        <button class="filter-btn" data-filter="android">Android</button>
+      </div>
+      
+      <div class="projects-grid">
+        <!-- Project 1: SQL Retail Performance -->
+        <div class="project-card reveal" data-category="sql" data-project-id="sql-retail-analytics">
+          <div class="project-tags">
+            <span class="project-tag">SQL</span>
+            <span class="project-tag">MySQL</span>
+            <span class="project-tag">Star Schema</span>
+            <span class="project-tag">SQLite</span>
+          </div>
+          <div class="project-visual">
+            <img src="sql-retail-analytics/screenshots/kpi_dashboard_summary.png" alt="SQL Retail Analytics Dashboard Screenshot" class="project-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" loading="lazy">
+            <div class="project-placeholder-graphic" role="img" aria-label="Relational database schema representation">
+              <svg viewBox="0 0 24 24" class="project-placeholder-icon"><path d="M12 2C6.48 2 2 4.02 2 6.5s4.48 4.5 10 4.5 10-2.02 10-4.5S17.52 2 12 2zm0 18c-5.52 0-10-2.02-10-4.5v-3.5c0 2.48 4.48 4.5 10 4.5s10-2.02 10-4.5v3.5c0 2.48-4.48 4.5-10 4.5z" fill="currentColor"/></svg>
+              <span>Relational DB Performance Schema</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-name">SQL Retail Performance Analytics</h3>
+            <p class="project-desc">
+              Structured a Star Schema relational database in SQLite to model transactional orders. Formulated compound performance indexes and optimized analytic SQL queries.
+            </p>
+            <div class="project-insights-preview">
+              <h4>Key Project Insights:</h4>
+              <ul>
+                <li> Southern Furniture net operating margins were compressed to 8.39% due to heavy shipping drag.</li>
+                <li>Isolated a markdown-bleed anomaly where clearance discount rates >=30% drove net profits negative.</li>
+              </ul>
+            </div>
+            <div class="project-actions">
+              <button class="project-btn project-btn-details">
+                Read Details
+              </button>
+              <a href="./sql-retail-analytics/dashboard/index.html" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-demo" style="background:rgba(0, 240, 255, 0.08); border-color:rgba(0, 240, 255, 0.3); color:var(--text-primary); transition:var(--transition-fast);">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/murulipachar/sql-retail-analytics" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-code">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" aria-hidden="true"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 721 192 888.4 369.6 947.4c22.4 4.1 30.6-9.7 30.6-21.6 0-10.7-.4-39-32.3-39-30-.3-40.4-32.6-40.4-32.6-18.7-47.5-45.7-60.2-45.7-60.2-31.1-21.2 2.3-20.8 2.3-20.8 34.4 2.4 52.5 35.3 52.5 35.3 30.5 52.4 80.1 37.3 99.6 28.5 3.1-22.1 11.9-37.3 21.7-45.9-262.4-29.8-538.2-131.2-538.2-583.9 0-129 46-234.5 121.4-317.2-12.2-29.9-52.6-150.1 11.5-312.9 0 0 99.2-31.7 325 121.1 94.2-26.2 195.3-39.2 295.9-39.7 100.6.5 201.7 13.5 296.1 39.7 225.4-152.9 324.2-121.1 324.2-121.1 64.3 162.8 23.9 283 11.7 312.9 75.7 82.7 121.2 188.2 121.2 317.2 0 453.9-276.3 553.8-539.6 582.9 42.4 36.6 80.3 108.7 80.3 219.2 0 158.3-1.4 285.9-1.4 324.8 0 12 8.1 26 30.8 21.5C832.1 888.1 960 720.8 960 523.5 960 276.4 759.5 76.3 511.6 76.3z"></path></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Customer Churn Analysis -->
+        <div class="project-card reveal" data-category="python" data-project-id="customer-churn-analysis">
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Pandas</span>
+            <span class="project-tag">Matplotlib</span>
+            <span class="project-tag">Seaborn</span>
+          </div>
+          <div class="project-visual">
+            <img src="customer-churn-analysis/screenshots/churn_distribution.png" alt="Customer Churn Analysis Graphs" class="project-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" loading="lazy">
+            <div class="project-placeholder-graphic" role="img" aria-label="Customer churn charts representation">
+              <svg viewBox="0 0 24 24" class="project-placeholder-icon"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z" fill="currentColor"/></svg>
+              <span>Python Data Segmentation Model</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-name">Customer Churn Analysis</h3>
+            <p class="project-desc">
+              Built a customer behavioral profiling script utilizing Pandas and Seaborn. Formulated correlation matrices and mapped risk trends across demographics.
+            </p>
+            <div class="project-insights-preview">
+              <h4>Key Project Insights:</h4>
+              <ul>
+                <li>Subscribers committed to Month-to-month terms exhibit an attrition rate of 46.8%.</li>
+                <li>Manual billing gateways via electronic checks show the highest churn exposure.</li>
+              </ul>
+            </div>
+            <div class="project-actions">
+              <button class="project-btn project-btn-details">
+                Read Details
+              </button>
+              <a href="./customer-churn-analysis/dashboard/index.html" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-demo" style="background:rgba(0, 240, 255, 0.08); border-color:rgba(0, 240, 255, 0.3); color:var(--text-primary); transition:var(--transition-fast);">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/murulipachar/customer-churn-analysis" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-code">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" aria-hidden="true"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 721 192 888.4 369.6 947.4c22.4 4.1 30.6-9.7 30.6-21.6 0-10.7-.4-39-32.3-39-30-.3-40.4-32.6-40.4-32.6-18.7-47.5-45.7-60.2-45.7-60.2-31.1-21.2 2.3-20.8 2.3-20.8 34.4 2.4 52.5 35.3 52.5 35.3 30.5 52.4 80.1 37.3 99.6 28.5 3.1-22.1 11.9-37.3 21.7-45.9-262.4-29.8-538.2-131.2-538.2-583.9 0-129 46-234.5 121.4-317.2-12.2-29.9-52.6-150.1 11.5-312.9 0 0 99.2-31.7 325 121.1 94.2-26.2 195.3-39.2 295.9-39.7 100.6.5 201.7 13.5 296.1 39.7 225.4-152.9 324.2-121.1 324.2-121.1 64.3 162.8 23.9 283 11.7 312.9 75.7 82.7 121.2 188.2 121.2 317.2 0 453.9-276.3 553.8-539.6 582.9 42.4 36.6 80.3 108.7 80.3 219.2 0 158.3-1.4 285.9-1.4 324.8 0 12 8.1 26 30.8 21.5C832.1 888.1 960 720.8 960 523.5 960 276.4 759.5 76.3 511.6 76.3z"></path></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: Superstore Sales Dashboard -->
+        <div class="project-card reveal" data-category="powerbi" data-project-id="superstore-sales-dashboard">
+          <div class="project-tags">
+            <span class="project-tag">HTML/CSS/JS</span>
+            <span class="project-tag">Chart.js</span>
+            <span class="project-tag">SQL</span>
+            <span class="project-tag">Python</span>
+          </div>
+          <div class="project-visual">
+            <img src="superstore-sales-dashboard/screenshots/kpi_dashboard_summary.png" alt="Superstore Sales Dashboard Preview" class="project-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" loading="lazy">
+            <div class="project-placeholder-graphic" role="img" aria-label="Dashboard interface representation">
+              <svg viewBox="0 0 24 24" class="project-placeholder-icon"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z" fill="currentColor"/></svg>
+              <span>Interactive BI Sales Dashboard</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-name">Superstore Sales Dashboard</h3>
+            <p class="project-desc">
+              Developed a static interactive dashboard displaying sales metrics. Highlights region, product categories, and transaction trends using dynamic filters.
+            </p>
+            <div class="project-insights-preview">
+              <h4>Key Project Insights:</h4>
+              <ul>
+                <li>Technology copiers yield the highest category margins, driving significant net profits.</li>
+                <li>Furniture tables represent a critical profit leakage sub-category across all regions.</li>
+              </ul>
+            </div>
+            <div class="project-actions">
+              <button class="project-btn project-btn-details">
+                Read Details
+              </button>
+              <a href="./superstore-sales-dashboard/dashboard/index.html" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-demo" style="background:rgba(0, 240, 255, 0.08); border-color:rgba(0, 240, 255, 0.3); color:var(--text-primary); transition:var(--transition-fast);">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                Live Demo
+              </a>
+              <a href="https://github.com/murulipachar/superstore-sales-dashboard" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-code">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" aria-hidden="true"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 721 192 888.4 369.6 947.4c22.4 4.1 30.6-9.7 30.6-21.6 0-10.7-.4-39-32.3-39-30-.3-40.4-32.6-40.4-32.6-18.7-47.5-45.7-60.2-45.7-60.2-31.1-21.2 2.3-20.8 2.3-20.8 34.4 2.4 52.5 35.3 52.5 35.3 30.5 52.4 80.1 37.3 99.6 28.5 3.1-22.1 11.9-37.3 21.7-45.9-262.4-29.8-538.2-131.2-538.2-583.9 0-129 46-234.5 121.4-317.2-12.2-29.9-52.6-150.1 11.5-312.9 0 0 99.2-31.7 325 121.1 94.2-26.2 195.3-39.2 295.9-39.7 100.6.5 201.7 13.5 296.1 39.7 225.4-152.9 324.2-121.1 324.2-121.1 64.3 162.8 23.9 283 11.7 312.9 75.7 82.7 121.2 188.2 121.2 317.2 0 453.9-276.3 553.8-539.6 582.9 42.4 36.6 80.3 108.7 80.3 219.2 0 158.3-1.4 285.9-1.4 324.8 0 12 8.1 26 30.8 21.5C832.1 888.1 960 720.8 960 523.5 960 276.4 759.5 76.3 511.6 76.3z"></path></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: GramaYatri Bus Tracking -->
+        <div class="project-card reveal" data-category="android" data-project-id="gramayatri">
+          <div class="project-tags">
+            <span class="project-tag">Kotlin</span>
+            <span class="project-tag">Firebase</span>
+            <span class="project-tag">Google Maps</span>
+            <span class="project-tag">Android SDK</span>
+          </div>
+          <div class="project-visual">
+            <img src="gramayatri/screenshots/fused_location.png" alt="GramaYatri Telemetry tracking screenshot" class="project-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" loading="lazy">
+            <div class="project-placeholder-graphic" role="img" aria-label="Mobile app routing interface representation">
+              <svg viewBox="0 0 24 24" class="project-placeholder-icon"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z" fill="currentColor"/></svg>
+              <span>Transit Telemetry Mapping Interface</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-name">GramaYatri</h3>
+            <p class="project-desc">
+              Developed a real-time transit location tracking application. Utilizes Firebase Realtime Database and Google Fused Location Providers to sync coordinates.
+            </p>
+            <div class="project-insights-preview">
+              <h4>Key Project Insights:</h4>
+              <ul>
+                <li>MVVM software architecture maintaining active location syncing state.</li>
+                <li>Fused Location Provider integration mapping routes inside Google Maps API.</li>
+              </ul>
+            </div>
+            <div class="project-actions">
+              <button class="project-btn project-btn-details">
+                Read Details
+              </button>
+              <a href="https://github.com/murulipachar/GramaYatri" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-code">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1em" width="1em" aria-hidden="true"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 721 192 888.4 369.6 947.4c22.4 4.1 30.6-9.7 30.6-21.6 0-10.7-.4-39-32.3-39-30-.3-40.4-32.6-40.4-32.6-18.7-47.5-45.7-60.2-45.7-60.2-31.1-21.2 2.3-20.8 2.3-20.8 34.4 2.4 52.5 35.3 52.5 35.3 30.5 52.4 80.1 37.3 99.6 28.5 3.1-22.1 11.9-37.3 21.7-45.9-262.4-29.8-538.2-131.2-538.2-583.9 0-129 46-234.5 121.4-317.2-12.2-29.9-52.6-150.1 11.5-312.9 0 0 99.2-31.7 325 121.1 94.2-26.2 195.3-39.2 295.9-39.7 100.6.5 201.7 13.5 296.1 39.7 225.4-152.9 324.2-121.1 324.2-121.1 64.3 162.8 23.9 283 11.7 312.9 75.7 82.7 121.2 188.2 121.2 317.2 0 453.9-276.3 553.8-539.6 582.9 42.4 36.6 80.3 108.7 80.3 219.2 0 158.3-1.4 285.9-1.4 324.8 0 12 8.1 26 30.8 21.5C832.1 888.1 960 720.8 960 523.5 960 276.4 759.5 76.3 511.6 76.3z"></path></svg>
+                GitHub Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="reveal">
+      <div class="section-title-wrapper">
+        <span class="section-tag">Credentials Index</span>
+        <h2 class="section-title">Certifications <span>&amp; Training</span></h2>
+      </div>
+      
+      <div class="certs-grid">
+        <!-- Cert 1 -->
+        <div class="cert-card glass-card reveal" data-cert-id="sql-inter" tabindex="0" role="button" aria-label="View SQL Intermediate certificate details">
+          <div class="cert-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </div>
+          <div class="cert-info">
+            <div class="cert-title">SQL Intermediate</div>
+            <div class="cert-issuer">HackerRank</div>
+            <span class="cert-badge">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              View Credential
+            </span>
+          </div>
+        </div>
+
+        <!-- Cert 2 -->
+        <div class="cert-card glass-card reveal" data-cert-id="py-basic" tabindex="0" role="button" aria-label="View Python Basic certificate details">
+          <div class="cert-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </div>
+          <div class="cert-info">
+            <div class="cert-title">Python Basic</div>
+            <div class="cert-issuer">HackerRank</div>
+            <span class="cert-badge">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              View Credential
+            </span>
+          </div>
+        </div>
+
+        <!-- Cert 3 -->
+        <div class="cert-card glass-card reveal" data-cert-id="pbi-fund" tabindex="0" role="button" aria-label="View Power BI Fundamentals certificate details">
+          <div class="cert-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </div>
+          <div class="cert-info">
+            <div class="cert-title">Power BI Fundamentals</div>
+            <div class="cert-issuer">Microsoft Learn</div>
+            <span class="cert-badge">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              View Credential
+            </span>
+          </div>
+        </div>
+
+        <!-- Cert 4 -->
+        <div class="cert-card glass-card reveal" data-cert-id="tata-genai" tabindex="0" role="button" aria-label="View Tata GenAI simulation certificate details">
+          <div class="cert-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </div>
+          <div class="cert-info">
+            <div class="cert-title">Tata GenAI Simulation</div>
+            <div class="cert-issuer">Forage</div>
+            <span class="cert-badge">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              View Credential
+            </span>
+          </div>
+        </div>
+
+        <!-- Cert 5 -->
+        <div class="cert-card glass-card reveal" data-cert-id="excel-analysis" tabindex="0" role="button" aria-label="View Excel Data Analysis certificate details">
+          <div class="cert-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </div>
+          <div class="cert-info">
+            <div class="cert-title">Excel Data Analysis</div>
+            <div class="cert-issuer">Great Learning</div>
+            <span class="cert-badge">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              View Credential
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DYNAMIC GITHUB ANALYTICS SECTION -->
+    <section id="github" class="reveal">
+      <div class="section-title-wrapper">
+        <span class="section-tag">GitHub API Stream</span>
+        <h2 class="section-title">Live GitHub <span>Analytics</span></h2>
+      </div>
+      
+      <!-- Live API Counters -->
+      <div class="github-stats-container">
+        <div class="github-stat-card glass-card reveal">
+          <div class="github-stat-num" id="github-repos-count">-</div>
+          <div class="github-stat-label">Public Repositories</div>
+        </div>
+        <div class="github-stat-card glass-card reveal">
+          <div class="github-stat-num" id="github-stars-count">-</div>
+          <div class="github-stat-label">Total Stars Earned</div>
+        </div>
+        <div class="github-stat-card glass-card reveal">
+          <div class="github-stat-num" id="github-followers-count">-</div>
+          <div class="github-stat-label">Profile Followers</div>
+        </div>
+        <div class="github-stat-card glass-card reveal">
+          <div class="github-stat-num" id="github-following-count">-</div>
+          <div class="github-stat-label">Following</div>
+        </div>
+      </div>
+      
+      <!-- Repositories Grid -->
+      <div class="github-grid" id="github-repos-grid">
+        <!-- Injected dynamically by fetchGitHubDashboardData -->
+      </div>
+      
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="https://github.com/murulipachar" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          Visit GitHub Profile
+          <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" height="1.1em" width="1.1em" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="reveal" style="margin-bottom: 80px;">
+      <div class="section-title-wrapper">
+        <span class="section-tag">Direct Inquiries</span>
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+      </div>
+      
+      <div class="contact-wrapper">
+        <div class="contact-info-panel">
+          <h3>Collaboration Details</h3>
+          <p class="contact-info-desc">
+            Seeking opportunities as a Data Analyst, BI Analyst, Reporting Analyst, or SQL Developer. Ready for relocation and immediate joining. Reach out directly.
+          </p>
+          
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </div>
+              <div class="contact-info-details">
+                <p>Email Address</p>
+                <p>murulipachar58@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <div class="contact-info-details">
+                <p>Phone Number</p>
+                <p>+91 9980278235</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              </div>
+              <div class="contact-info-details">
+                <p>Current Base</p>
+                <p>Bangalore, India</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-buttons-panel">
+          <!-- Email -->
+          <a href="mailto:murulipachar58@gmail.com" class="contact-btn">
+            <div class="contact-btn-left">
+              <div class="contact-btn-icon">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="contact-btn-text">
+                <h4>Send an Email</h4>
+                <p>murulipachar58@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-btn-arrow">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/in/muruli-h-p-9825651a5" target="_blank" rel="noopener noreferrer" class="contact-btn">
+            <div class="contact-btn-left">
+              <div class="contact-btn-icon">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+              <div class="contact-btn-text">
+                <h4>LinkedIn Profile</h4>
+                <p>Connect professionally</p>
+              </div>
+            </div>
+            <div class="contact-btn-arrow">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/murulipachar" target="_blank" rel="noopener noreferrer" class="contact-btn">
+            <div class="contact-btn-left">
+              <div class="contact-btn-icon">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 721 192 888.4 369.6 947.4c22.4 4.1 30.6-9.7 30.6-21.6 0-10.7-.4-39-32.3-39-30-.3-40.4-32.6-40.4-32.6-18.7-47.5-45.7-60.2-45.7-60.2-31.1-21.2 2.3-20.8 2.3-20.8 34.4 2.4 52.5 35.3 52.5 35.3 30.5 52.4 80.1 37.3 99.6 28.5 3.1-22.1 11.9-37.3 21.7-45.9-262.4-29.8-538.2-131.2-538.2-583.9 0-129 46-234.5 121.4-317.2-12.2-29.9-52.6-150.1 11.5-312.9 0 0 99.2-31.7 325 121.1 94.2-26.2 195.3-39.2 295.9-39.7 100.6.5 201.7 13.5 296.1 39.7 225.4-152.9 324.2-121.1 324.2-121.1 64.3 162.8 23.9 283 11.7 312.9 75.7 82.7 121.2 188.2 121.2 317.2 0 453.9-276.3 553.8-539.6 582.9 42.4 36.6 80.3 108.7 80.3 219.2 0 158.3-1.4 285.9-1.4 324.8 0 12 8.1 26 30.8 21.5C832.1 888.1 960 720.8 960 523.5 960 276.4 759.5 76.3 511.6 76.3z"></path></svg>
+              </div>
+              <div class="contact-btn-text">
+                <h4>GitHub Repositories</h4>
+                <p>Inspect code folders</p>
+              </div>
+            </div>
+            <div class="contact-btn-arrow">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </a>
+
+          <!-- Direct Call -->
+          <a href="tel:+919980278235" class="contact-btn">
+            <div class="contact-btn-left">
+              <div class="contact-btn-icon">
+                <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <div class="contact-btn-text">
+                <h4>Direct Dialer</h4>
+                <p>+91 9980278235</p>
+              </div>
+            </div>
+            <div class="contact-btn-arrow">
+              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project Details Modals -->
+  <div class="modal" id="project-modal">
+    <div class="modal-container">
+      <button class="modal-close" aria-label="Close Project Modal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"/></svg>
+      </button>
+      
+      <div class="modal-header">
+        <div class="modal-title-wrapper">
+          <h3 class="modal-title" id="modal-project-title">Project Details</h3>
+        </div>
+        <div class="modal-tags" id="modal-project-tags">
+          <!-- Tags injected dynamically -->
+        </div>
+      </div>
+      
+      <nav class="modal-tabs" aria-label="Project Details Tabbar">
+        <button class="modal-tab-btn active" data-tab="overview">Overview</button>
+        <button class="modal-tab-btn" data-tab="insights">Business Insights</button>
+        <button class="modal-tab-btn" data-tab="code">Query / Code Snapshot</button>
+      </nav>
+      
+      <div class="modal-body">
+        <!-- Tab 1: Overview -->
+        <div class="modal-tab-content active" id="tab-overview">
+          <div class="modal-section">
+            <div class="modal-section-title">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="currentColor"/></svg>
+              Core Project Summary
+            </div>
+            <p id="modal-desc">Loading detailed project overview...</p>
+          </div>
+          
+          <div class="modal-section">
+            <div class="modal-section-title">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" fill="currentColor"/></svg>
+              Key Metrics Captured
+            </div>
+            <table class="modal-table">
+              <thead>
+                <tr>
+                  <th>Analysis Metric</th>
+                  <th>Value / Result</th>
+                </tr>
+              </thead>
+              <tbody id="modal-metrics-body">
+                <!-- Injected dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- Tab 2: Insights -->
+        <div class="modal-tab-content" id="tab-insights">
+          <div class="modal-section">
+            <div class="modal-section-title">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/></svg>
+              Recruiter-Ready Business Takeaways
+            </div>
+            <div class="modal-insights-grid" id="modal-insights-grid">
+              <!-- Injected dynamically -->
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tab 3: Code Snapshot -->
+        <div class="modal-tab-content" id="tab-code">
+          <div class="modal-section">
+            <div class="modal-section-title" id="modal-code-title">
+              Query Model
+            </div>
+            <pre class="modal-code-block" id="modal-code-block">
+-- Code loading...
+            </pre>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <a id="modal-github-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:0.85rem; padding: 10px 20px;">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.2em" width="1.2em" aria-hidden="true"><path d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 721 192 888.4 369.6 947.4c22.4 4.1 30.6-9.7 30.6-21.6 0-10.7-.4-39-32.3-39-30-.3-40.4-32.6-40.4-32.6-18.7-47.5-45.7-60.2-45.7-60.2-31.1-21.2 2.3-20.8 2.3-20.8 34.4 2.4 52.5 35.3 52.5 35.3 30.5 52.4 80.1 37.3 99.6 28.5 3.1-22.1 11.9-37.3 21.7-45.9-262.4-29.8-538.2-131.2-538.2-583.9 0-129 46-234.5 121.4-317.2-12.2-29.9-52.6-150.1 11.5-312.9 0 0 99.2-31.7 325 121.1 94.2-26.2 195.3-39.2 295.9-39.7 100.6.5 201.7 13.5 296.1 39.7 225.4-152.9 324.2-121.1 324.2-121.1 64.3 162.8 23.9 283 11.7 312.9 75.7 82.7 121.2 188.2 121.2 317.2 0 453.9-276.3 553.8-539.6 582.9 42.4 36.6 80.3 108.7 80.3 219.2 0 158.3-1.4 285.9-1.4 324.8 0 12 8.1 26 30.8 21.5C832.1 888.1 960 720.8 960 523.5 960 276.4 759.5 76.3 511.6 76.3z"></path></svg>
+          View Code Repository
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certification Credentials Modals (Realistic Digital Document Preview) -->
+  <div class="modal" id="cert-modal">
+    <div class="modal-container" style="max-width: 650px;">
+      <button class="modal-close" aria-label="Close Certificate Modal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"/></svg>
+      </button>
+      <div class="modal-body" style="padding: 24px;">
+        <!-- Digital certificate card representation -->
+        <div class="cert-document-view">
+          <div class="cert-watermark">VERIFIED</div>
+          <div class="cert-doc-org" id="cert-modal-org">ORGANIZATION</div>
+          <div class="cert-doc-title-label">Certificate of Achievement</div>
+          <h4 class="cert-doc-title" id="cert-modal-title">Certificate Title</h4>
+          <div class="cert-doc-recipient-label">Proudly Presented To</div>
+          <div class="cert-doc-recipient" id="cert-modal-recipient">MURULI H P</div>
+          <div class="cert-doc-date" id="cert-modal-date" style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase;">Issued: Verified Credential</div>
+          <p class="cert-doc-desc" id="cert-modal-desc">Details of credentials validation.</p>
+          
+          <div class="cert-doc-footer">
+            <div class="cert-doc-sign-wrapper">
+              <div class="cert-doc-sign" id="cert-modal-signature">Verified Credential</div>
+              <div class="cert-doc-sign-title">Authorized Seal</div>
+            </div>
+            <div class="cert-doc-badge-wrapper">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              Valid Credential
+            </div>
+          </div>
+        </div>
+        
+        <div class="modal-section">
+          <div class="modal-section-title">Verified Core Competencies:</div>
+          <div class="modal-tags" id="cert-modal-skills" style="margin-top: 10px;">
+            <!-- Competencies tags go here -->
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" style="padding: 16px 24px;">
+        <a id="cert-modal-verify-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:0.85rem; padding: 8px 16px;">
+          Verify Credential Online
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Responsive Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-about">
+        <h3>MHP <span>Analytics</span></h3>
+        <p>A data analyst portfolio demonstrating relational queries writing, ETL scripting, dynamic dashboards visualizations, and problem-solving metrics.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Navigation Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#why-hire">Why Hire Me</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Connect Channels</h4>
+        <ul>
+          <li><a href="https://linkedin.com/in/muruli-h-p-9825651a5" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></li>
+          <li><a href="https://github.com/murulipachar" target="_blank" rel="noopener noreferrer">GitHub Repositories</a></li>
+          <li><a href="mailto:murulipachar58@gmail.com">Send Direct Email</a></li>
+          <li><a href="tel:+919980278235">Place Call Link</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">
+        &copy; 2026 Designed &amp; Developed by Muruli H P
+      </div>
+      <div class="footer-tech-tag">Built with HTML5 • CSS3 • Vanilla JavaScript</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

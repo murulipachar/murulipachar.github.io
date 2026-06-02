@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <!-- Metadata & SEO Settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RetailBI Enterprise Sales Executive Dashboard. Engineered with HTML, CSS, JavaScript, Chart.js, SQLite DB, and Python. Portfolio-ready BI Platform.">
+    <meta name="author" content="Antigravity Developer">
+    <title>RetailBI | Executive Analytics Dashboard</title>
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (Inline Vector SVG) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%230ea5e9%22><path d=%22M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z%22/></svg>">
+
+    <!-- CSS Linkages -->
+    <link rel="stylesheet" href="../css/dashboard.css">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- 1. loading screen -->
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-container">
+            <div class="loader-spinner"></div>
+            <div class="loader-logo">Retail<span>BI</span></div>
+            <div class="loader-bar-wrapper">
+                <div class="loader-bar"></div>
+            </div>
+            <div class="loader-text">INITIALIZING ENTERPRISE BUSINESS INTELLIGENCE SYSTEM...</div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN HEADER NAVIGATION BAR -->
+    <header class="main-header">
+        <div class="brand-section">
+            <div class="brand-icon-wrapper">
+                <!-- Gorgeous Analytics Brand Icon (Vector SVG) -->
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                </svg>
+            </div>
+            <div class="brand-title">
+                <div class="brand-name-row">
+                    <h1>RetailBI</h1>
+                    <span class="dataset-label">Dataset: Sample Superstore</span>
+                </div>
+                <span class="brand-subtitle">Enterprise Business Intelligence & Sales Analytics Platform</span>
+            </div>
+        </div>
+        
+        <div class="header-meta">
+            <!-- Sync timezone executive clock & Last Refreshed -->
+            <div class="meta-info-block">
+                <div class="time-widget" title="Current Local System Time">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                    </svg>
+                    <span id="currentTime">Loading time...</span>
+                </div>
+                <div class="refresh-widget" title="Timestamp of the last dataset fetch">
+                    <span class="refresh-dot"></span>
+                    <span>Refreshed: <span id="lastRefreshedTime">00:00:00</span></span>
+                </div>
+            </div>
+
+            <!-- Export Actions Menu -->
+            <div class="export-actions-group">
+                <button class="action-btn" id="btnExportCSV" title="Download filtered transaction data as CSV">
+                    <svg viewBox="0 0 24 24"><path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z"/></svg>
+                    <span>CSV</span>
+                </button>
+                <button class="action-btn" id="btnExportReport" title="Generate an executive business performance analysis report">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <span>Report</span>
+                </button>
+                <button class="action-btn" id="btnPrintDashboard" title="Print entire layout or save as PDF via system print">
+                    <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                    <span>Print</span>
+                </button>
+            </div>
+
+            <!-- Theme Switcher slider toggle -->
+            <div class="theme-toggle-wrapper" title="Toggle Light/Dark Workspace Aesthetics">
+                <button class="theme-toggle-btn" id="themeToggleBtn">
+                    <!-- Sun Icon -->
+                    <svg class="sun-icon" viewBox="0 0 24 24">
+                        <path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM4 10.5H1v2h3v-2zm9-9h-2v3h2v-3zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 11.21l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zm-12.03-.4l-1.79 1.79 1.41 1.41 1.8-1.79-1.42-1.41zM23 10.5h-3v2h3v-2zm-11-7c-4.14 0-7.5 3.36-7.5 7.5s3.36 7.5 7.5 7.5 7.5-3.36 7.5-7.5-3.36-7.5-7.5-7.5zm0 13c-3.03 0-5.5-2.47-5.5-5.5s2.47-5.5 5.5-5.5 5.5 2.47 5.5 5.5-2.47 5.5-5.5 5.5zm0 4.5h-2v3h2v-3z"/>
+                    </svg>
+                    <!-- Moon Icon -->
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10C2.2 6.8 6.4 2.5 11.7 2c.3 0 .6.2.7.5.1.3 0 .6-.2.8-1.7 1.9-2.5 4.5-2.2 7.1.3 3.1 2.8 5.6 5.9 5.9 2.6.3 5.2-.5 7.1-2.2.2-.2.5-.2.8-.2.3.1.5.4.5.7-.5 5.3-4.8 9.5-10 9.5z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Pulse-glow state indicator -->
+            <div class="status-badge" title="Underlying Relational SQLite DB pipeline is completely configured and synchronized.">
+                <span class="status-dot"></span>
+                <span>BI ACTIVE</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. DASHBOARD MAIN CONTAINER -->
+    <div class="dashboard-container">
+        
+        <!-- SIDEBAR - INTERACTIVE FILTERS -->
+        <aside class="sidebar-filters">
+            <div class="sidebar-header">
+                <h2 class="sidebar-title">Analytics Engine</h2>
+                <span class="sidebar-subtitle-label">Multi-Dimensional Slicing</span>
+            </div>
+            
+            <!-- Filter Group: Region selection -->
+            <div class="filter-group collapsible-section active">
+                <button class="filter-group-header" aria-expanded="true">
+                    <span>Region Markets</span>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+                </button>
+                <div class="filter-options collapsible-content">
+                    <button class="filter-btn" data-filter-group="region" data-filter-val="West" title="Filter analytics to the West US Region">
+                        <span>West Region</span>
+                        <span class="filter-count">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter-group="region" data-filter-val="East" title="Filter analytics to the East US Region">
+                        <span>East Region</span>
+                        <span class="filter-count">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter-group="region" data-filter-val="Central" title="Filter analytics to the Central US Region">
+                        <span>Central Region</span>
+                        <span class="filter-count">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter-group="region" data-filter-val="South" title="Filter analytics to the South US Region">
+                        <span>South Region</span>
+                        <span class="filter-count">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Group: Customer Segment -->
+            <div class="filter-group collapsible-section active">
+                <button class="filter-group-header" aria-expanded="true">
+                    <span>Customer Segments</span>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+                </button>
+                <div class="filter-options collapsible-content">
+                    <button class="filter-btn" data-filter-group="segment" data-filter-val="Consumer" title="Filter analytics to the Consumer customer segment">
+                        <span>Consumer</span>
+                        <span class="filter-count">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter-group="segment" data-filter-val="Corporate" title="Filter analytics to Corporate enterprise client accounts">
+                        <span>Corporate</span>
+                        <span class="filter-count">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter-group="segment" data-filter-val="Home Office" title="Filter analytics to Home Office home-business accounts">
+                        <span>Home Office</span>
+                        <span class="filter-count">0</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Group: Product Categories -->
+            <div class="filter-group collapsible-section active">
+                <button class="filter-group-header" aria-expanded="true">
+                    <span>Product Categories</span>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+                </button>
+                <div class="filter-options collapsible-content">
+                    <button class="filter-btn" data-filter-group="category" data-filter-val="Technology" title="Filter analytics to high-margin Technology sales">
+                        <span>Technology</span>
+                        <span class="filter-count">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter-group="category" data-filter-val="Office Supplies" title="Filter analytics to high-volume Office Supplies catalog">
+                        <span>Office Supplies</span>
+                        <span class="filter-count">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter-group="category" data-filter-val="Furniture" title="Filter analytics to promotional Furniture catalog">
+                        <span>Furniture</span>
+                        <span class="filter-count">0</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Reset active parameters -->
+            <button class="reset-filters-btn" id="resetFilters" title="Clear all active filters and restore global corporate view">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                </svg>
+                <span>Reset View Filters</span>
+            </button>
+        </aside>
+
+        <!-- MAIN WORKSPACE SECTION -->
+        <main class="workspace-wrapper">
+            
+            <!-- Empty State / No Data Panel Overlay -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-state-content">
+                    <div class="empty-state-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    </div>
+                    <h3>No Records Match Filter Criteria</h3>
+                    <p>The combination of Region, Segment, and Category filters you selected resulted in an empty slice of the database. Reset the view filters or pick broader parameters to display analytics.</p>
+                    <button class="reset-filters-btn" id="emptyStateResetBtn">Reset View Filters</button>
+                </div>
+            </div>
+
+            <div class="workspace-content" id="workspaceMainContent">
+                
+                <!-- 3.1 EXECUTIVE KPI CARDS SECTION -->
+                <section class="kpi-container" aria-label="Key Performance Indicators">
+                    
+                    <!-- KPI Card: Total Sales -->
+                    <div class="kpi-card sales" id="cardSales" title="Sum of all transactional item sales values in the selected database slice after promotional discounts.">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Gross Revenue</span>
+                            <div class="kpi-icon-wrapper">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.25z"/></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value-container">
+                            <div class="kpi-value" id="kpiSales">$0</div>
+                            <div class="kpi-trend trend-up">
+                                <span class="trend-badge">▲ Target Met</span> <span style="color: var(--text-muted);">SaaS Target</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI Card: Total Profit -->
+                    <div class="kpi-card profit" id="cardProfit" title="Accumulated absolute net earnings. Calculated by subtracting product base cost from final discounted revenue.">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Net Profit</span>
+                            <div class="kpi-icon-wrapper">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v4z"/></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value-container">
+                            <div class="kpi-value" id="kpiProfit">$0</div>
+                            <div class="kpi-trend trend-up" id="kpiProfitTrend">
+                                <span class="trend-badge">▲ Healthy</span> <span style="color: var(--text-muted);">positive yield</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI Card: Total Orders -->
+                    <div class="kpi-card orders" id="cardOrders" title="Count of unique purchase orders executed in this filter slice. Represents transaction volume.">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Total Orders</span>
+                            <div class="kpi-icon-wrapper">
+                                <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value-container">
+                            <div class="kpi-value" id="kpiOrders">0</div>
+                            <div class="kpi-trend trend-up">
+                                <span class="trend-badge">▲ In Line</span> <span style="color: var(--text-muted);">fulfillment active</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI Card: Profit Margin -->
+                    <div class="kpi-card margin" id="cardMargin" title="Net profit expresssed as a percentage of total sales. Baseline corporate target benchmark is 10%.">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Profit Margin</span>
+                            <div class="kpi-icon-wrapper">
+                                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"/></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value-container">
+                            <div class="kpi-value" id="kpiMargin">0.00%</div>
+                            <div class="kpi-trend trend-up" id="kpiMarginTrend">
+                                <span class="trend-badge">▲ Strong</span> <span style="color: var(--text-muted);">industry standard</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI Card: Total Customers -->
+                    <div class="kpi-card customers" id="cardCustomers" title="Number of unique consumer, corporate, and small business customer accounts with active orders.">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Active Accounts</span>
+                            <div class="kpi-icon-wrapper">
+                                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.83 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value-container">
+                            <div class="kpi-value" id="kpiCustomers">0</div>
+                            <div class="kpi-trend trend-up">
+                                <span class="trend-badge">▲ Expanding</span> <span style="color: var(--text-muted);">market presence</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- DYNAMIC EXECUTIVE INSIGHTS PANEL (NEW: 5 dedicated glassmorphism cards) -->
+                <section class="insights-panel-grid" aria-label="Automated Executive Intelligence Insights">
+                    <div class="insight-micro-card positive" id="insightBestRegion" title="Region generating the highest absolute net profits under current filter parameters.">
+                        <div class="insight-micro-header">
+                            <span class="insight-micro-dot"></span>
+                            <span class="insight-micro-label">Highest Profit Region</span>
+                            <svg viewBox="0 0 24 24" class="insight-micro-icon"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <h4 class="insight-micro-value" id="insightBestRegionVal">Loading...</h4>
+                        <p class="insight-micro-desc" id="insightBestRegionDesc">Identifying top regional profit engine.</p>
+                    </div>
+
+                    <div class="insight-micro-card positive" id="insightBestCategory" title="Product category generating the highest absolute net profits.">
+                        <div class="insight-micro-header">
+                            <span class="insight-micro-dot"></span>
+                            <span class="insight-micro-label">Top Profit Category</span>
+                            <svg viewBox="0 0 24 24" class="insight-micro-icon"><path d="M12 2L1 21h22L12 2zm0 4l7.53 13H4.47L12 6z"/></svg>
+                        </div>
+                        <h4 class="insight-micro-value" id="insightBestCategoryVal">Loading...</h4>
+                        <p class="insight-micro-desc" id="insightBestCategoryDesc">Computing product category profit shares.</p>
+                    </div>
+
+                    <div class="insight-micro-card neutral" id="insightWeakestSegment" title="Segment indicating the lowest overall profit margin, suggesting strategic pricing or cost reviews.">
+                        <div class="insight-micro-header">
+                            <span class="insight-micro-dot"></span>
+                            <span class="insight-micro-label">Weakest Segment</span>
+                            <svg viewBox="0 0 24 24" class="insight-micro-icon"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        </div>
+                        <h4 class="insight-micro-value" id="insightWeakestSegmentVal">Loading...</h4>
+                        <p class="insight-micro-desc" id="insightWeakestSegmentDesc">Locating margins showing pricing strain.</p>
+                    </div>
+
+                    <div class="insight-micro-card warning" id="insightDiscountWarning" title="Detects if promotions and customer discounts are eroding subcategory profitability.">
+                        <div class="insight-micro-header">
+                            <span class="insight-micro-dot"></span>
+                            <span class="insight-micro-label">Discount Leakage Warning</span>
+                            <svg viewBox="0 0 24 24" class="insight-micro-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        </div>
+                        <h4 class="insight-micro-value" id="insightDiscountWarningVal">Analyzing...</h4>
+                        <p class="insight-micro-desc" id="insightDiscountWarningDesc">Calculating promo margin exposure risks.</p>
+                    </div>
+
+                    <div class="insight-micro-card opportunities" id="insightGrowthOpportunity" title="Pinpoints under-penetrated products or regions showing exceptional profit margins but lower volume.">
+                        <div class="insight-micro-header">
+                            <span class="insight-micro-dot"></span>
+                            <span class="insight-micro-label">Growth Opportunity</span>
+                            <svg viewBox="0 0 24 24" class="insight-micro-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.25z"/></svg>
+                        </div>
+                        <h4 class="insight-micro-value" id="insightGrowthOpportunityVal">Scanning...</h4>
+                        <p class="insight-micro-desc" id="insightGrowthOpportunityDesc">Locating high-margin target expansion segments.</p>
+                    </div>
+                </section>
+                
+                <!-- 3.2 EXECUTIVE VIRTUAL VISUALIZATIONS SECTION (CHARTS) -->
+                <section class="charts-grid" aria-label="Interactive Visualizations">
+                    
+                    <!-- CHART 1: LINE CHART (Full Width) -->
+                    <div class="chart-card col-full" id="chartCardMonthly" title="Line timeline monitoring MoM Sales performance and net corporate profit tracking. Hover node for tooltips.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Monthly Revenue & Profitability Trends</h3>
+                                <span class="chart-subtitle">Long-term transaction timeline monitoring</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartMonthlyTrend"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 2: BAR CHART (Region sales) -->
+                    <div class="chart-card col-6" id="chartCardRegion" title="Compares absolute Sales figures among operational regions. West US represents the historically leading market volume.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Market Share Volume by Geography</h3>
+                                <span class="chart-subtitle">Gross revenue distribution by operational Region</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartRegionSales"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 3: PIE CHART (Category profit) -->
+                    <div class="chart-card col-6" id="chartCardCategory" title="Visualizes product segment shares of the corporate profit pool. Technology typically dominates.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Net Profit Contribution by Category</h3>
+                                <span class="chart-subtitle">Product category slice of bottom-line profit pool</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartCategoryProfit"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 4: DONUT CHART (Segment sales) -->
+                    <div class="chart-card col-6" id="chartCardSegment" title="Sells ratios across commercial clients. B2C consumer accounts constitute the highest transaction base.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Revenue Partition by Customer Segment</h3>
+                                <span class="chart-subtitle">Segment share of overall gross sales value</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartSegmentSales"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 5: HORIZONTAL BAR CHART (Top products) -->
+                    <div class="chart-card col-6" id="chartCardTopProducts" title="Top grossing SKUs in the catalog. Technology Copiers drive outstanding single-ticket volumes.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Top-Performing Product SKUs</h3>
+                                <span class="chart-subtitle">Highest grossing catalog items in selected slice</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartTopProducts"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 6: SCATTER CHART (Discount vs Profit) -->
+                    <div class="chart-card col-6" id="chartCardScatter" title="Plot showing how discount levels affect order-level net margins. Transactions below zero indicate promotion bleed.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Promotion Sensitivity Analysis</h3>
+                                <span class="chart-subtitle">Order-level correlation between Discount rate and Net Profit</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartProfitDiscount"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 7: STACKED BAR CHART (Regional profit contribution) -->
+                    <div class="chart-card col-6" id="chartCardRegionalProfit" title="Breakdown of regional profit metrics stacked by specific product segments. Helps detect localized performance anomalies.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Regional Category Profit Contribution</h3>
+                                <span class="chart-subtitle">Profit margins inside Regions stacked by product Category</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartRegionalCategoryProfit"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- NEW: REALISTIC DYNAMIC BUSINESS COMMENTARY PANEL -->
+                    <div class="commentary-card col-full" id="commentaryCard" title="Automated tactical report compiling dynamic strategic insights based on active filter combination.">
+                        <div class="commentary-header">
+                            <div class="commentary-brand">
+                                <svg viewBox="0 0 24 24" class="commentary-icon"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                                <h3>Executive Strategic Commentary</h3>
+                            </div>
+                            <span class="commentary-badge">AI-Powered Business Intelligence</span>
+                        </div>
+                        <p id="dynamicCommentaryText">Analyzing corporate metrics to compile dynamic strategic narrative commentary...</p>
+                    </div>
+
+                    <!-- 3.3 EXECUTIVE DYNAMIC RECS & INSIGHTS (Full width grid row) -->
+                    <div class="insights-row col-full">
+                        <!-- Recs Card (Col 8) -->
+                        <div class="insights-card">
+                            <h3>Executive Strategic Recommendations</h3>
+                            <span class="chart-subtitle">Dynamic automated analytics findings based on current selection</span>
+                            <div class="insights-list" id="insightsListContainer">
+                                <!-- Populated dynamically by JS -->
+                                <div class="loader-spinner" style="margin: 2rem auto; width: 30px; height: 30px;"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Top SKU Table Card (Col 4) -->
+                        <div class="top-skus-card">
+                            <h3>High-Yield Product SKUs</h3>
+                            <span class="chart-subtitle">Selected filter's most profitable items</span>
+                            <div class="sku-list" id="skuListContainer">
+                                <!-- Populated dynamically by JS -->
+                                <div class="loader-spinner" style="margin: 2rem auto; width: 30px; height: 30px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+            <!-- 4. MASTER FOOTER -->
+            <footer class="main-footer">
+                <div class="footer-left">
+                    <span>RetailBI Executive Dashboard &copy; 2026. Recruiter-Ready Production BI Suite.</span>
+                    <span class="footer-note">Sample dataset modeled and processed using standard ETL workflows. Double-click index.html locally.</span>
+                </div>
+                <div class="footer-tech">
+                    <span class="tech-tag" title="Frontend Structure">HTML5</span>
+                    <span class="tech-tag" title="Modern Obsidian Styling">CSS3 Variables & Grid</span>
+                    <span class="tech-tag" title="Reactive Analytics Core">JavaScript (ES6+)</span>
+                    <span class="tech-tag" title="Data Cleansing Layer">Python (Pandas)</span>
+                    <span class="tech-tag" title="Transactional Aggregates Core">SQL (SQLite3)</span>
+                    <span class="tech-tag" title="Modern Animated Visualization Engine">Chart.js</span>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- JS Logic Hookup -->
+    <script src="data.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

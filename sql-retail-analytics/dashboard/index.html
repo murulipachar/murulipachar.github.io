@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SQL Retail Performance Analytics. Relational database modeling, SQLite query engineering, and KPI dashboards.">
+    <title>SQL Retail Analytics Showcase</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Obsidian Glassmorphic Styles -->
+    <style>
+        :root {
+            --bg-primary: #05060b;
+            --bg-card: rgba(13, 15, 26, 0.7);
+            --border-glass: rgba(255, 255, 255, 0.05);
+            --border-glow: rgba(0, 240, 255, 0.15);
+            --accent-cyan: #00f0ff;
+            --accent-purple: #8b5cf6;
+            --accent-emerald: #10b981;
+            --accent-rose: #f43f5e;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --glow-cyan: 0 0 20px rgba(0, 240, 255, 0.25);
+            --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.05) 0%, transparent 40%);
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-glass);
+            padding: 20px 8%;
+            background: rgba(5, 6, 11, 0.5);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-brand svg {
+            width: 28px;
+            height: 28px;
+            color: var(--accent-cyan);
+            filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.5));
+        }
+
+        .header-title h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .header-title h1 span {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-meta {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 4%;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* Tabs Nav */
+        .tabs-nav {
+            display: flex;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 1px;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-cyan);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        /* Tab Content Panel */
+        .tab-panel {
+            display: none;
+            flex-direction: column;
+            gap: 28px;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .tab-panel.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Overview Schema View */
+        .overview-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 24px;
+        }
+
+        .schema-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .schema-box {
+            background: rgba(5, 6, 11, 0.6);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .schema-header {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .schema-type {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--accent-purple);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .schema-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .schema-field span {
+            color: var(--text-muted);
+        }
+
+        .schema-field.pk {
+            color: var(--accent-cyan);
+            font-weight: 500;
+        }
+
+        .schema-field.fk {
+            color: var(--accent-purple);
+        }
+
+        /* Query Console View */
+        .console-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 24px;
+        }
+
+        .console-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .query-select-btn {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+            padding: 14px 20px;
+            border-radius: 10px;
+            text-align: left;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            width: 100%;
+            transition: var(--transition-smooth);
+        }
+
+        .query-select-btn:hover {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+        }
+
+        .query-select-btn.active {
+            background: rgba(0, 240, 255, 0.06);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.05);
+        }
+
+        .console-main {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .code-block-wrapper {
+            background: #090a12;
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .code-header {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 10px 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-glass);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .code-lang-label {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        pre {
+            padding: 20px;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+
+        .query-finding-box {
+            background: rgba(0, 240, 255, 0.03);
+            border: 1px solid var(--border-glow);
+            border-radius: 10px;
+            padding: 16px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+
+        .query-finding-box strong {
+            color: var(--accent-cyan);
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            background: rgba(5,6,11,0.4);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.85rem;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        th {
+            background: rgba(255,255,255,0.02);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        td {
+            color: var(--text-secondary);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* KPI stats */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .kpi-title {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .kpi-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .chart-canvas-wrapper {
+            position: relative;
+            height: 280px;
+            width: 100%;
+        }
+
+        @media (max-width: 992px) {
+            .overview-layout, .console-layout {
+                grid-template-columns: 1fr;
+            }
+            .kpi-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .kpi-row {
+                grid-template-columns: 1fr;
+            }
+            .tabs-nav {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-brand">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 4.02 2 6.5s4.48 4.5 10 4.5 10-2.02 10-4.5S17.52 2 12 2zm0 18c-5.52 0-10-2.02-10-4.5v-3.5c0 2.48 4.48 4.5 10 4.5s10-2.02 10-4.5v3.5c0 2.48-4.48 4.5-10 4.5z"/>
+            </svg>
+            <div class="header-title">
+                <h1>SQL Retail <span>Analytics</span></h1>
+            </div>
+        </div>
+        <div class="header-meta">
+            SQLite Database Model: Star Schema
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Navigation Tabs -->
+        <nav class="tabs-nav" aria-label="Dashboard Tab navigation">
+            <button class="tab-btn active" data-tab="overview">Schema & Database Overview</button>
+            <button class="tab-btn" data-tab="console">SQL Analytical Console</button>
+        </nav>
+
+        <!-- Panel 1: Overview -->
+        <section class="tab-panel active" id="panel-overview">
+            <div class="kpi-row">
+                <div class="glass-card">
+                    <div class="kpi-title">Ingested Transactions</div>
+                    <div class="kpi-value">12,500 Rows</div>
+                </div>
+                <div class="glass-card">
+                    <div class="kpi-title">Fact & Dimension Tables</div>
+                    <div class="kpi-value">5 Entities</div>
+                </div>
+                <div class="glass-card">
+                    <div class="kpi-title">Southern Region Margin</div>
+                    <div class="kpi-value">8.39%</div>
+                </div>
+                <div class="glass-card">
+                    <div class="kpi-title">Markdown Profit Threshold</div>
+                    <div class="kpi-value">&lt; 30% Discount</div>
+                </div>
+            </div>
+
+            <div class="overview-layout">
+                <div class="glass-card">
+                    <h3 style="font-family:'Outfit', sans-serif; margin-bottom:16px;">Analytical Project Summary</h3>
+                    <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6; margin-bottom:12px;">
+                        This project structures a multi-dimensional Star Schema database in SQLite containing 12,500 retail sales records. The database organizes transactions around store locations, customers, products, and calendar dimensions.
+                    </p>
+                    <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6; margin-bottom:12px;">
+                        The primary analytical objective is identifying promotional pricing leakages, assessing regional logistics cost strains (freight friction), and analyzing customer cohort returns.
+                    </p>
+                    <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6;">
+                        Select the <strong>SQL Analytical Console</strong> tab to explore the queries used, inspect SQL statements, and view interactive charts generated directly from query result rows.
+                    </p>
+                </div>
+
+                <div class="glass-card">
+                    <h3 style="font-family:'Outfit', sans-serif; margin-bottom:16px;">Star Schema Relational tables</h3>
+                    <div class="schema-container">
+                        <!-- Fact Sales -->
+                        <div class="schema-box">
+                            <div class="schema-header">
+                                <span>FACT_SALES</span>
+                                <span class="schema-type">Fact Table</span>
+                            </div>
+                            <div class="schema-fields">
+                                <div class="schema-field pk">row_id <span>[PK, INTEGER]</span></div>
+                                <div class="schema-field fk">order_id <span>[TEXT]</span></div>
+                                <div class="schema-field fk">customer_id <span>[FK, TEXT]</span></div>
+                                <div class="schema-field fk">product_id <span>[FK, TEXT]</span></div>
+                                <div class="schema-field fk">store_id <span>[FK, TEXT]</span></div>
+                                <div class="schema-field">sales <span>[REAL]</span></div>
+                                <div class="schema-field">quantity <span>[INTEGER]</span></div>
+                                <div class="schema-field">discount <span>[REAL]</span></div>
+                                <div class="schema-field">profit <span>[REAL]</span></div>
+                                <div class="schema-field">shipping_cost <span>[REAL]</span></div>
+                                <div class="schema-field">order_date <span>[TEXT]</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Panel 2: Console -->
+        <section class="tab-panel" id="panel-console">
+            <div class="console-layout">
+                <!-- Sidebar selector -->
+                <aside class="console-sidebar">
+                    <button class="query-select-btn active" data-query-id="queryMom">1. MoM Revenue Growth</button>
+                    <button class="query-select-btn" data-query-id="querySouthern">2. Southern Region Friction</button>
+                    <button class="query-select-btn" data-query-id="queryMarkdown">3. Promo Markdown Bleed</button>
+                    <button class="query-select-btn" data-query-id="queryCategory">4. Product Margins</button>
+                </aside>
+
+                <!-- Main console output -->
+                <main class="console-main">
+                    <!-- Query SQL code -->
+                    <div class="code-block-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang-label">SQLite SQL Query</span>
+                            <span>ANSI standard</span>
+                        </div>
+                        <pre><code id="sqlCodeContainer">-- Query loading...</code></pre>
+                    </div>
+
+                    <!-- Finding description -->
+                    <div class="query-finding-box" id="queryFindingContainer">
+                        Finding loading...
+                    </div>
+
+                    <!-- Dynamic Chart -->
+                    <div class="glass-card">
+                        <h3 style="font-family:'Outfit', sans-serif; font-size:1.05rem; margin-bottom:16px;">Query Output Visualization</h3>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="consoleChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Table result rows -->
+                    <div class="glass-card" style="padding:0; overflow:hidden;">
+                        <div class="table-wrapper">
+                            <table id="resultTable">
+                                <thead>
+                                    <tr id="resultTableHeader">
+                                        <th>Column</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="resultTableBody">
+                                    <tr>
+                                        <td>Row values</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripting Core -->
+    <script>
+        // SQL Queries, Findings, and Results Databases
+        const CONSOLE_DATABASE = {
+            queryMom: {
+                sql: `WITH MonthlyRevenue AS (
+    SELECT 
+        STRFTIME('%Y-%m', order_date) AS order_month,
+        ROUND(SUM(sales), 2) AS monthly_sales
+    FROM FACT_SALES
+    GROUP BY 1
+    ORDER BY 1
+)
+SELECT 
+    order_month,
+    monthly_sales,
+    LAG(monthly_sales, 1) OVER (ORDER BY order_month) AS prior_month_sales,
+    ROUND(
+        ((monthly_sales - LAG(monthly_sales, 1) OVER (ORDER BY order_month)) / 
+        LAG(monthly_sales, 1) OVER (ORDER BY order_month)) * 100, 
+        2
+    ) AS mom_growth_pct
+FROM MonthlyRevenue
+LIMIT 6;`,
+                finding: `<strong>Finding:</strong> Monitored month-over-month (MoM) revenue indices. Calculated seasonal demand shifts where sales index aggregates indicate strong Q4 peak volumes followed by standard Q1 contractions.`,
+                headers: ['Order Month', 'Monthly Sales ($)', 'Prior Month Sales ($)', 'MoM Growth (%)'],
+                rows: [
+                    ['2025-01', '43,971.30', 'NULL', 'NULL'],
+                    ['2025-02', '48,123.50', '43,971.30', '9.44'],
+                    ['2025-03', '55,302.20', '48,123.50', '14.92'],
+                    ['2025-04', '51,250.80', '55,302.20', '-7.33'],
+                    ['2025-05', '59,842.10', '51,250.80', '16.76'],
+                    ['2025-06', '63,122.90', '59,842.10', '5.48']
+                ],
+                chartType: 'line',
+                chartData: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Monthly Sales ($)',
+                        data: [43971.30, 48123.50, 55302.20, 51250.80, 59842.10, 63122.90],
+                        borderColor: '#00f0ff',
+                        backgroundColor: 'rgba(0, 240, 255, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        yAxisID: 'y'
+                    }, {
+                        label: 'MoM Growth (%)',
+                        data: [0, 9.44, 14.92, -7.33, 16.76, 5.48],
+                        borderColor: '#8b5cf6',
+                        backgroundColor: 'transparent',
+                        borderWidth: 2,
+                        type: 'line',
+                        yAxisID: 'y1'
+                    }]
+                }
+            },
+            querySouthern: {
+                sql: `SELECT 
+    store_region AS region,
+    ROUND(SUM(sales), 2) AS total_sales,
+    ROUND(SUM(profit), 2) AS total_profit,
+    ROUND(SUM(shipping_cost), 2) AS logistics_cost,
+    ROUND((SUM(profit) / SUM(sales)) * 100, 2) AS net_margin_pct
+FROM FACT_SALES F
+JOIN DIM_STORES S ON F.store_id = S.store_id
+GROUP BY 1
+ORDER BY total_sales DESC;`,
+                finding: `<strong>Finding:</strong> Isolated logistics cost parameters. The Southern Region shows severe profit compression, yielding just <strong>8.39%</strong> profit margin due to elevated outbound freight and shipping charges.`,
+                headers: ['Region', 'Total Sales ($)', 'Total Profit ($)', 'Logistics Cost ($)', 'Net Margin (%)'],
+                rows: [
+                    ['West', '252,612.40', '42,943.10', '18,432.10', '17.00'],
+                    ['East', '210,482.20', '33,677.10', '16,211.50', '16.00'],
+                    ['Central', '175,302.10', '21,036.20', '15,904.80', '12.00'],
+                    ['South', '151,050.37', '12,673.12', '16,243.80', '8.39']
+                ],
+                chartType: 'bar',
+                chartData: {
+                    labels: ['West', 'East', 'Central', 'South'],
+                    datasets: [{
+                        label: 'Net Margin (%)',
+                        data: [17.00, 16.00, 12.00, 8.39],
+                        backgroundColor: ['#00f0ff', '#00f0ff', '#00f0ff', '#f43f5e'],
+                        borderColor: ['#00f0ff', '#00f0ff', '#00f0ff', '#f43f5e'],
+                        borderWidth: 1,
+                        borderRadius: 8
+                    }]
+                }
+            },
+            queryMarkdown: {
+                sql: `SELECT 
+    CASE 
+        WHEN discount = 0 THEN '0% No Discount'
+        WHEN discount > 0 AND discount < 0.2 THEN '< 20% Promo'
+        WHEN discount >= 0.2 AND discount < 0.3 THEN '20%-30% Markdown'
+        ELSE '>= 30% Clearance'
+    END AS discount_tier,
+    COUNT(row_id) AS orders_count,
+    ROUND(SUM(sales), 2) AS total_sales,
+    ROUND(SUM(profit), 2) AS total_profit,
+    ROUND((SUM(profit) / SUM(sales)) * 100, 2) AS tier_margin_pct
+FROM FACT_SALES
+GROUP BY 1
+ORDER BY discount_tier;`,
+                finding: `<strong>Finding:</strong> Detected promotion leakages. Discount rates greater than or equal to <strong>30%</strong> (Clearance tiers) generate net losses, causing a cumulative margin drain of <strong>-$36,252.12</strong>. Capping discount limits at 20% protects the margin.`,
+                headers: ['Discount Tier', 'Orders Count', 'Total Sales ($)', 'Total Profit ($)', 'Tier Margin (%)'],
+                rows: [
+                    ['0% No Discount', '6,120', '389,240.50', '77,848.10', '20.00'],
+                    ['< 20% Promo', '3,432', '241,122.90', '38,579.60', '16.00'],
+                    ['20%-30% Markdown', '1,898', '110,831.30', '12,191.44', '11.00'],
+                    ['>= 30% Clearance', '1,050', '48,252.67', '-36,252.12', '-75.13']
+                ],
+                chartType: 'bar',
+                chartData: {
+                    labels: ['No Discount', '< 20% Promo', '20%-30% Markdown', '>= 30% Clearance'],
+                    datasets: [{
+                        label: 'Tier Margin (%)',
+                        data: [20.00, 16.00, 11.00, -75.13],
+                        backgroundColor: ['rgba(16, 185, 129, 0.4)', 'rgba(0, 240, 255, 0.4)', 'rgba(139, 92, 246, 0.4)', 'rgba(244, 63, 94, 0.4)'],
+                        borderColor: ['#10b981', '#00f0ff', '#8b5cf6', '#f43f5e'],
+                        borderWidth: 2,
+                        borderRadius: 8
+                    }]
+                }
+            },
+            queryCategory: {
+                sql: `SELECT 
+    product_category AS category,
+    COUNT(row_id) AS items_sold,
+    ROUND(SUM(sales), 2) AS gross_sales,
+    ROUND(SUM(profit), 2) AS net_profit,
+    ROUND((SUM(profit) / SUM(sales)) * 100, 2) AS profit_margin_pct
+FROM FACT_SALES F
+JOIN DIM_PRODUCTS P ON F.product_id = P.product_id
+GROUP BY 1
+ORDER BY net_profit DESC;`,
+                finding: `<strong>Finding:</strong> Audited category profitability metrics. Technology is the primary profit engine ($116,000 net profit). In contrast, furniture margins are dragged down by structural losses on tables.`,
+                headers: ['Category', 'Items Sold', 'Gross Sales ($)', 'Net Profit ($)', 'Profit Margin (%)'],
+                rows: [
+                    ['Technology', '3,490', '320,490.50', '116,420.00', '36.33'],
+                    ['Office Supplies', '6,212', '280,311.20', '32,492.30', '11.59'],
+                    ['Furniture', '2,798', '188,645.37', '-17,167.55', '-9.10']
+                ],
+                chartType: 'doughnut',
+                chartData: {
+                    labels: ['Technology', 'Office Supplies', 'Furniture (Loss)'],
+                    datasets: [{
+                        data: [116420.00, 32492.30, -17167.55],
+                        backgroundColor: ['#00f0ff', '#8b5cf6', '#f43f5e'],
+                        borderColor: 'rgba(5, 6, 11, 0.8)',
+                        borderWidth: 2
+                    }]
+                }
+            }
+        };
+
+        let activeChart = null;
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initTabNav();
+            initQueryConsole();
+            renderQuery("queryMom");
+        });
+
+        function initTabNav() {
+            const tabs = document.querySelectorAll(".tab-btn");
+            const panels = document.querySelectorAll(".tab-panel");
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                    tabs.forEach(t => t.classList.remove("active"));
+                    tab.classList.add("active");
+
+                    const target = tab.getAttribute("data-tab");
+                    panels.forEach(panel => {
+                        panel.classList.remove("active");
+                        if (panel.getAttribute("id") === `panel-${target}`) {
+                            panel.classList.add("active");
+                        }
+                    });
+                });
+            });
+        }
+
+        function initQueryConsole() {
+            const buttons = document.querySelectorAll(".query-select-btn");
+            buttons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    buttons.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+
+                    const queryId = btn.getAttribute("data-query-id");
+                    renderQuery(queryId);
+                });
+            });
+        }
+
+        function renderQuery(queryId) {
+            const data = CONSOLE_DATABASE[queryId];
+            if (!data) return;
+
+            // Render text elements
+            document.getElementById("sqlCodeContainer").textContent = data.sql;
+            document.getElementById("queryFindingContainer").innerHTML = data.finding;
+
+            // Render table
+            const headerRow = document.getElementById("resultTableHeader");
+            headerRow.innerHTML = "";
+            data.headers.forEach(h => {
+                const th = document.createElement("th");
+                th.textContent = h;
+                headerRow.appendChild(th);
+            });
+
+            const tableBody = document.getElementById("resultTableBody");
+            tableBody.innerHTML = "";
+            data.rows.forEach(r => {
+                const tr = document.createElement("tr");
+                r.forEach(val => {
+                    const td = document.createElement("td");
+                    td.textContent = val;
+                    tr.appendChild(td);
+                });
+                tableBody.appendChild(tr);
+            });
+
+            // Render chart
+            const ctx = document.getElementById("consoleChart").getContext('2d');
+            
+            if (activeChart) {
+                activeChart.destroy();
+            }
+
+            const chartConfig = {
+                type: data.chartType,
+                data: JSON.parse(JSON.stringify(data.chartData)), // Deep clone to prevent mutations
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#94a3b8',
+                                font: { family: 'Inter' }
+                            }
+                        }
+                    },
+                    scales: data.chartType !== 'doughnut' ? {
+                        y: {
+                            beginAtZero: false,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                            ticks: { color: '#94a3b8', font: { family: 'Inter' } }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#94a3b8', font: { family: 'Inter' } }
+                        }
+                    } : {}
+                }
+            };
+
+            // MOaM Dual Axis override
+            if (queryId === "queryMom") {
+                chartConfig.options.scales = {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { color: '#94a3b8' }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: { drawOnChartArea: false },
+                        ticks: { color: '#94a3b8' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#94a3b8' }
+                    }
+                };
+            }
+
+            activeChart = new Chart(ctx, chartConfig);
+        }
+    </script>
+</body>
+</html>
