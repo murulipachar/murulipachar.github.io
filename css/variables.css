@@ -14,6 +14,7 @@
 
   /* Cybernetic Neon Accents */
   --accent-cyan: #00f2fe;       /* Ice Cyan */
+  --accent-cyan-rgb: 0, 242, 254; /* RGB channels for custom opacities */
   --accent-blue: #3b82f6;       /* Clean SQL Blue */
   --accent-purple: #9d4edd;     /* Amethyst Purple */
   --accent-emerald: #10b981;    /* Data Insights Emerald */
@@ -56,6 +57,7 @@
 
   /* Sunset Neon Accents */
   --accent-cyan: #ff3366;       /* Hot Rose / Sunset Red-Pink */
+  --accent-cyan-rgb: 255, 51, 102; /* RGB channels for custom opacities */
   --accent-blue: #ef4444;       /* Coral / Warm Orange-Red */
   --accent-purple: #7000ff;     /* Electric Purple-Violet */
   --accent-emerald: #f59e0b;    /* Golden Sun Amber */
