@@ -2555,3 +2555,8 @@ footer {
   }
 }
 
+/* Global container transition overrides for organic theme morphing */
+body, header, .navbar, .glass-card, .why-hire-card, .project-card, .cert-card, footer, .modal-content, .theme-switch-label {
+  transition: background 0.4s ease, background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, text-shadow 0.4s ease;
+}
+

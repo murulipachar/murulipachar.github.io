@@ -27,12 +27,21 @@ class ParticleNetwork {
   }
 
   updateColors() {
-    const style = getComputedStyle(document.documentElement);
-    const rawCyan = style.getPropertyValue('--accent-cyan').trim() || '#00f2fe';
-    const rawPurple = style.getPropertyValue('--accent-purple').trim() || '#9d4edd';
-    
-    this.cyanRgb = this.hexToRgb(rawCyan) || { r: 0, g: 242, b: 254 };
-    this.purpleRgb = this.hexToRgb(rawPurple) || { r: 157, g: 77, b: 221 };
+    try {
+      const style = getComputedStyle(document.documentElement);
+      const valCyan = style.getPropertyValue('--accent-cyan');
+      const valPurple = style.getPropertyValue('--accent-purple');
+      
+      const rawCyan = (valCyan ? valCyan.trim() : '') || '#00f2fe';
+      const rawPurple = (valPurple ? valPurple.trim() : '') || '#9d4edd';
+      
+      this.cyanRgb = this.hexToRgb(rawCyan) || { r: 0, g: 242, b: 254 };
+      this.purpleRgb = this.hexToRgb(rawPurple) || { r: 157, g: 77, b: 221 };
+    } catch (e) {
+      console.warn("Could not update dynamic particle colors, falling back:", e);
+      this.cyanRgb = { r: 0, g: 242, b: 254 };
+      this.purpleRgb = { r: 157, g: 77, b: 221 };
+    }
   }
 
   hexToRgb(hex) {

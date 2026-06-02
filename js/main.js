@@ -5,11 +5,15 @@
 
 // --- Theme Switcher Immediate Initializer ---
 (function() {
-  const savedTheme = localStorage.getItem("portfolio-theme") || "cyber";
-  if (savedTheme === "sunset") {
-    document.documentElement.setAttribute("data-theme", "sunset");
-  } else {
-    document.documentElement.removeAttribute("data-theme");
+  try {
+    const savedTheme = localStorage.getItem("portfolio-theme") || "cyber";
+    if (savedTheme === "sunset") {
+      document.documentElement.setAttribute("data-theme", "sunset");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+  } catch (e) {
+    console.warn("localStorage not accessible:", e);
   }
 })();
 
@@ -293,20 +297,40 @@ const CERTS_DATA = {
 
 // --- DOM Content Init ---
 document.addEventListener("DOMContentLoaded", () => {
-  // Theme Toggle Button Logic
+  // Theme Toggle Logic (dual-binds wrapper and button for complete event consistency)
+  const themeSwitch = document.querySelector(".theme-switch-wrapper");
   const themeToggle = document.getElementById("theme-toggle");
+
+  const handleToggle = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    let nextTheme = "cyber";
+    if (currentTheme === "sunset") {
+      document.documentElement.removeAttribute("data-theme");
+      nextTheme = "cyber";
+    } else {
+      document.documentElement.setAttribute("data-theme", "sunset");
+      nextTheme = "sunset";
+    }
+    try {
+      localStorage.setItem("portfolio-theme", nextTheme);
+    } catch (err) {
+      console.warn("Could not save theme to localStorage:", err);
+    }
+    // Dispatch custom event to notify canvas particles of the change
+    window.dispatchEvent(new Event("theme-changed"));
+  };
+
+  if (themeSwitch) {
+    themeSwitch.addEventListener("click", handleToggle);
+  }
   if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      const currentTheme = document.documentElement.getAttribute("data-theme");
-      if (currentTheme === "sunset") {
-        document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("portfolio-theme", "cyber");
-      } else {
-        document.documentElement.setAttribute("data-theme", "sunset");
-        localStorage.setItem("portfolio-theme", "sunset");
-      }
-      // Dispatch custom event to notify canvas particles of the change
-      window.dispatchEvent(new Event("theme-changed"));
+    themeToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      handleToggle(e);
     });
   }
 
