@@ -39,3 +39,30 @@
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+:root[data-theme="sunset"] {
+  /* Sunset Velvet & Electric Violet Theme */
+  --bg-primary: #070314;        /* Deep violet-plum backdrop */
+  --bg-secondary: #140b29;      /* Deep velvet card background */
+  --bg-tertiary: #1f0f3a;       /* Dark plum header/footer */
+  --bg-glass: rgba(20, 11, 41, 0.65); /* Translucent velvet glass */
+  --bg-glass-active: rgba(31, 15, 58, 0.85); /* Darker glass for overlays */
+  
+  /* Borders and Contours */
+  --border-glass: rgba(255, 255, 255, 0.04);
+  --border-glass-hover: rgba(255, 255, 255, 0.12);
+  --border-glow: rgba(255, 51, 102, 0.15);
+  --border-glow-hover: rgba(255, 51, 102, 0.4);
+
+  /* Sunset Neon Accents */
+  --accent-cyan: #ff3366;       /* Hot Rose / Sunset Red-Pink */
+  --accent-blue: #ef4444;       /* Coral / Warm Orange-Red */
+  --accent-purple: #7000ff;     /* Electric Purple-Violet */
+  --accent-emerald: #f59e0b;    /* Golden Sun Amber */
+  --accent-gradient: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+  --accent-gradient-blue: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+
+  /* Shadows and Glowing Effects */
+  --glow-cyan: 0 0 20px rgba(255, 51, 102, 0.25);
+  --glow-purple: 0 0 20px rgba(112, 0, 255, 0.2);
+}

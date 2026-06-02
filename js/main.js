@@ -3,6 +3,16 @@
  * Pure ES6 Vanilla JavaScript - Highly optimized and structured
  */
 
+// --- Theme Switcher Immediate Initializer ---
+(function() {
+  const savedTheme = localStorage.getItem("portfolio-theme") || "cyber";
+  if (savedTheme === "sunset") {
+    document.documentElement.setAttribute("data-theme", "sunset");
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+  }
+})();
+
 // --- Project Detailed Database ---
 const PROJECTS_DATA = {
   "sql-retail-analytics": {
@@ -283,6 +293,23 @@ const CERTS_DATA = {
 
 // --- DOM Content Init ---
 document.addEventListener("DOMContentLoaded", () => {
+  // Theme Toggle Button Logic
+  const themeToggle = document.getElementById("theme-toggle");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      if (currentTheme === "sunset") {
+        document.documentElement.removeAttribute("data-theme");
+        localStorage.setItem("portfolio-theme", "cyber");
+      } else {
+        document.documentElement.setAttribute("data-theme", "sunset");
+        localStorage.setItem("portfolio-theme", "sunset");
+      }
+      // Dispatch custom event to notify canvas particles of the change
+      window.dispatchEvent(new Event("theme-changed"));
+    });
+  }
+
   // 1. Preloader Handler
   const preloader = document.getElementById("preloader");
   window.addEventListener("load", () => {

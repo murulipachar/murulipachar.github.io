@@ -16,19 +16,45 @@ class ParticleNetwork {
     this.connectionDistance = 100;
     this.baseSpeed = 0.4;
 
+    this.updateColors();
     this.init();
     this.animate();
     
     window.addEventListener('resize', () => this.handleResize());
     window.addEventListener('mousemove', (e) => this.handleMouseMove(e));
     window.addEventListener('mouseleave', () => this.handleMouseLeave());
+    window.addEventListener('theme-changed', () => this.updateColors());
+  }
+
+  updateColors() {
+    const style = getComputedStyle(document.documentElement);
+    const rawCyan = style.getPropertyValue('--accent-cyan').trim() || '#00f2fe';
+    const rawPurple = style.getPropertyValue('--accent-purple').trim() || '#9d4edd';
+    
+    this.cyanRgb = this.hexToRgb(rawCyan) || { r: 0, g: 242, b: 254 };
+    this.purpleRgb = this.hexToRgb(rawPurple) || { r: 157, g: 77, b: 221 };
+  }
+
+  hexToRgb(hex) {
+    if (hex.startsWith('rgb')) {
+      const match = hex.match(/\d+/g);
+      return match ? { r: parseInt(match[0]), g: parseInt(match[1]), b: parseInt(match[2]) } : null;
+    }
+    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    const fullHex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(fullHex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
   }
 
   init() {
     this.handleResize();
     this.particles = [];
     for (let i = 0; i < this.maxParticles; i++) {
-      this.particles.push(new Particle(this.canvas.width, this.canvas.height, this.baseSpeed));
+      this.particles.push(new Particle(this.canvas.width, this.canvas.height, this.baseSpeed, this));
     }
   }
 
@@ -71,7 +97,7 @@ class ParticleNetwork {
         if (distance < this.connectionDistance) {
           // Fade opacity as distance increases
           const opacity = (1 - distance / this.connectionDistance) * 0.15;
-          this.ctx.strokeStyle = `rgba(0, 240, 255, ${opacity})`;
+          this.ctx.strokeStyle = `rgba(${this.cyanRgb.r}, ${this.cyanRgb.g}, ${this.cyanRgb.b}, ${opacity})`;
           this.ctx.lineWidth = 0.8;
           this.ctx.beginPath();
           this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
@@ -84,22 +110,22 @@ class ParticleNetwork {
 }
 
 class Particle {
-  constructor(canvasWidth, canvasHeight, baseSpeed) {
+  constructor(canvasWidth, canvasHeight, baseSpeed, network) {
+    this.network = network;
     this.x = Math.random() * canvasWidth;
     this.y = Math.random() * canvasHeight;
     this.vx = (Math.random() - 0.5) * baseSpeed;
     this.vy = (Math.random() - 0.5) * baseSpeed;
     this.radius = Math.random() * 2 + 1;
     this.baseSpeed = baseSpeed;
-    
-    // Choose color (cyber-cyan or deep purple nodes)
-    this.color = Math.random() > 0.4 ? 'rgba(0, 240, 255, 0.5)' : 'rgba(139, 92, 246, 0.4)';
+    this.isCyan = Math.random() > 0.4;
   }
 
   draw(ctx) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
+    const rgb = this.isCyan ? this.network.cyanRgb : this.network.purpleRgb;
+    ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${this.isCyan ? 0.5 : 0.4})`;
     ctx.fill();
   }
 
