@@ -144,6 +144,54 @@ VAR PriorMonthSales =
 RETURN
     DIVIDE(CurrentMonthSales - PriorMonthSales, PriorMonthSales, 0)`
   },
+  "hr-analytics-dashboard": {
+    title: "HR Analytics & Retention Dashboard",
+    tags: ["Power BI", "SQL", "Excel", "DAX", "Data Modeling"],
+    category: "powerbi",
+    description: "An interactive business intelligence solution modeling workforce turnover and retention profiles for 1,475 employees. Formulated advanced SQL queries (CTEs, Window Functions) to audit compensation disparity and built custom Power BI DAX measures mapping department-level attrition hotspots.",
+    metrics: [
+      { name: "Total Ingested Records", value: "1,475 Employees" },
+      { name: "Overall Attrition Rate", value: "31.0%" },
+      { name: "Overtime Turnover Rate", value: "47.8%" },
+      { name: "Low Satisfaction Exit Rate", value: "53.9%" }
+    ],
+    insights: [
+      {
+        title: "Overtime Workload Attrition Core correlation",
+        desc: "Discovered employees working overtime exhibit a 47.8% attrition rate compared to 24.4% for non-overtime staff. Traced the highest workload concentrations to Sales and R&D roles."
+      },
+      {
+        title: "Early Career Attrition Flight Risks",
+        desc: "Isolated a critical retention gap where turnover peaks at 39.5% during the first 0-2 years of employee tenure, indicating potential onboarding and integration gaps."
+      },
+      {
+        title: "Salary Disparity & Top Performers Retention",
+        desc: "Identified a compensation flight risk where high-performing staff (ratings 3 and 4) paid below role averages show a 28.6% attrition rate, prompting a semi-annual compensation review recommendation."
+      }
+    ],
+    codeTitle: "DAX Attrition Metrics & SQL Partitions",
+    code: `// DAX Metric: Attrition Rate % Calculation
+Attrition Rate % = 
+VAR TotalEmployees = COUNT(Fact_Employees[EmployeeID])
+VAR AttritionCount = 
+    CALCULATE(
+        COUNT(Fact_Employees[EmployeeID]),
+        Fact_Employees[Attrition] = "Yes"
+    )
+RETURN
+    DIVIDE(AttritionCount, TotalEmployees, 0)
+
+// SQL: Identify High-Risk Employee Flight Profiles
+WITH StaffDetails AS (
+    SELECT EmployeeID, EmployeeName, JobRole, Salary, Overtime, JobSatisfaction,
+           AVG(Salary) OVER (PARTITION BY JobRole) AS Avg_Role_Salary
+    FROM hr_employee_data
+    WHERE Attrition = 'No'
+)
+SELECT * 
+FROM StaffDetails
+WHERE Overtime = 'Yes' AND JobSatisfaction <= 2 AND Salary < Avg_Role_Salary;`
+  },
   "gramayatri": {
     title: "GramaYatri Bus Tracking Application",
     tags: ["Kotlin", "Firebase", "Google Maps API", "Android SDK"],
