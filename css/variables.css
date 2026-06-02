@@ -1,21 +1,21 @@
 :root {
-  /* Obsidian Dark Theme Base */
-  --bg-primary: #05060b;        /* Pure dark space obsidian backdrop */
-  --bg-secondary: #0d0f1a;      /* Slate-dark card background */
-  --bg-tertiary: #141727;       /* Glowing header/footer background */
-  --bg-glass: rgba(13, 15, 26, 0.65); /* Highly translucent backdrop blur glass */
-  --bg-glass-active: rgba(20, 23, 39, 0.85); /* Slightly darker glass for overlays */
+  /* Obsidian Dark Theme Base (Neo-Teal & Amethyst Violet) */
+  --bg-primary: #04060e;        /* Deep indigo-slate space backdrop */
+  --bg-secondary: #0c0e20;      /* Midnight card background */
+  --bg-tertiary: #12152d;       /* Header/footer background */
+  --bg-glass: rgba(12, 14, 32, 0.65); /* Translucent backdrop blur glass */
+  --bg-glass-active: rgba(18, 21, 45, 0.85); /* Darker glass for overlays */
   
   /* Borders and Contours */
   --border-glass: rgba(255, 255, 255, 0.05);
   --border-glass-hover: rgba(255, 255, 255, 0.15);
-  --border-glow: rgba(0, 240, 255, 0.15);
-  --border-glow-hover: rgba(0, 240, 255, 0.4);
+  --border-glow: rgba(0, 242, 254, 0.15);
+  --border-glow-hover: rgba(0, 242, 254, 0.4);
 
   /* Cybernetic Neon Accents */
-  --accent-cyan: #00f0ff;       /* Cyber Cyan */
+  --accent-cyan: #00f2fe;       /* Ice Cyan */
   --accent-blue: #3b82f6;       /* Clean SQL Blue */
-  --accent-purple: #8b5cf6;     /* Business Intelligence Indigo */
+  --accent-purple: #9d4edd;     /* Amethyst Purple */
   --accent-emerald: #10b981;    /* Data Insights Emerald */
   --accent-gradient: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
   --accent-gradient-blue: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
@@ -29,8 +29,8 @@
   --font-sans: 'Outfit', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   /* Shadows and Glowing Effects */
-  --glow-cyan: 0 0 20px rgba(0, 240, 255, 0.25);
-  --glow-purple: 0 0 20px rgba(139, 92, 246, 0.2);
+  --glow-cyan: 0 0 20px rgba(0, 242, 254, 0.25);
+  --glow-purple: 0 0 20px rgba(157, 77, 221, 0.2);
   --glass-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.5);
   --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 
