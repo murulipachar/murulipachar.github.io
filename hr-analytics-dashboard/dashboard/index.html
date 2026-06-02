@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <!-- Metadata & SEO Settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HR Analytics & Workforce Retention Dashboard. Engineered with HTML, CSS, JavaScript, and Chart.js. Portfolio-ready BI Platform.">
+    <meta name="author" content="Antigravity Developer">
+    <title>HR Analytics | Executive Retention Dashboard</title>
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (Inline Vector SVG) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22%232dd4bf%22><path d=%22M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z%22/></svg>">
+
+    <!-- CSS Linkages -->
+    <link rel="stylesheet" href="../css/dashboard.css">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- 1. LOADING SCREEN -->
+    <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader-container">
+            <div class="loader-spinner"></div>
+            <div class="loader-logo">HR<span>Insights</span></div>
+            <div class="loader-bar-wrapper">
+                <div class="loader-bar"></div>
+            </div>
+            <div class="loader-text">Initializing Enterprise Workforce Analytics Platform...</div>
+        </div>
+    </div>
+
+    <!-- 2. MAIN HEADER NAVIGATION BAR -->
+    <header class="main-header">
+        <div class="brand-section">
+            <div class="brand-icon-wrapper">
+                <!-- Gorgeous Analytics Brand Icon (Vector SVG) -->
+                <svg viewBox="0 0 24 24">
+                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                </svg>
+            </div>
+            <div class="brand-title">
+                <div class="brand-name-row">
+                    <h1>HRInsights</h1>
+                    <span class="dataset-label">Active Staff: 1,475 Records</span>
+                </div>
+                <span class="brand-subtitle">Executive Workforce Retention & Talent Performance Audit Platform</span>
+            </div>
+        </div>
+        
+        <div class="header-meta">
+            <!-- Time Widget & Refresh Widget -->
+            <div class="meta-info-block">
+                <div class="time-widget" title="Current Local System Time">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                    </svg>
+                    <span id="currentTime">Loading time...</span>
+                </div>
+                <div class="refresh-widget" title="Timestamp of the last dataset fetch">
+                    <span class="refresh-dot"></span>
+                    <span>Refreshed: <span id="lastRefreshedTime">00:00:00</span></span>
+                </div>
+            </div>
+
+            <!-- Export Actions Menu -->
+            <div class="export-actions-group">
+                <button class="action-btn" id="btnExportCSV" title="Download filtered employee records as CSV">
+                    <svg viewBox="0 0 24 24"><path d="M19 12v7H5v-7H3v7c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-7h-2zm-6 .67l2.59-2.58L17 11.5l-5 5-5-5 1.41-1.41L11 12.67V3h2v9.67z"/></svg>
+                    <span>CSV</span>
+                </button>
+                <button class="action-btn" id="btnExportReport" title="Generate an executive HR recruitment & retention report">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <span>Report</span>
+                </button>
+                <button class="action-btn" id="btnPrintDashboard" title="Print dashboard layout or save as PDF">
+                    <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                    <span>Print</span>
+                </button>
+            </div>
+
+            <!-- Theme Switcher -->
+            <div class="theme-toggle-wrapper" title="Toggle Light/Dark Workspace aesthetics">
+                <button class="theme-toggle-btn" id="themeToggleBtn">
+                    <!-- Sun Icon -->
+                    <svg class="sun-icon" viewBox="0 0 24 24">
+                        <path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM4 10.5H1v2h3v-2zm9-9h-2v3h2v-3zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 11.21l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zm-12.03-.4l-1.79 1.79 1.41 1.41 1.8-1.79-1.42-1.41zM23 10.5h-3v2h3v-2zm-11-7c-4.14 0-7.5 3.36-7.5 7.5s3.36 7.5 7.5 7.5 7.5-3.36 7.5-7.5-3.36-7.5-7.5-7.5zm0 13c-3.03 0-5.5-2.47-5.5-5.5s2.47-5.5 5.5-5.5 5.5 2.47 5.5 5.5-2.47 5.5-5.5 5.5zm0 4.5h-2v3h2v-3z"/>
+                    </svg>
+                    <!-- Moon Icon -->
+                    <svg class="moon-icon" viewBox="0 0 24 24">
+                        <path d="M12.3 22h-.1c-5.5 0-10-4.5-10-10C2.2 6.8 6.4 2.5 11.7 2c.3 0 .6.2.7.5.1.3 0 .6-.2.8-1.7 1.9-2.5 4.5-2.2 7.1.3 3.1 2.8 5.6 5.9 5.9 2.6.3 5.2-.5 7.1-2.2.2-.2.5-.2.8-.2.3.1.5.4.5.7-.5 5.3-4.8 9.5-10 9.5z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Pulse state indicator -->
+            <div class="status-badge" title="Database pipelines are synchronized. Ready for HR analytics.">
+                <span class="status-dot"></span>
+                <span>BI SYNC ACTIVE</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. DASHBOARD MAIN CONTAINER -->
+    <div class="dashboard-container">
+        
+        <!-- SIDEBAR - INTERACTIVE FILTERS -->
+        <aside class="sidebar-filters">
+            <div class="sidebar-header">
+                <h2 class="sidebar-title">HR Filter Engine</h2>
+                <span class="sidebar-subtitle-label">Multi-Dimensional Slicing</span>
+            </div>
+            
+            <!-- Filter Group: Department -->
+            <div class="filter-group collapsible-section active">
+                <button class="filter-group-header" aria-expanded="true">
+                    <span>Business Unit</span>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+                </button>
+                <div class="filter-options collapsible-content" id="filterDeptContainer">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Filter Group: Gender -->
+            <div class="filter-group collapsible-section active">
+                <button class="filter-group-header" aria-expanded="true">
+                    <span>Gender Identity</span>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+                </button>
+                <div class="filter-options collapsible-content" id="filterGenderContainer">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Filter Group: Overtime -->
+            <div class="filter-group collapsible-section active">
+                <button class="filter-group-header" aria-expanded="true">
+                    <span>Overtime Status</span>
+                    <svg class="chevron-icon" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
+                </button>
+                <div class="filter-options collapsible-content" id="filterOvertimeContainer">
+                    <button class="filter-btn" data-filter-group="Overtime" data-filter-val="Yes" title="Filter to employees working overtime">
+                        <span>Works Overtime</span>
+                        <span class="filter-count" id="countOvertimeYes">0</span>
+                    </button>
+                    <button class="filter-btn" data-filter-group="Overtime" data-filter-val="No" title="Filter to employees with standard hours">
+                        <span>No Overtime</span>
+                        <span class="filter-count" id="countOvertimeNo">0</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Reset active parameters -->
+            <button class="reset-filters-btn" id="resetFilters" title="Clear all active filters and restore global view">
+                <svg viewBox="0 0 24 24">
+                    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                </svg>
+                <span>Reset Slicers</span>
+            </button>
+        </aside>
+
+        <!-- MAIN WORKSPACE SECTION -->
+        <main class="workspace-wrapper">
+            
+            <!-- Empty State / No Data Panel Overlay -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-state-content">
+                    <div class="empty-state-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    </div>
+                    <h3>No Records Match Filter Criteria</h3>
+                    <p>The combination of Department, Gender, and Overtime filters you selected resulted in an empty slice of the database. Reset the view filters or pick broader parameters to display analytics.</p>
+                    <button class="reset-filters-btn" id="emptyStateResetBtn">Reset View Filters</button>
+                </div>
+            </div>
+
+            <div class="workspace-content" id="workspaceMainContent">
+                
+                <!-- 3.1 EXECUTIVE KPI CARDS SECTION -->
+                <section class="kpi-container" aria-label="Key Performance Indicators">
+                    
+                    <!-- KPI Card: Total Employees -->
+                    <div class="kpi-card" id="cardTotal" title="Sum of all employees in selected slice.">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Total Headcount</span>
+                            <div class="kpi-icon-wrapper">
+                                <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value-container">
+                            <div class="kpi-value" id="kpiTotal">0</div>
+                            <div class="kpi-trend trend-up">
+                                <span class="trend-badge">Active Directory</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI Card: Active Employees -->
+                    <div class="kpi-card" id="cardActive" title="Active employees who are currently working at the company.">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Active Staff</span>
+                            <div class="kpi-icon-wrapper">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value-container">
+                            <div class="kpi-value" id="kpiActive">0</div>
+                            <div class="kpi-trend trend-up">
+                                <span class="trend-badge">▲ Retained</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI Card: Attrition Count -->
+                    <div class="kpi-card attrition-card" id="cardAttritionCount" title="Exited employees count.">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Attrition Count</span>
+                            <div class="kpi-icon-wrapper">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 9.99 10S22 17.53 22 12 17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value-container">
+                            <div class="kpi-value" id="kpiAttritionCount">0</div>
+                            <div class="kpi-trend trend-down">
+                                <span class="trend-badge">Exited Staff</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI Card: Attrition Rate -->
+                    <div class="kpi-card attrition-card" id="cardAttritionRate" title="Percentage of employees who exited.">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Attrition Rate</span>
+                            <div class="kpi-icon-wrapper">
+                                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"/></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value-container">
+                            <div class="kpi-value" id="kpiAttritionRate">0.0%</div>
+                            <div class="kpi-trend trend-down" id="trendAttritionRate">
+                                <span class="trend-badge">Turnover %</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KPI Card: Avg Salary -->
+                    <div class="kpi-card" id="cardAvgSalary" title="Average salary of employees in selected slice.">
+                        <div class="kpi-card-header">
+                            <span class="kpi-title">Average Salary</span>
+                            <div class="kpi-icon-wrapper">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.25z"/></svg>
+                            </div>
+                        </div>
+                        <div class="kpi-value-container">
+                            <div class="kpi-value" id="kpiAvgSalary">$0</div>
+                            <div class="kpi-trend trend-up">
+                                <span class="trend-badge">Annualized Avg</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- DYNAMIC EXECUTIVE INSIGHTS PANEL (5 glassmorphism cards) -->
+                <section class="insights-panel-grid" aria-label="Automated Executive Intelligence Insights">
+                    <div class="insight-micro-card positive" id="insightBestDept" title="Business unit showing highest retention.">
+                        <div class="insight-micro-header">
+                            <span class="insight-micro-dot"></span>
+                            <span class="insight-micro-label">Highest Retention Unit</span>
+                            <svg viewBox="0 0 24 24" class="insight-micro-icon"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <h4 class="insight-micro-value" id="insightBestDeptVal">Loading...</h4>
+                        <p class="insight-micro-desc" id="insightBestDeptDesc">Calculating department retention curves.</p>
+                    </div>
+
+                    <div class="insight-micro-card warning" id="insightRiskRole" title="Specific job role showing elevated attrition numbers.">
+                        <div class="insight-micro-header">
+                            <span class="insight-micro-dot"></span>
+                            <span class="insight-micro-label">High Flight Risk Role</span>
+                            <svg viewBox="0 0 24 24" class="insight-micro-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        </div>
+                        <h4 class="insight-micro-value" id="insightRiskRoleVal">Loading...</h4>
+                        <p class="insight-micro-desc" id="insightRiskRoleDesc">Computing job title flight risks.</p>
+                    </div>
+
+                    <div class="insight-micro-card opportunities" id="insightTenureMetric" title="Average company experience among active staff.">
+                        <div class="insight-micro-header">
+                            <span class="insight-micro-dot"></span>
+                            <span class="insight-micro-label">Average Active Tenure</span>
+                            <svg viewBox="0 0 24 24" class="insight-micro-icon"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        </div>
+                        <h4 class="insight-micro-value" id="insightTenureMetricVal">Loading...</h4>
+                        <p class="insight-micro-desc" id="insightTenureMetricDesc">Analyzing average experience parameters.</p>
+                    </div>
+
+                    <div class="insight-micro-card warning" id="insightOvertimeWarning" title="Turnover exposure caused by heavy overtime requirements.">
+                        <div class="insight-micro-header">
+                            <span class="insight-micro-dot"></span>
+                            <span class="insight-micro-label">Overtime Leakage Warning</span>
+                            <svg viewBox="0 0 24 24" class="insight-micro-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        </div>
+                        <h4 class="insight-micro-value" id="insightOvertimeWarningVal">Analyzing...</h4>
+                        <p class="insight-micro-desc" id="insightOvertimeWarningDesc">Correlating overtime with exit ratios.</p>
+                    </div>
+
+                    <div class="insight-micro-card neutral" id="insightPayGap" title="Identifies if pay disparity correlates with turnover.">
+                        <div class="insight-micro-header">
+                            <span class="insight-micro-dot"></span>
+                            <span class="insight-micro-label">Compensation Flight Risk</span>
+                            <svg viewBox="0 0 24 24" class="insight-micro-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-6h2v6zm0-8h-2V7h2v4z"/></svg>
+                        </div>
+                        <h4 class="insight-micro-value" id="insightPayGapVal">Scanning...</h4>
+                        <p class="insight-micro-desc" id="insightPayGapDesc">Locating compensation attrition stressors.</p>
+                    </div>
+                </section>
+                
+                <!-- 3.2 EXECUTIVE VIRTUAL VISUALIZATIONS SECTION (CHARTS) -->
+                <section class="charts-grid" aria-label="Interactive Visualizations">
+                    
+                    <!-- CHART 1: LINE CHART (Full Width) -->
+                    <div class="chart-card col-full" id="chartCardTenure" title="Line chart showing headcount count grouped by Years at Company (Tenure). Hover nodes for tooltips.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Workforce Distribution by Company Experience (Tenure)</h3>
+                                <span class="chart-subtitle">Distribution of active staff members by Years at Company</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartTenureTrend"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 2: BAR CHART (Department headcount) -->
+                    <div class="chart-card col-6" id="chartCardDept" title="Compares headcount distribution across operational Business Units.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Headcount by Department</h3>
+                                <span class="chart-subtitle">Absolute staff representation across business units</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartDeptHeadcount"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 3: PIE/DONUT CHART (Gender Distribution) -->
+                    <div class="chart-card col-6" id="chartCardGender" title="Gender distribution breakdown for the workforce.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Workforce Gender Distribution</h3>
+                                <span class="chart-subtitle">Representation percentages in selected dataset slice</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartGenderRatio"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 4: COLUMN CHART (Age group count) -->
+                    <div class="chart-card col-6" id="chartCardAge" title="Workforce distribution grouped by Age buckets.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Age Demographics Analysis</h3>
+                                <span class="chart-subtitle">Headcount distribution across age group categories</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartAgeDemographics"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 5: AREA/LINE CHART (Salary Distribution) -->
+                    <div class="chart-card col-6" id="chartCardSalary" title="Salary brackets count area plot.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Salary Distribution Curve</h3>
+                                <span class="chart-subtitle">Staff counts across dynamic compensation brackets</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartSalaryDist"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 6: CLUSTERED COLUMN (Attrition by Overtime) -->
+                    <div class="chart-card col-6" id="chartCardOvertimeAttrition" title="Compares attrition rates between employees working overtime and those with standard hours.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Overtime Impact on Attrition Rate</h3>
+                                <span class="chart-subtitle">Attrition Rate % comparisons: Overtime vs. Non-Overtime</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartOvertimeAttrition"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- CHART 7: STACKED BAR CHART (Attrition by Job Satisfaction) -->
+                    <div class="chart-card col-6" id="chartCardSatisfaction" title="Details attrition rates across Job Satisfaction scoring categories.">
+                        <div class="chart-header">
+                            <div class="chart-title-section">
+                                <h3>Satisfaction Correlation to Retention</h3>
+                                <span class="chart-subtitle">Attrition rate percentage by Job Satisfaction rating (1-4)</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-wrapper">
+                            <canvas id="chartSatisfactionAttrition"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Tactical commentary panel -->
+                    <div class="commentary-card col-full" id="commentaryCard" title="Automated Tactical HR commentary narrative.">
+                        <div class="commentary-header">
+                            <div class="commentary-brand">
+                                <svg viewBox="0 0 24 24" class="commentary-icon"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                                <h3>HR Executive Strategic Commentary</h3>
+                            </div>
+                            <span class="commentary-badge">AI-Powered Talent Intelligence</span>
+                        </div>
+                        <p id="dynamicCommentaryText">Analyzing employee metrics to compile dynamic strategic narrative commentary...</p>
+                    </div>
+
+                    <!-- Recommendations and details table row -->
+                    <div class="insights-row col-full">
+                        <!-- Recommendations card -->
+                        <div class="insights-card">
+                            <h3>Workforce Action Recommendations</h3>
+                            <span class="chart-subtitle">Tactical actions based on active filters and metrics</span>
+                            <div class="insights-list" id="insightsListContainer">
+                                <div class="loader-spinner" style="margin: 2rem auto; width: 30px; height: 30px;"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- High Risk / High-Paying roles table -->
+                        <div class="top-skus-card">
+                            <h3>Key Role Attrition Exposures</h3>
+                            <span class="chart-subtitle">Exited staff count & role attrition rate</span>
+                            <div class="sku-list" id="skuListContainer">
+                                <div class="loader-spinner" style="margin: 2rem auto; width: 30px; height: 30px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+
+            <!-- MASTER FOOTER -->
+            <footer class="main-footer">
+                <div class="footer-left">
+                    <span>HRInsights Executive Dashboard &copy; 2026. Recruiter-Ready Production BI Suite.</span>
+                    <span class="footer-note">Sample HR dataset generated and processed locally. Double-click index.html in the repository.</span>
+                </div>
+                <div class="footer-tech">
+                    <span class="tech-tag" title="Frontend Structure">HTML5</span>
+                    <span class="tech-tag" title="Modern Obsidian Styling">CSS3 Variables & Grid</span>
+                    <span class="tech-tag" title="Reactive Analytics Core">JavaScript (ES6+)</span>
+                    <span class="tech-tag" title="Data Generation Pipeline">Python (Pandas)</span>
+                    <span class="tech-tag" title="Database Scripting">SQL (ANSI)</span>
+                    <span class="tech-tag" title="Animated Chart Engine">Chart.js</span>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- JS Logic Hookup -->
+    <script src="data.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
