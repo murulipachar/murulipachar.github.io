@@ -6,6 +6,8 @@
 [![Visualization](https://img.shields.io/badge/charts-Chart.js-violet.svg)](https://www.chartjs.org/)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://opensource.org/licenses/MIT)
 
+![Superstore Sales Executive Dashboard Preview](screenshots/kpi_dashboard_summary.png)
+
 An **industry-grade, recruiter-level Business Intelligence & Data Analyst Dashboard** built from the ground up to represent modern analytics engineering. This project features a fully automated Python cleaning and relational ETL pipeline, advanced analytical SQL query scripting with SQLite, and a gorgeous, glassmorphic dark-themed executive web interface with **real-time, multi-dimensional dynamic client-side filtering and animations**.
 
 📁 **Project Root Directory on your system:** `C:\Users\murul\OneDrive\Desktop\AntigravityProjects\project1\superstore-sales-dashboard`
