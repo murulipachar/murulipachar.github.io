@@ -567,7 +567,11 @@ function populateProjectModal(projectId) {
 
   // Code repository link target
   const githubBtn = document.getElementById("modal-github-btn");
-  githubBtn.href = `https://github.com/murulipachar/${projectId}`;
+  if (projectId === "hr-analytics-dashboard") {
+    githubBtn.href = "https://github.com/murulipachar/HR-Analytics-Dashboard";
+  } else {
+    githubBtn.href = `https://github.com/murulipachar/${projectId}`;
+  }
 }
 
 /// --- Certifications Modal ---
