@@ -2471,3 +2471,87 @@ footer {
   }
 }
 
+/* Premium Theme Toggle Switch styling */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.theme-switch-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  user-select: none;
+  transition: var(--transition-fast);
+}
+
+.theme-switch-label.cyber-label {
+  color: var(--accent-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+.theme-switch-label.sunset-label {
+  color: var(--text-muted);
+}
+
+/* Sunset active label styles */
+:root[data-theme="sunset"] .theme-switch-label.cyber-label {
+  color: var(--text-muted);
+  text-shadow: none;
+}
+
+:root[data-theme="sunset"] .theme-switch-label.sunset-label {
+  color: var(--accent-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+.theme-switch-btn {
+  position: relative;
+  width: 46px;
+  height: 24px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.theme-switch-btn:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+.theme-switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  transition: var(--transition-smooth);
+  box-shadow: 0 0 8px rgba(var(--accent-cyan-rgb), 0.5);
+}
+
+/* Sunset active sliding state */
+:root[data-theme="sunset"] .theme-switch-thumb {
+  left: calc(100% - 20px);
+}
+
+/* Mobile responsive theme switch options */
+@media (max-width: 768px) {
+  .theme-switch-label {
+    display: none; /* Hide 'Cyber' and 'Sunset' labels on mobile to save space */
+  }
+  .theme-switch-wrapper {
+    margin-left: auto; /* Push it to the right on mobile next to the toggle button */
+    margin-right: 12px;
+    z-index: 1010;
+  }
+}
+
