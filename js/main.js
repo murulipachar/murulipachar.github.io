@@ -3,7 +3,7 @@
  * Pure ES6 Vanilla JavaScript - Highly optimized and structured
  */
 
-// --- Theme Switcher Immediate Initializer ---
+// --- Theme & Mode Switcher Immediate Initializer ---
 (function() {
   try {
     const savedTheme = localStorage.getItem("portfolio-theme") || "cyber";
@@ -11,6 +11,13 @@
       document.documentElement.setAttribute("data-theme", "sunset");
     } else {
       document.documentElement.removeAttribute("data-theme");
+    }
+
+    const savedMode = localStorage.getItem("portfolio-mode") || "dark";
+    if (savedMode === "light") {
+      document.documentElement.setAttribute("data-mode", "light");
+    } else {
+      document.documentElement.removeAttribute("data-mode");
     }
   } catch (e) {
     console.warn("localStorage not accessible:", e);
@@ -331,6 +338,43 @@ document.addEventListener("DOMContentLoaded", () => {
     themeToggle.addEventListener("click", (e) => {
       e.stopPropagation();
       handleToggle(e);
+    });
+  }
+
+  // Mode Toggle Logic (dual-binds wrapper and button for complete event consistency)
+  const modeSwitch = document.querySelector(".mode-switch-wrapper");
+  const modeToggle = document.getElementById("mode-toggle");
+
+  const handleModeToggle = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const currentMode = document.documentElement.getAttribute("data-mode");
+    let nextMode = "dark";
+    if (currentMode === "light") {
+      document.documentElement.removeAttribute("data-mode");
+      nextMode = "dark";
+    } else {
+      document.documentElement.setAttribute("data-mode", "light");
+      nextMode = "light";
+    }
+    try {
+      localStorage.setItem("portfolio-mode", nextMode);
+    } catch (err) {
+      console.warn("Could not save mode to localStorage:", err);
+    }
+    // Dispatch custom event to notify canvas particles of the change
+    window.dispatchEvent(new Event("theme-changed"));
+  };
+
+  if (modeSwitch) {
+    modeSwitch.addEventListener("click", handleModeToggle);
+  }
+  if (modeToggle) {
+    modeToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      handleModeToggle(e);
     });
   }
 

@@ -2550,13 +2550,95 @@ footer {
   }
   .theme-switch-wrapper {
     margin-left: auto; /* Push it to the right on mobile next to the toggle button */
+    margin-right: 8px;
+    z-index: 1010;
+  }
+  .mode-switch-label {
+    display: none; /* Hide 'Dark' and 'Light' labels on mobile */
+  }
+  .mode-switch-wrapper {
     margin-right: 12px;
     z-index: 1010;
   }
 }
 
+/* Premium Mode Toggle Switch styling */
+.mode-switch-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 16px;
+}
+
+.mode-switch-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  user-select: none;
+  transition: var(--transition-fast);
+}
+
+.mode-switch-label.dark-label {
+  color: var(--accent-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+.mode-switch-label.light-label {
+  color: var(--text-muted);
+}
+
+/* Light active label styles */
+:root[data-mode="light"] .mode-switch-label.dark-label,
+html[data-mode="light"] .mode-switch-label.dark-label {
+  color: var(--text-muted);
+  text-shadow: none;
+}
+
+:root[data-mode="light"] .mode-switch-label.light-label,
+html[data-mode="light"] .mode-switch-label.light-label {
+  color: var(--accent-cyan);
+  text-shadow: var(--glow-cyan);
+}
+
+.mode-switch-btn {
+  position: relative;
+  width: 46px;
+  height: 24px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-glass);
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.mode-switch-btn:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+.mode-switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  transition: var(--transition-smooth);
+  box-shadow: 0 0 8px rgba(var(--accent-cyan-rgb), 0.5);
+}
+
+/* Light active sliding state */
+:root[data-mode="light"] .mode-switch-thumb,
+html[data-mode="light"] .mode-switch-thumb {
+  left: calc(100% - 20px);
+}
+
 /* Global container transition overrides for organic theme morphing */
-body, header, .navbar, .glass-card, .why-hire-card, .project-card, .cert-card, footer, .modal-content, .theme-switch-label {
+body, header, .navbar, .glass-card, .why-hire-card, .project-card, .cert-card, footer, .modal-content, .theme-switch-label, .mode-switch-label, .theme-switch-btn, .mode-switch-btn {
   transition: background 0.4s ease, background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease, text-shadow 0.4s ease;
 }
 

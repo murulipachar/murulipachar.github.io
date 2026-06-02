@@ -1,5 +1,7 @@
 :root {
-  /* Obsidian Dark Theme Base (Neo-Teal & Amethyst Violet) */
+  /* ==========================================================================
+     CYBER TECHNICAL - DARK (DEFAULT THEME)
+     ========================================================================== */
   --bg-primary: #04060e;        /* Deep indigo-slate space backdrop */
   --bg-secondary: #0c0e20;      /* Midnight card background */
   --bg-tertiary: #12152d;       /* Header/footer background */
@@ -41,8 +43,45 @@
   --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+:root[data-mode="light"], html[data-mode="light"] {
+  /* ==========================================================================
+     CYBER TECHNICAL - LIGHT
+     ========================================================================== */
+  --bg-primary: #f1f5f9;        /* Cool light grey-slate background */
+  --bg-secondary: #ffffff;      /* Pure white card backgrounds */
+  --bg-tertiary: #e2e8f0;       /* Header/footer background */
+  --bg-glass: rgba(255, 255, 255, 0.75); /* Highly visible light glass */
+  --bg-glass-active: rgba(255, 255, 255, 0.9);
+  
+  /* Borders and Contours */
+  --border-glass: rgba(15, 23, 42, 0.08);
+  --border-glass-hover: rgba(15, 23, 42, 0.16);
+  --border-glow: rgba(2, 132, 199, 0.15);
+  --border-glow-hover: rgba(2, 132, 199, 0.35);
+
+  /* Light Cybernetic Accents (Slightly darker for readable contrast) */
+  --accent-cyan: #0284c7;       /* Ocean Cyan-Blue */
+  --accent-cyan-rgb: 2, 132, 199;
+  --accent-blue: #2563eb;       /* Royal SQL Blue */
+  --accent-purple: #7c3aed;     /* Active Purple */
+  --accent-emerald: #059669;    /* Clean Emerald */
+  
+  /* Text Ramps */
+  --text-primary: #0f172a;      /* Dark slate text */
+  --text-secondary: #334155;    /* Medium slate text */
+  --text-muted: #64748b;        /* Light slate subtext */
+
+  /* Shadows and Glowing Effects */
+  --glow-cyan: 0 0 15px rgba(2, 132, 199, 0.15);
+  --glow-purple: 0 0 15px rgba(124, 58, 237, 0.15);
+  --glass-shadow: 0 16px 40px 0 rgba(15, 23, 42, 0.06);
+  --card-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+}
+
 :root[data-theme="sunset"], html[data-theme="sunset"] {
-  /* Sunset Velvet & Electric Violet Theme */
+  /* ==========================================================================
+     SUNSET VELVET - DARK
+     ========================================================================== */
   --bg-primary: #070314;        /* Deep violet-plum backdrop */
   --bg-secondary: #140b29;      /* Deep velvet card background */
   --bg-tertiary: #1f0f3a;       /* Dark plum header/footer */
@@ -64,7 +103,49 @@
   --accent-gradient: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
   --accent-gradient-blue: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
 
+  /* Text Ramps */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+
   /* Shadows and Glowing Effects */
   --glow-cyan: 0 0 20px rgba(255, 51, 102, 0.25);
   --glow-purple: 0 0 20px rgba(112, 0, 255, 0.2);
+  --glass-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.5);
+  --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="sunset"][data-mode="light"], html[data-theme="sunset"][data-mode="light"] {
+  /* ==========================================================================
+     SUNSET VELVET - LIGHT
+     ========================================================================== */
+  --bg-primary: #faf8f5;        /* Warm light almond background */
+  --bg-secondary: #ffffff;      /* Pure white card backgrounds */
+  --bg-tertiary: #f4ece1;       /* Warm light grey-sand */
+  --bg-glass: rgba(255, 255, 255, 0.75);
+  --bg-glass-active: rgba(255, 255, 255, 0.9);
+  
+  /* Borders and Contours */
+  --border-glass: rgba(68, 64, 60, 0.08);
+  --border-glass-hover: rgba(68, 64, 60, 0.16);
+  --border-glow: rgba(219, 39, 119, 0.15);
+  --border-glow-hover: rgba(219, 39, 119, 0.35);
+
+  /* Sunset Light Accents (High contrast) */
+  --accent-cyan: #db2777;       /* Dark Sunset Pink */
+  --accent-cyan-rgb: 219, 39, 119;
+  --accent-blue: #dc2626;       /* Strong Coral Red */
+  --accent-purple: #6d28d9;     /* Deep Royal Violet */
+  --accent-emerald: #d97706;    /* Amber Orange */
+
+  /* Text Ramps */
+  --text-primary: #1c1917;      /* Warm stone-900 */
+  --text-secondary: #44403c;    /* Warm stone-700 */
+  --text-muted: #78716c;        /* Warm stone-500 */
+
+  /* Shadows and Glowing Effects */
+  --glow-cyan: 0 0 15px rgba(219, 39, 119, 0.15);
+  --glow-purple: 0 0 15px rgba(109, 40, 217, 0.15);
+  --glass-shadow: 0 16px 40px 0 rgba(68, 64, 60, 0.06);
+  --card-shadow: 0 8px 30px rgba(68, 64, 60, 0.04);
 }
