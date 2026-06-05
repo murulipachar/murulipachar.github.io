@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Business Intelligence Platform | Executive Analytics</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="dashboard.css?v=1.0.0">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation & Filters -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-chart-line brand-icon"></i>
+                <div class="brand-text">
+                    <h1>E-Comm BI</h1>
+                    <span>Enterprise Analytics</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <div class="menu-label">Analytics Dashboards</div>
+                <a href="#" class="menu-item active"><i class="fa-solid fa-table-columns"></i> Executive Overview</a>
+                <a href="../insights/insights_recommendations.md" target="_blank" class="menu-item"><i class="fa-solid fa-lightbulb"></i> Insights & Recs</a>
+                <a href="../sql/ecommerce_analysis.sql" target="_blank" class="menu-item"><i class="fa-solid fa-database"></i> SQL Engine Queries</a>
+            </nav>
+
+            <div class="divider"></div>
+
+            <!-- Interactive Filters -->
+            <div class="filters-section">
+                <div class="menu-label">Operational Filters</div>
+                
+                <div class="filter-group">
+                    <label for="filter-year"><i class="fa-regular fa-calendar"></i> Fiscal Year</label>
+                    <select id="filter-year">
+                        <option value="ALL">All Years (2024 - 2026)</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-region"><i class="fa-solid fa-map-location-dot"></i> Region</label>
+                    <select id="filter-region">
+                        <option value="ALL">All Regions</option>
+                        <option value="East">East Region</option>
+                        <option value="West">West Region</option>
+                        <option value="South">South Region</option>
+                        <option value="Central">Central Region</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-category"><i class="fa-solid fa-tags"></i> Category</label>
+                    <select id="filter-category">
+                        <option value="ALL">All Categories</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Office Supplies">Office Supplies</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-subcategory"><i class="fa-solid fa-filter"></i> Subcategory</label>
+                    <select id="filter-subcategory">
+                        <option value="ALL">All Subcategories</option>
+                        <!-- Dynamic Options will be populated here -->
+                    </select>
+                </div>
+                
+                <button id="btn-reset-filters" class="btn-reset">
+                    <i class="fa-solid fa-rotate-left"></i> Reset Filter Set
+                </button>
+            </div>
+            
+            <div class="sidebar-footer">
+                <a href="../../index.html" class="portfolio-back-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Body -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="breadcrumb">Platforms / E-Commerce Business Intelligence</div>
+                    <h2>Executive Control Board</h2>
+                </div>
+                <div class="header-right">
+                    <div class="status-indicator">
+                        <span class="status-dot animate-pulse"></span>
+                        <span class="status-text">Connected to Live Dataset (15,308 rows)</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- KPI Cards Strip -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Gross Revenue</span>
+                        <h3 id="kpi-sales">$0.00</h3>
+                        <span class="kpi-sub" id="kpi-sales-sub">Total sales volume</span>
+                    </div>
+                    <div class="kpi-icon-wrapper sales-accent">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Net Profit</span>
+                        <h3 id="kpi-profit">$0.00</h3>
+                        <span class="kpi-sub" id="kpi-profit-sub">Cumulative bottom line</span>
+                    </div>
+                    <div class="kpi-icon-wrapper profit-accent">
+                        <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Net Margin %</span>
+                        <h3 id="kpi-margin">0.0%</h3>
+                        <span class="kpi-sub" id="kpi-margin-sub">Profit to sales conversion</span>
+                    </div>
+                    <div class="kpi-icon-wrapper margin-accent">
+                        <i class="fa-solid fa-percentage"></i>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Order Volume</span>
+                        <h3 id="kpi-orders">0</h3>
+                        <span class="kpi-sub" id="kpi-orders-sub">Distinct order count</span>
+                    </div>
+                    <div class="kpi-icon-wrapper orders-accent">
+                        <i class="fa-solid fa-dolly"></i>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Return Rate %</span>
+                        <h3 id="kpi-returns">0.0%</h3>
+                        <span class="kpi-sub" id="kpi-returns-sub">Returned order percentage</span>
+                    </div>
+                    <div class="kpi-icon-wrapper returns-accent">
+                        <i class="fa-solid fa-truck-ramp-box"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chart Layout Grid -->
+            <section class="dashboard-grid">
+                <!-- Line Chart: Sales & Profit Trend -->
+                <div class="grid-item col-span-2">
+                    <div class="card-header">
+                        <h4>Monthly Sales & Profit Performance Trend</h4>
+                        <span class="card-subtitle">Month-over-month revenue vs profit margins</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-trends"></canvas>
+                    </div>
+                </div>
+
+                <!-- Doughnut Chart: Category Share -->
+                <div class="grid-item">
+                    <div class="card-header">
+                        <h4>Revenue Contribution by Category</h4>
+                        <span class="card-subtitle">Category share split</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-categories"></canvas>
+                    </div>
+                </div>
+
+                <!-- Bar Chart: Regional Margin Squeezes -->
+                <div class="grid-item">
+                    <div class="card-header">
+                        <h4>Regional Sales & Margin Breakdown</h4>
+                        <span class="card-subtitle">Sales volume against net profit margins</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-regions"></canvas>
+                    </div>
+                </div>
+
+                <!-- Stacked Bar Chart: Shipping Latency Returns -->
+                <div class="grid-item">
+                    <div class="card-header">
+                        <h4>Shipping Latency Return Multiplier</h4>
+                        <span class="card-subtitle">Return rates by order transit days</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-returns-latency"></canvas>
+                    </div>
+                </div>
+
+                <!-- Column Chart: Discount Profit Elasticity -->
+                <div class="grid-item">
+                    <div class="card-header">
+                        <h4>Discount Profit Elasticity Curve</h4>
+                        <span class="card-subtitle">Average margin percentage by discount level</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-discount-elasticity"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Data Tables -->
+            <section class="dashboard-tables-section">
+                <div class="table-card">
+                    <div class="table-card-header">
+                        <h4>Top 10 High-Value Spenders</h4>
+                        <span class="table-subtitle">Top lifetime value customer profiles</span>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-top-customers">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Customer ID</th>
+                                    <th>Name</th>
+                                    <th>Segment</th>
+                                    <th>Region</th>
+                                    <th>Total Spend</th>
+                                    <th>Net Profit</th>
+                                    <th>Return Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS Populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Inject compiled data.js first, then dashboard script -->
+    <script src="data.js?v=1.0.0"></script>
+    <script src="dashboard.js?v=1.0.0"></script>
+</body>
+</html>

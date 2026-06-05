@@ -1,0 +1,501 @@
+Product_ID,Product_Name,Category_ID,Subcategory,Unit_Price,Unit_Cost
+PROD-1001,iPhone 15 Pro Model Classic,CAT-01,Phones,718.18,502.73
+PROD-1002,Samsung Galaxy S24 Model Classic,CAT-01,Phones,479.29,335.5
+PROD-1003,Google Pixel 8 Model Pro,CAT-01,Phones,996.06,697.24
+PROD-1004,OnePlus 12 Model Elite,CAT-01,Phones,444.99,311.49
+PROD-1005,iPhone SE Model Classic,CAT-01,Phones,824.06,576.84
+PROD-1006,Moto G Power Model Elite,CAT-01,Phones,1001.39,700.97
+PROD-1007,Xiaomi Redmi Note Model Pro,CAT-01,Phones,275.73,193.01
+PROD-1008,Nokia G310 Model Pro,CAT-01,Phones,1152.5,806.75
+PROD-1009,Canon ImageRUNNER Model Classic,CAT-01,Copiers,477.28,334.1
+PROD-1010,HP LaserJet Enterprise Model Pro,CAT-01,Copiers,1021.85,715.3
+PROD-1011,Xerox Altalink Copier Model Plus,CAT-01,Copiers,905.95,634.16
+PROD-1012,Brother Monochrome Copier Model Elite,CAT-01,Copiers,278.83,195.18
+PROD-1013,Epson WorkForce Pro Model Pro,CAT-01,Copiers,1014.82,710.37
+PROD-1014,Ricoh IM C3000 Model Plus,CAT-01,Copiers,308.33,215.83
+PROD-1015,Wireless Mouse Model Elite,CAT-01,Accessories,47.13,25.92
+PROD-1016,Mechanical Keyboard Model Plus,CAT-01,Accessories,48.98,26.94
+PROD-1017,USB-C Hub Multiport Model Elite,CAT-01,Accessories,73.13,40.22
+PROD-1018,Bluetooth Headphones Model Classic,CAT-01,Accessories,103.89,57.14
+PROD-1019,External Hard Drive 2TB Model Pro,CAT-01,Accessories,56.81,31.25
+PROD-1020,Laptop Cooling Stand Model Plus,CAT-01,Accessories,114.12,62.77
+PROD-1021,Webcam 1080p Model Pro,CAT-01,Accessories,69.78,38.38
+PROD-1022,USB Flash Drive 128GB Model Classic,CAT-01,Accessories,40.03,22.02
+PROD-1023,3D Printer Pro Model Plus,CAT-01,Machines,538.62,377.03
+PROD-1024,Cricut Cutting Machine Model Plus,CAT-01,Machines,800.19,560.13
+PROD-1025,Document Scanner HighSpeed Model Elite,CAT-01,Machines,868.97,608.28
+PROD-1026,Label Maker Wireless Model Plus,CAT-01,Machines,1386.65,970.66
+PROD-1027,Heavy Duty Paper Shredder Model Plus,CAT-01,Machines,477.8,334.46
+PROD-1028,Cash Register Terminal Model Pro,CAT-01,Machines,639.64,447.75
+PROD-1029,Ergonomic Office Chair Model Classic,CAT-02,Chairs,375.2,307.66
+PROD-1030,Mesh Task Chair Model Pro,CAT-02,Chairs,584.18,479.03
+PROD-1031,Executive Leather Chair Model Pro,CAT-02,Chairs,313.87,257.37
+PROD-1032,Gaming Chair with Support Model Plus,CAT-02,Chairs,545.31,447.15
+PROD-1033,Drafting Stool Model Classic,CAT-02,Chairs,103.52,84.89
+PROD-1034,Folding Chair Set 4-Pack Model Pro,CAT-02,Chairs,282.11,231.33
+PROD-1035,Stackable Guest Chair Model Pro,CAT-02,Chairs,360.64,295.72
+PROD-1036,Standing Desk Electric Model Plus,CAT-02,Tables,581.93,477.18
+PROD-1037,Conference Room Table Model X,CAT-02,Tables,362.2,297.0
+PROD-1038,Writing Desk Wood Model Classic,CAT-02,Tables,234.06,191.93
+PROD-1039,Drafting Table Adjustable Model X,CAT-02,Tables,118.77,97.39
+PROD-1040,L-Shaped Corner Desk Model Plus,CAT-02,Tables,481.57,394.89
+PROD-1041,Folding Work Bench Model Elite,CAT-02,Tables,232.61,190.74
+PROD-1042,5-Shelf Bookcase Wood Model Elite,CAT-02,Bookcases,183.4,150.39
+PROD-1043,Metal Frame Bookshelf Model Elite,CAT-02,Bookcases,490.89,402.53
+PROD-1044,Corner Bookshelf Unit Model Pro,CAT-02,Bookcases,118.5,97.17
+PROD-1045,Modular Storage Bookcase Model X,CAT-02,Bookcases,140.25,115.0
+PROD-1046,Floating Shelf Set 3-Pack Model Pro,CAT-02,Bookcases,404.12,331.38
+PROD-1047,Desk Pad Leather Model Classic,CAT-02,Furnishings,15.97,8.78
+PROD-1048,LED Desk Lamp USB Model Elite,CAT-02,Furnishings,88.9,48.9
+PROD-1049,Anti-Fatigue Floor Mat Model Elite,CAT-02,Furnishings,69.54,38.25
+PROD-1050,Waste Basket Metal Mesh Model Elite,CAT-02,Furnishings,18.75,10.31
+PROD-1051,Wall Clock Modern Model Pro,CAT-02,Furnishings,92.49,50.87
+PROD-1052,Monitor Mount Arm Model Elite,CAT-02,Furnishings,32.14,17.68
+PROD-1053,A4 Copy Paper Ream Model Pro,CAT-03,Paper,65.11,35.81
+PROD-1054,Colored Cardstock Pack Model Classic,CAT-03,Paper,7.92,4.36
+PROD-1055,Graph Paper Notebook Model X,CAT-03,Paper,28.2,15.51
+PROD-1056,Sticky Notes 3x3 Pack Model Plus,CAT-03,Paper,41.15,22.63
+PROD-1057,Ruled Notepad Set 5-Pack Model Classic,CAT-03,Paper,109.37,60.15
+PROD-1058,Dual Tip Brush Pens Model Classic,CAT-03,Art,67.08,36.89
+PROD-1059,Sketchbook Spiral Bound Model Elite,CAT-03,Art,31.31,17.22
+PROD-1060,Acrylic Paint Set 24-Colors Model Plus,CAT-03,Art,84.9,46.7
+PROD-1061,Colored Pencils 48-Pack Model Classic,CAT-03,Art,111.92,61.56
+PROD-1062,Drafting Pens Precision Model Classic,CAT-03,Art,39.0,21.45
+PROD-1063,3-Ring Binder 2-Inch Model Plus,CAT-03,Binders,105.22,57.87
+PROD-1064,Heavy Duty View Binder Model Plus,CAT-03,Binders,30.12,16.57
+PROD-1065,Sheet Protectors 100-Pack Model Elite,CAT-03,Binders,107.64,59.2
+PROD-1066,Index Dividers 8-Tab Model Plus,CAT-03,Binders,42.3,23.26
+PROD-1067,Pocket Folder Pack 10-Pack Model X,CAT-03,Binders,45.97,25.28
+PROD-1068,Plastic Storage Totes 4-Pack Model Elite,CAT-03,Storage,36.3,19.96
+PROD-1069,File Drawer Storage Box Model Plus,CAT-03,Storage,54.12,29.77
+PROD-1070,Desktop Organizer Tiered Model Elite,CAT-03,Storage,45.55,25.05
+PROD-1071,Drawer Organizer Tray Model Elite,CAT-03,Storage,5.8,3.19
+PROD-1072,Heavy Duty Shelving Unit Model Classic,CAT-03,Storage,53.0,29.15
+PROD-1073,Self-Seal Mailing Envelopes Model Pro,CAT-03,Envelopes,84.63,46.55
+PROD-1074,Bubble Mailers Pack 25 Model Elite,CAT-03,Envelopes,43.83,24.11
+PROD-1075,Clasp Kraft Envelopes Model X,CAT-03,Envelopes,42.17,23.19
+PROD-1076,Catalog Envelopes Pack Model X,CAT-03,Envelopes,51.44,28.29
+PROD-1077,Window Business Envelopes Model Plus,CAT-03,Envelopes,34.2,18.81
+PROD-1078,Metal Frame Bookshelf Gen-5,CAT-02,Bookcases,572.69,316.03
+PROD-1079,Wireless Mouse Gen-4,CAT-01,Accessories,781.53,503.2
+PROD-1080,3D Printer Pro Gen-2,CAT-01,Machines,511.14,377.35
+PROD-1081,Monitor Mount Arm Gen-4,CAT-02,Furnishings,201.22,147.95
+PROD-1082,Ruled Notepad Set 5-Pack Gen-4,CAT-03,Paper,509.52,367.74
+PROD-1083,A4 Copy Paper Ream Gen-2,CAT-03,Paper,263.42,148.91
+PROD-1084,Drawer Organizer Tray Gen-4,CAT-03,Storage,545.28,275.81
+PROD-1085,Index Dividers 8-Tab Gen-2,CAT-03,Binders,519.69,291.56
+PROD-1086,Dual Tip Brush Pens Gen-3,CAT-03,Art,543.8,411.83
+PROD-1087,Acrylic Paint Set 24-Colors Gen-5,CAT-03,Art,190.55,106.94
+PROD-1088,Label Maker Wireless Gen-3,CAT-01,Machines,216.06,183.37
+PROD-1089,Nokia G310 Gen-4,CAT-01,Phones,510.15,315.61
+PROD-1090,Index Dividers 8-Tab Gen-5,CAT-03,Binders,710.8,549.42
+PROD-1091,Sticky Notes 3x3 Pack Gen-4,CAT-03,Paper,719.86,512.72
+PROD-1092,Executive Leather Chair Gen-3,CAT-02,Chairs,779.19,467.02
+PROD-1093,Folding Work Bench Gen-5,CAT-02,Tables,364.26,308.91
+PROD-1094,3D Printer Pro Gen-5,CAT-01,Machines,400.18,225.14
+PROD-1095,3-Ring Binder 2-Inch Gen-4,CAT-03,Binders,253.37,174.8
+PROD-1096,Clasp Kraft Envelopes Gen-3,CAT-03,Envelopes,714.72,515.24
+PROD-1097,Canon ImageRUNNER Gen-2,CAT-01,Copiers,465.75,313.16
+PROD-1098,Document Scanner HighSpeed Gen-5,CAT-01,Machines,461.88,355.18
+PROD-1099,Label Maker Wireless Gen-3,CAT-01,Machines,381.26,227.93
+PROD-1100,Plastic Storage Totes 4-Pack Gen-3,CAT-03,Storage,762.93,469.78
+PROD-1101,USB-C Hub Multiport Gen-2,CAT-01,Accessories,784.46,412.92
+PROD-1102,3D Printer Pro Gen-2,CAT-01,Machines,260.37,145.63
+PROD-1103,Metal Frame Bookshelf Gen-3,CAT-02,Bookcases,744.71,390.71
+PROD-1104,Acrylic Paint Set 24-Colors Gen-5,CAT-03,Art,243.28,149.1
+PROD-1105,Google Pixel 8 Gen-3,CAT-01,Phones,570.04,395.32
+PROD-1106,Acrylic Paint Set 24-Colors Gen-5,CAT-03,Art,212.4,151.66
+PROD-1107,5-Shelf Bookcase Wood Gen-5,CAT-02,Bookcases,506.04,287.43
+PROD-1108,Monitor Mount Arm Gen-5,CAT-02,Furnishings,713.1,440.91
+PROD-1109,Folding Work Bench Gen-3,CAT-02,Tables,269.24,149.23
+PROD-1110,HP LaserJet Enterprise Gen-3,CAT-01,Copiers,689.72,405.27
+PROD-1111,Corner Bookshelf Unit Gen-2,CAT-02,Bookcases,110.38,75.37
+PROD-1112,Bluetooth Headphones Gen-3,CAT-01,Accessories,675.2,383.54
+PROD-1113,Index Dividers 8-Tab Gen-3,CAT-03,Binders,114.87,96.41
+PROD-1114,5-Shelf Bookcase Wood Gen-3,CAT-02,Bookcases,325.07,211.86
+PROD-1115,Drafting Pens Precision Gen-4,CAT-03,Art,155.62,82.21
+PROD-1116,Heavy Duty Paper Shredder Gen-4,CAT-01,Machines,55.97,45.91
+PROD-1117,Monitor Mount Arm Gen-2,CAT-02,Furnishings,84.16,47.47
+PROD-1118,Nokia G310 Gen-2,CAT-01,Phones,418.19,305.27
+PROD-1119,Stackable Guest Chair Gen-4,CAT-02,Chairs,47.7,33.3
+PROD-1120,Canon ImageRUNNER Gen-4,CAT-01,Copiers,280.08,149.04
+PROD-1121,Ricoh IM C3000 Gen-5,CAT-01,Copiers,783.81,440.0
+PROD-1122,L-Shaped Corner Desk Gen-3,CAT-02,Tables,384.04,215.3
+PROD-1123,Mechanical Keyboard Gen-3,CAT-01,Accessories,496.52,358.63
+PROD-1124,Sketchbook Spiral Bound Gen-5,CAT-03,Art,747.41,504.77
+PROD-1125,OnePlus 12 Gen-3,CAT-01,Phones,496.52,412.29
+PROD-1126,Document Scanner HighSpeed Gen-4,CAT-01,Machines,642.75,473.71
+PROD-1127,iPhone SE Gen-4,CAT-01,Phones,441.04,365.85
+PROD-1128,Nokia G310 Gen-2,CAT-01,Phones,725.23,412.31
+PROD-1129,Drafting Pens Precision Gen-2,CAT-03,Art,84.61,62.53
+PROD-1130,Wall Clock Modern Gen-3,CAT-02,Furnishings,677.45,344.24
+PROD-1131,Sticky Notes 3x3 Pack Gen-4,CAT-03,Paper,557.38,346.64
+PROD-1132,Label Maker Wireless Gen-5,CAT-01,Machines,340.18,285.29
+PROD-1133,Ergonomic Office Chair Gen-4,CAT-02,Chairs,459.13,322.11
+PROD-1134,Stackable Guest Chair Gen-5,CAT-02,Chairs,468.63,376.54
+PROD-1135,3D Printer Pro Gen-4,CAT-01,Machines,547.08,415.22
+PROD-1136,Canon ImageRUNNER Gen-2,CAT-01,Copiers,432.12,291.16
+PROD-1137,Executive Leather Chair Gen-2,CAT-02,Chairs,88.99,46.16
+PROD-1138,Bluetooth Headphones Gen-4,CAT-01,Accessories,290.38,242.43
+PROD-1139,Drafting Pens Precision Gen-5,CAT-03,Art,82.45,58.61
+PROD-1140,Catalog Envelopes Pack Gen-4,CAT-03,Envelopes,757.49,585.88
+PROD-1141,Samsung Galaxy S24 Gen-3,CAT-01,Phones,779.66,661.6
+PROD-1142,Webcam 1080p Gen-4,CAT-01,Accessories,441.27,329.65
+PROD-1143,HP LaserJet Enterprise Gen-4,CAT-01,Copiers,498.39,266.83
+PROD-1144,Mesh Task Chair Gen-3,CAT-02,Chairs,323.35,262.61
+PROD-1145,iPhone SE Gen-2,CAT-01,Phones,194.25,136.65
+PROD-1146,Brother Monochrome Copier Gen-2,CAT-01,Copiers,196.98,161.07
+PROD-1147,Anti-Fatigue Floor Mat Gen-4,CAT-02,Furnishings,623.95,433.92
+PROD-1148,Writing Desk Wood Gen-2,CAT-02,Tables,97.85,65.8
+PROD-1149,Monitor Mount Arm Gen-2,CAT-02,Furnishings,54.48,29.51
+PROD-1150,A4 Copy Paper Ream Gen-2,CAT-03,Paper,548.02,319.57
+PROD-1151,Plastic Storage Totes 4-Pack Gen-2,CAT-03,Storage,75.48,51.7
+PROD-1152,Drafting Table Adjustable Gen-4,CAT-02,Tables,782.54,543.55
+PROD-1153,Cash Register Terminal Gen-5,CAT-01,Machines,740.47,608.44
+PROD-1154,Index Dividers 8-Tab Gen-2,CAT-03,Binders,69.59,38.84
+PROD-1155,5-Shelf Bookcase Wood Gen-5,CAT-02,Bookcases,505.77,356.32
+PROD-1156,Graph Paper Notebook Gen-5,CAT-03,Paper,231.96,193.14
+PROD-1157,Waste Basket Metal Mesh Gen-5,CAT-02,Furnishings,275.17,153.93
+PROD-1158,LED Desk Lamp USB Gen-2,CAT-02,Furnishings,191.22,113.41
+PROD-1159,Document Scanner HighSpeed Gen-2,CAT-01,Machines,561.55,386.14
+PROD-1160,Heavy Duty Paper Shredder Gen-3,CAT-01,Machines,550.94,306.83
+PROD-1161,Bubble Mailers Pack 25 Gen-2,CAT-03,Envelopes,339.14,238.55
+PROD-1162,Folding Work Bench Gen-4,CAT-02,Tables,694.19,358.08
+PROD-1163,Canon ImageRUNNER Gen-4,CAT-01,Copiers,389.49,329.06
+PROD-1164,Canon ImageRUNNER Gen-2,CAT-01,Copiers,776.23,616.9
+PROD-1165,Canon ImageRUNNER Gen-5,CAT-01,Copiers,337.71,201.17
+PROD-1166,Plastic Storage Totes 4-Pack Gen-4,CAT-03,Storage,432.13,329.49
+PROD-1167,External Hard Drive 2TB Gen-4,CAT-01,Accessories,583.64,446.47
+PROD-1168,Moto G Power Gen-2,CAT-01,Phones,171.99,101.13
+PROD-1169,Cash Register Terminal Gen-3,CAT-01,Machines,703.79,538.36
+PROD-1170,Sketchbook Spiral Bound Gen-4,CAT-03,Art,421.04,324.33
+PROD-1171,Desk Pad Leather Gen-3,CAT-02,Furnishings,446.01,310.57
+PROD-1172,A4 Copy Paper Ream Gen-4,CAT-03,Paper,115.87,59.1
+PROD-1173,Moto G Power Gen-3,CAT-01,Phones,566.22,325.31
+PROD-1174,Conference Room Table Gen-4,CAT-02,Tables,476.03,303.37
+PROD-1175,Colored Pencils 48-Pack Gen-4,CAT-03,Art,442.48,291.07
+PROD-1176,Metal Frame Bookshelf Gen-5,CAT-02,Bookcases,691.27,575.37
+PROD-1177,Desk Pad Leather Gen-5,CAT-02,Furnishings,398.77,235.43
+PROD-1178,Ricoh IM C3000 Gen-4,CAT-01,Copiers,399.17,245.51
+PROD-1179,Sheet Protectors 100-Pack Gen-5,CAT-03,Binders,434.44,287.18
+PROD-1180,Index Dividers 8-Tab Gen-4,CAT-03,Binders,153.69,95.44
+PROD-1181,Pocket Folder Pack 10-Pack Gen-4,CAT-03,Binders,778.76,553.45
+PROD-1182,Window Business Envelopes Gen-3,CAT-03,Envelopes,282.62,175.7
+PROD-1183,Canon ImageRUNNER Gen-3,CAT-01,Copiers,432.19,269.94
+PROD-1184,Folding Chair Set 4-Pack Gen-3,CAT-02,Chairs,270.78,165.87
+PROD-1185,Wireless Mouse Gen-4,CAT-01,Accessories,553.35,375.77
+PROD-1186,Self-Seal Mailing Envelopes Gen-2,CAT-03,Envelopes,228.73,178.91
+PROD-1187,Catalog Envelopes Pack Gen-3,CAT-03,Envelopes,175.39,110.44
+PROD-1188,Drafting Table Adjustable Gen-2,CAT-02,Tables,301.44,199.52
+PROD-1189,Writing Desk Wood Gen-4,CAT-02,Tables,209.43,157.0
+PROD-1190,Index Dividers 8-Tab Gen-4,CAT-03,Binders,94.67,62.16
+PROD-1191,Ruled Notepad Set 5-Pack Gen-2,CAT-03,Paper,154.0,107.4
+PROD-1192,Colored Pencils 48-Pack Gen-2,CAT-03,Art,194.24,120.43
+PROD-1193,5-Shelf Bookcase Wood Gen-4,CAT-02,Bookcases,403.77,214.17
+PROD-1194,Standing Desk Electric Gen-2,CAT-02,Tables,455.92,288.4
+PROD-1195,LED Desk Lamp USB Gen-4,CAT-02,Furnishings,489.97,286.89
+PROD-1196,Epson WorkForce Pro Gen-2,CAT-01,Copiers,747.62,375.78
+PROD-1197,Drafting Table Adjustable Gen-3,CAT-02,Tables,682.15,362.06
+PROD-1198,Graph Paper Notebook Gen-5,CAT-03,Paper,424.36,273.13
+PROD-1199,Colored Pencils 48-Pack Gen-3,CAT-03,Art,775.88,622.98
+PROD-1200,Folding Chair Set 4-Pack Gen-2,CAT-02,Chairs,145.0,106.43
+PROD-1201,Corner Bookshelf Unit Gen-5,CAT-02,Bookcases,461.57,276.02
+PROD-1202,HP LaserJet Enterprise Gen-2,CAT-01,Copiers,265.71,172.42
+PROD-1203,3D Printer Pro Gen-2,CAT-01,Machines,492.39,295.94
+PROD-1204,Modular Storage Bookcase Gen-3,CAT-02,Bookcases,263.31,186.39
+PROD-1205,LED Desk Lamp USB Gen-3,CAT-02,Furnishings,443.4,306.89
+PROD-1206,Cricut Cutting Machine Gen-2,CAT-01,Machines,79.42,43.57
+PROD-1207,Google Pixel 8 Gen-4,CAT-01,Phones,383.8,273.32
+PROD-1208,5-Shelf Bookcase Wood Gen-3,CAT-02,Bookcases,682.07,519.12
+PROD-1209,Executive Leather Chair Gen-4,CAT-02,Chairs,751.29,423.3
+PROD-1210,Cash Register Terminal Gen-4,CAT-01,Machines,47.99,37.12
+PROD-1211,Moto G Power Gen-2,CAT-01,Phones,641.63,506.12
+PROD-1212,USB-C Hub Multiport Gen-2,CAT-01,Accessories,510.67,417.6
+PROD-1213,Canon ImageRUNNER Gen-5,CAT-01,Copiers,549.56,361.71
+PROD-1214,Anti-Fatigue Floor Mat Gen-4,CAT-02,Furnishings,503.04,346.56
+PROD-1215,A4 Copy Paper Ream Gen-3,CAT-03,Paper,290.74,185.21
+PROD-1216,Executive Leather Chair Gen-4,CAT-02,Chairs,438.85,285.71
+PROD-1217,Heavy Duty View Binder Gen-2,CAT-03,Binders,120.02,93.36
+PROD-1218,Cash Register Terminal Gen-3,CAT-01,Machines,716.18,555.76
+PROD-1219,iPhone SE Gen-3,CAT-01,Phones,206.31,156.87
+PROD-1220,Conference Room Table Gen-3,CAT-02,Tables,400.25,305.84
+PROD-1221,Stackable Guest Chair Gen-5,CAT-02,Chairs,309.27,204.1
+PROD-1222,Window Business Envelopes Gen-2,CAT-03,Envelopes,394.22,253.54
+PROD-1223,Corner Bookshelf Unit Gen-4,CAT-02,Bookcases,558.22,385.15
+PROD-1224,Catalog Envelopes Pack Gen-3,CAT-03,Envelopes,153.46,125.52
+PROD-1225,LED Desk Lamp USB Gen-2,CAT-02,Furnishings,758.35,419.88
+PROD-1226,Standing Desk Electric Gen-4,CAT-02,Tables,212.25,160.06
+PROD-1227,Heavy Duty Paper Shredder Gen-5,CAT-01,Machines,568.72,314.72
+PROD-1228,Dual Tip Brush Pens Gen-5,CAT-03,Art,345.06,261.47
+PROD-1229,Xerox Altalink Copier Gen-2,CAT-01,Copiers,366.16,197.59
+PROD-1230,Drafting Table Adjustable Gen-4,CAT-02,Tables,108.48,89.2
+PROD-1231,Corner Bookshelf Unit Gen-2,CAT-02,Bookcases,477.11,305.18
+PROD-1232,Samsung Galaxy S24 Gen-2,CAT-01,Phones,644.25,323.17
+PROD-1233,Plastic Storage Totes 4-Pack Gen-4,CAT-03,Storage,692.18,569.69
+PROD-1234,Metal Frame Bookshelf Gen-4,CAT-02,Bookcases,735.58,518.93
+PROD-1235,3-Ring Binder 2-Inch Gen-5,CAT-03,Binders,403.71,261.05
+PROD-1236,iPhone SE Gen-5,CAT-01,Phones,468.66,338.04
+PROD-1237,Ergonomic Office Chair Gen-2,CAT-02,Chairs,150.65,126.0
+PROD-1238,Drafting Table Adjustable Gen-4,CAT-02,Tables,432.71,244.29
+PROD-1239,Heavy Duty Paper Shredder Gen-5,CAT-01,Machines,323.88,210.32
+PROD-1240,Self-Seal Mailing Envelopes Gen-5,CAT-03,Envelopes,38.87,25.86
+PROD-1241,Dual Tip Brush Pens Gen-3,CAT-03,Art,622.67,410.12
+PROD-1242,Desk Pad Leather Gen-4,CAT-02,Furnishings,326.6,227.27
+PROD-1243,Heavy Duty Paper Shredder Gen-3,CAT-01,Machines,69.65,53.19
+PROD-1244,Metal Frame Bookshelf Gen-5,CAT-02,Bookcases,332.9,169.41
+PROD-1245,Floating Shelf Set 3-Pack Gen-4,CAT-02,Bookcases,332.31,230.33
+PROD-1246,Pocket Folder Pack 10-Pack Gen-2,CAT-03,Binders,480.09,297.05
+PROD-1247,3-Ring Binder 2-Inch Gen-4,CAT-03,Binders,449.81,338.39
+PROD-1248,Monitor Mount Arm Gen-2,CAT-02,Furnishings,665.87,425.5
+PROD-1249,Folding Chair Set 4-Pack Gen-4,CAT-02,Chairs,241.59,196.59
+PROD-1250,5-Shelf Bookcase Wood Gen-2,CAT-02,Bookcases,174.23,88.73
+PROD-1251,Heavy Duty Shelving Unit Gen-4,CAT-03,Storage,342.93,278.61
+PROD-1252,Document Scanner HighSpeed Gen-4,CAT-01,Machines,214.94,136.03
+PROD-1253,Drawer Organizer Tray Gen-3,CAT-03,Storage,503.08,323.63
+PROD-1254,Epson WorkForce Pro Gen-3,CAT-01,Copiers,242.63,201.86
+PROD-1255,Ricoh IM C3000 Gen-5,CAT-01,Copiers,395.07,321.23
+PROD-1256,Xerox Altalink Copier Gen-3,CAT-01,Copiers,414.84,315.11
+PROD-1257,Xiaomi Redmi Note Gen-3,CAT-01,Phones,182.24,132.26
+PROD-1258,L-Shaped Corner Desk Gen-4,CAT-02,Tables,145.63,86.69
+PROD-1259,L-Shaped Corner Desk Gen-3,CAT-02,Tables,653.89,440.94
+PROD-1260,iPhone 15 Pro Gen-2,CAT-01,Phones,403.0,303.08
+PROD-1261,L-Shaped Corner Desk Gen-4,CAT-02,Tables,218.31,129.52
+PROD-1262,Wall Clock Modern Gen-2,CAT-02,Furnishings,535.38,300.55
+PROD-1263,Epson WorkForce Pro Gen-5,CAT-01,Copiers,312.68,213.13
+PROD-1264,Monitor Mount Arm Gen-5,CAT-02,Furnishings,593.05,313.71
+PROD-1265,Drafting Pens Precision Gen-5,CAT-03,Art,317.54,190.86
+PROD-1266,Webcam 1080p Gen-4,CAT-01,Accessories,492.22,409.65
+PROD-1267,Self-Seal Mailing Envelopes Gen-4,CAT-03,Envelopes,223.23,153.79
+PROD-1268,Desktop Organizer Tiered Gen-4,CAT-03,Storage,678.66,566.23
+PROD-1269,Mesh Task Chair Gen-5,CAT-02,Chairs,384.65,238.69
+PROD-1270,iPhone 15 Pro Gen-2,CAT-01,Phones,566.89,402.15
+PROD-1271,Sheet Protectors 100-Pack Gen-4,CAT-03,Binders,71.43,35.77
+PROD-1272,Conference Room Table Gen-4,CAT-02,Tables,91.44,55.79
+PROD-1273,Ruled Notepad Set 5-Pack Gen-2,CAT-03,Paper,634.11,470.32
+PROD-1274,Desktop Organizer Tiered Gen-4,CAT-03,Storage,588.46,460.35
+PROD-1275,Ricoh IM C3000 Gen-5,CAT-01,Copiers,784.66,640.42
+PROD-1276,Heavy Duty View Binder Gen-5,CAT-03,Binders,50.76,37.28
+PROD-1277,Desk Pad Leather Gen-3,CAT-02,Furnishings,152.65,106.67
+PROD-1278,Self-Seal Mailing Envelopes Gen-4,CAT-03,Envelopes,162.15,87.62
+PROD-1279,Bubble Mailers Pack 25 Gen-4,CAT-03,Envelopes,598.6,310.8
+PROD-1280,Metal Frame Bookshelf Gen-5,CAT-02,Bookcases,519.19,377.74
+PROD-1281,Drawer Organizer Tray Gen-4,CAT-03,Storage,390.04,315.83
+PROD-1282,Modular Storage Bookcase Gen-5,CAT-02,Bookcases,462.22,361.17
+PROD-1283,Canon ImageRUNNER Gen-2,CAT-01,Copiers,592.91,404.4
+PROD-1284,Monitor Mount Arm Gen-3,CAT-02,Furnishings,339.83,224.86
+PROD-1285,Floating Shelf Set 3-Pack Gen-4,CAT-02,Bookcases,427.86,354.56
+PROD-1286,Heavy Duty Shelving Unit Gen-2,CAT-03,Storage,616.08,394.71
+PROD-1287,Label Maker Wireless Gen-2,CAT-01,Machines,787.43,605.45
+PROD-1288,Heavy Duty Shelving Unit Gen-2,CAT-03,Storage,588.49,294.93
+PROD-1289,Monitor Mount Arm Gen-2,CAT-02,Furnishings,683.73,513.1
+PROD-1290,3D Printer Pro Gen-4,CAT-01,Machines,729.17,376.1
+PROD-1291,Nokia G310 Gen-2,CAT-01,Phones,108.31,90.41
+PROD-1292,Google Pixel 8 Gen-4,CAT-01,Phones,474.96,400.78
+PROD-1293,Anti-Fatigue Floor Mat Gen-4,CAT-02,Furnishings,723.94,612.61
+PROD-1294,Heavy Duty Shelving Unit Gen-2,CAT-03,Storage,523.22,372.9
+PROD-1295,Writing Desk Wood Gen-2,CAT-02,Tables,149.46,86.26
+PROD-1296,Floating Shelf Set 3-Pack Gen-2,CAT-02,Bookcases,55.7,46.74
+PROD-1297,Bluetooth Headphones Gen-3,CAT-01,Accessories,795.98,446.44
+PROD-1298,Sketchbook Spiral Bound Gen-5,CAT-03,Art,559.86,310.09
+PROD-1299,Window Business Envelopes Gen-3,CAT-03,Envelopes,434.21,307.22
+PROD-1300,Xerox Altalink Copier Gen-5,CAT-01,Copiers,703.19,416.96
+PROD-1301,Google Pixel 8 Gen-2,CAT-01,Phones,764.96,613.3
+PROD-1302,Ruled Notepad Set 5-Pack Gen-5,CAT-03,Paper,590.82,353.6
+PROD-1303,Pocket Folder Pack 10-Pack Gen-2,CAT-03,Binders,48.54,33.32
+PROD-1304,Heavy Duty Paper Shredder Gen-2,CAT-01,Machines,793.27,413.71
+PROD-1305,Executive Leather Chair Gen-3,CAT-02,Chairs,661.5,411.28
+PROD-1306,Window Business Envelopes Gen-5,CAT-03,Envelopes,589.79,402.5
+PROD-1307,USB-C Hub Multiport Gen-2,CAT-01,Accessories,136.72,84.34
+PROD-1308,Samsung Galaxy S24 Gen-5,CAT-01,Phones,93.61,69.71
+PROD-1309,Clasp Kraft Envelopes Gen-4,CAT-03,Envelopes,769.44,510.07
+PROD-1310,Sketchbook Spiral Bound Gen-4,CAT-03,Art,657.76,381.51
+PROD-1311,Colored Pencils 48-Pack Gen-5,CAT-03,Art,449.38,343.7
+PROD-1312,Drafting Pens Precision Gen-2,CAT-03,Art,497.37,419.49
+PROD-1313,Colored Pencils 48-Pack Gen-5,CAT-03,Art,17.17,13.5
+PROD-1314,Metal Frame Bookshelf Gen-5,CAT-02,Bookcases,351.47,279.08
+PROD-1315,Window Business Envelopes Gen-5,CAT-03,Envelopes,633.16,355.08
+PROD-1316,Anti-Fatigue Floor Mat Gen-2,CAT-02,Furnishings,141.44,108.89
+PROD-1317,Standing Desk Electric Gen-3,CAT-02,Tables,55.76,29.34
+PROD-1318,L-Shaped Corner Desk Gen-5,CAT-02,Tables,362.31,263.27
+PROD-1319,Heavy Duty Paper Shredder Gen-4,CAT-01,Machines,27.48,16.85
+PROD-1320,Heavy Duty View Binder Gen-3,CAT-03,Binders,10.81,6.01
+PROD-1321,3D Printer Pro Gen-4,CAT-01,Machines,90.73,72.49
+PROD-1322,Window Business Envelopes Gen-4,CAT-03,Envelopes,245.72,195.1
+PROD-1323,Monitor Mount Arm Gen-3,CAT-02,Furnishings,113.75,91.43
+PROD-1324,Xiaomi Redmi Note Gen-3,CAT-01,Phones,341.58,247.13
+PROD-1325,Ruled Notepad Set 5-Pack Gen-5,CAT-03,Paper,787.34,506.47
+PROD-1326,Metal Frame Bookshelf Gen-2,CAT-02,Bookcases,178.35,91.12
+PROD-1327,Modular Storage Bookcase Gen-3,CAT-02,Bookcases,383.84,321.99
+PROD-1328,iPhone SE Gen-3,CAT-01,Phones,623.51,479.99
+PROD-1329,Anti-Fatigue Floor Mat Gen-5,CAT-02,Furnishings,639.47,385.57
+PROD-1330,Modular Storage Bookcase Gen-3,CAT-02,Bookcases,639.26,427.37
+PROD-1331,Sticky Notes 3x3 Pack Gen-5,CAT-03,Paper,205.56,142.96
+PROD-1332,Cash Register Terminal Gen-5,CAT-01,Machines,469.76,279.11
+PROD-1333,Self-Seal Mailing Envelopes Gen-5,CAT-03,Envelopes,19.18,10.08
+PROD-1334,Folding Work Bench Gen-2,CAT-02,Tables,240.41,178.68
+PROD-1335,Executive Leather Chair Gen-2,CAT-02,Chairs,389.6,209.11
+PROD-1336,Ricoh IM C3000 Gen-3,CAT-01,Copiers,498.34,371.69
+PROD-1337,Desk Pad Leather Gen-2,CAT-02,Furnishings,418.99,222.38
+PROD-1338,Drafting Stool Gen-3,CAT-02,Chairs,72.08,46.05
+PROD-1339,Metal Frame Bookshelf Gen-3,CAT-02,Bookcases,554.68,432.76
+PROD-1340,Modular Storage Bookcase Gen-4,CAT-02,Bookcases,92.61,66.93
+PROD-1341,A4 Copy Paper Ream Gen-3,CAT-03,Paper,51.06,35.2
+PROD-1342,Monitor Mount Arm Gen-4,CAT-02,Furnishings,628.9,449.22
+PROD-1343,Index Dividers 8-Tab Gen-3,CAT-03,Binders,446.87,316.88
+PROD-1344,Corner Bookshelf Unit Gen-3,CAT-02,Bookcases,42.2,23.52
+PROD-1345,Colored Pencils 48-Pack Gen-2,CAT-03,Art,205.21,114.06
+PROD-1346,Acrylic Paint Set 24-Colors Gen-5,CAT-03,Art,780.93,482.55
+PROD-1347,External Hard Drive 2TB Gen-3,CAT-01,Accessories,530.38,357.67
+PROD-1348,Writing Desk Wood Gen-2,CAT-02,Tables,190.48,161.66
+PROD-1349,Index Dividers 8-Tab Gen-2,CAT-03,Binders,167.64,123.73
+PROD-1350,5-Shelf Bookcase Wood Gen-2,CAT-02,Bookcases,673.96,378.07
+PROD-1351,Drafting Pens Precision Gen-5,CAT-03,Art,678.53,488.59
+PROD-1352,Waste Basket Metal Mesh Gen-5,CAT-02,Furnishings,41.69,33.5
+PROD-1353,Cricut Cutting Machine Gen-3,CAT-01,Machines,582.95,390.77
+PROD-1354,Colored Pencils 48-Pack Gen-4,CAT-03,Art,343.16,204.83
+PROD-1355,L-Shaped Corner Desk Gen-5,CAT-02,Tables,176.42,126.68
+PROD-1356,Wireless Mouse Gen-5,CAT-01,Accessories,113.94,85.52
+PROD-1357,Metal Frame Bookshelf Gen-4,CAT-02,Bookcases,197.66,166.03
+PROD-1358,Moto G Power Gen-5,CAT-01,Phones,398.9,233.97
+PROD-1359,Laptop Cooling Stand Gen-3,CAT-01,Accessories,416.71,260.75
+PROD-1360,Graph Paper Notebook Gen-4,CAT-03,Paper,256.6,164.14
+PROD-1361,Xiaomi Redmi Note Gen-5,CAT-01,Phones,474.85,336.93
+PROD-1362,Webcam 1080p Gen-3,CAT-01,Accessories,195.39,158.13
+PROD-1363,LED Desk Lamp USB Gen-2,CAT-02,Furnishings,364.53,267.67
+PROD-1364,OnePlus 12 Gen-2,CAT-01,Phones,474.43,394.73
+PROD-1365,Waste Basket Metal Mesh Gen-2,CAT-02,Furnishings,38.97,29.53
+PROD-1366,iPhone 15 Pro Gen-4,CAT-01,Phones,567.25,372.25
+PROD-1367,Desktop Organizer Tiered Gen-3,CAT-03,Storage,98.42,58.5
+PROD-1368,External Hard Drive 2TB Gen-4,CAT-01,Accessories,749.92,385.29
+PROD-1369,Window Business Envelopes Gen-4,CAT-03,Envelopes,79.96,42.87
+PROD-1370,LED Desk Lamp USB Gen-4,CAT-02,Furnishings,323.93,216.37
+PROD-1371,Dual Tip Brush Pens Gen-4,CAT-03,Art,514.9,413.86
+PROD-1372,Heavy Duty View Binder Gen-4,CAT-03,Binders,280.7,192.64
+PROD-1373,Gaming Chair with Support Gen-4,CAT-02,Chairs,566.7,323.39
+PROD-1374,Ergonomic Office Chair Gen-3,CAT-02,Chairs,587.36,325.78
+PROD-1375,Laptop Cooling Stand Gen-4,CAT-01,Accessories,211.69,154.87
+PROD-1376,Metal Frame Bookshelf Gen-3,CAT-02,Bookcases,23.84,13.96
+PROD-1377,Sticky Notes 3x3 Pack Gen-5,CAT-03,Paper,99.36,77.34
+PROD-1378,Google Pixel 8 Gen-5,CAT-01,Phones,753.29,594.64
+PROD-1379,Samsung Galaxy S24 Gen-5,CAT-01,Phones,285.37,158.59
+PROD-1380,5-Shelf Bookcase Wood Gen-2,CAT-02,Bookcases,694.49,588.7
+PROD-1381,iPhone SE Gen-3,CAT-01,Phones,238.06,128.12
+PROD-1382,Ricoh IM C3000 Gen-3,CAT-01,Copiers,741.28,484.32
+PROD-1383,Ergonomic Office Chair Gen-2,CAT-02,Chairs,260.58,209.54
+PROD-1384,Standing Desk Electric Gen-3,CAT-02,Tables,269.42,194.14
+PROD-1385,Clasp Kraft Envelopes Gen-2,CAT-03,Envelopes,316.96,208.26
+PROD-1386,Bluetooth Headphones Gen-5,CAT-01,Accessories,21.59,15.23
+PROD-1387,Conference Room Table Gen-2,CAT-02,Tables,609.88,411.76
+PROD-1388,LED Desk Lamp USB Gen-3,CAT-02,Furnishings,388.55,197.76
+PROD-1389,Heavy Duty Paper Shredder Gen-5,CAT-01,Machines,325.07,228.54
+PROD-1390,Heavy Duty View Binder Gen-2,CAT-03,Binders,575.24,392.56
+PROD-1391,Pocket Folder Pack 10-Pack Gen-4,CAT-03,Binders,719.44,421.03
+PROD-1392,Heavy Duty Shelving Unit Gen-3,CAT-03,Storage,388.55,220.73
+PROD-1393,Heavy Duty Paper Shredder Gen-4,CAT-01,Machines,235.05,142.8
+PROD-1394,Colored Pencils 48-Pack Gen-2,CAT-03,Art,576.93,369.22
+PROD-1395,Folding Chair Set 4-Pack Gen-3,CAT-02,Chairs,153.11,113.06
+PROD-1396,Self-Seal Mailing Envelopes Gen-5,CAT-03,Envelopes,458.18,270.23
+PROD-1397,5-Shelf Bookcase Wood Gen-4,CAT-02,Bookcases,305.07,208.75
+PROD-1398,Window Business Envelopes Gen-2,CAT-03,Envelopes,708.52,410.82
+PROD-1399,Sketchbook Spiral Bound Gen-5,CAT-03,Art,295.01,241.04
+PROD-1400,Xerox Altalink Copier Gen-4,CAT-01,Copiers,626.62,373.58
+PROD-1401,Dual Tip Brush Pens Gen-2,CAT-03,Art,85.47,61.4
+PROD-1402,Drafting Pens Precision Gen-3,CAT-03,Art,142.73,108.18
+PROD-1403,External Hard Drive 2TB Gen-4,CAT-01,Accessories,85.61,43.51
+PROD-1404,Desktop Organizer Tiered Gen-2,CAT-03,Storage,193.24,123.06
+PROD-1405,Canon ImageRUNNER Gen-2,CAT-01,Copiers,790.35,432.92
+PROD-1406,Metal Frame Bookshelf Gen-2,CAT-02,Bookcases,348.28,261.61
+PROD-1407,Desktop Organizer Tiered Gen-5,CAT-03,Storage,486.54,300.7
+PROD-1408,Catalog Envelopes Pack Gen-4,CAT-03,Envelopes,77.67,63.14
+PROD-1409,3D Printer Pro Gen-5,CAT-01,Machines,189.06,118.02
+PROD-1410,OnePlus 12 Gen-4,CAT-01,Phones,63.41,49.47
+PROD-1411,Cash Register Terminal Gen-5,CAT-01,Machines,478.32,353.02
+PROD-1412,Xerox Altalink Copier Gen-5,CAT-01,Copiers,160.36,83.12
+PROD-1413,Standing Desk Electric Gen-5,CAT-02,Tables,796.43,522.64
+PROD-1414,LED Desk Lamp USB Gen-4,CAT-02,Furnishings,766.52,430.29
+PROD-1415,Colored Cardstock Pack Gen-5,CAT-03,Paper,86.37,56.8
+PROD-1416,Label Maker Wireless Gen-3,CAT-01,Machines,785.18,523.09
+PROD-1417,Bluetooth Headphones Gen-5,CAT-01,Accessories,779.59,395.26
+PROD-1418,Moto G Power Gen-3,CAT-01,Phones,421.56,302.79
+PROD-1419,Ruled Notepad Set 5-Pack Gen-3,CAT-03,Paper,662.59,512.65
+PROD-1420,Brother Monochrome Copier Gen-3,CAT-01,Copiers,249.47,147.71
+PROD-1421,Samsung Galaxy S24 Gen-4,CAT-01,Phones,750.2,520.51
+PROD-1422,File Drawer Storage Box Gen-4,CAT-03,Storage,484.47,329.68
+PROD-1423,Modular Storage Bookcase Gen-4,CAT-02,Bookcases,682.63,391.13
+PROD-1424,Ricoh IM C3000 Gen-5,CAT-01,Copiers,655.79,415.26
+PROD-1425,Folding Work Bench Gen-5,CAT-02,Tables,646.68,502.15
+PROD-1426,Stackable Guest Chair Gen-3,CAT-02,Chairs,328.35,184.12
+PROD-1427,Colored Pencils 48-Pack Gen-3,CAT-03,Art,462.7,382.4
+PROD-1428,Moto G Power Gen-2,CAT-01,Phones,257.84,183.64
+PROD-1429,Monitor Mount Arm Gen-4,CAT-02,Furnishings,665.17,406.51
+PROD-1430,Canon ImageRUNNER Gen-2,CAT-01,Copiers,536.38,291.05
+PROD-1431,Desk Pad Leather Gen-5,CAT-02,Furnishings,193.72,102.28
+PROD-1432,Laptop Cooling Stand Gen-4,CAT-01,Accessories,702.12,419.32
+PROD-1433,Wall Clock Modern Gen-4,CAT-02,Furnishings,23.97,17.04
+PROD-1434,Pocket Folder Pack 10-Pack Gen-3,CAT-03,Binders,626.8,414.27
+PROD-1435,Metal Frame Bookshelf Gen-2,CAT-02,Bookcases,55.65,41.36
+PROD-1436,3-Ring Binder 2-Inch Gen-3,CAT-03,Binders,122.38,66.39
+PROD-1437,Modular Storage Bookcase Gen-5,CAT-02,Bookcases,498.26,359.55
+PROD-1438,Xiaomi Redmi Note Gen-5,CAT-01,Phones,184.43,103.43
+PROD-1439,Metal Frame Bookshelf Gen-3,CAT-02,Bookcases,113.26,91.78
+PROD-1440,Webcam 1080p Gen-4,CAT-01,Accessories,425.15,284.24
+PROD-1441,Moto G Power Gen-3,CAT-01,Phones,771.42,452.83
+PROD-1442,Window Business Envelopes Gen-4,CAT-03,Envelopes,610.63,334.62
+PROD-1443,iPhone SE Gen-2,CAT-01,Phones,19.58,11.44
+PROD-1444,Epson WorkForce Pro Gen-4,CAT-01,Copiers,768.07,515.18
+PROD-1445,Document Scanner HighSpeed Gen-4,CAT-01,Machines,368.96,293.52
+PROD-1446,Ricoh IM C3000 Gen-5,CAT-01,Copiers,128.54,78.88
+PROD-1447,Anti-Fatigue Floor Mat Gen-3,CAT-02,Furnishings,306.95,195.85
+PROD-1448,Mesh Task Chair Gen-2,CAT-02,Chairs,714.75,596.36
+PROD-1449,iPhone 15 Pro Gen-2,CAT-01,Phones,649.02,341.87
+PROD-1450,Conference Room Table Gen-5,CAT-02,Tables,209.92,162.35
+PROD-1451,Acrylic Paint Set 24-Colors Gen-2,CAT-03,Art,365.6,211.84
+PROD-1452,Clasp Kraft Envelopes Gen-4,CAT-03,Envelopes,93.5,79.09
+PROD-1453,Heavy Duty Paper Shredder Gen-2,CAT-01,Machines,40.04,30.48
+PROD-1454,USB Flash Drive 128GB Gen-5,CAT-01,Accessories,93.24,47.78
+PROD-1455,Cricut Cutting Machine Gen-5,CAT-01,Machines,374.94,317.6
+PROD-1456,Sheet Protectors 100-Pack Gen-2,CAT-03,Binders,156.3,87.67
+PROD-1457,Ricoh IM C3000 Gen-3,CAT-01,Copiers,613.85,363.87
+PROD-1458,Plastic Storage Totes 4-Pack Gen-2,CAT-03,Storage,243.4,187.23
+PROD-1459,HP LaserJet Enterprise Gen-5,CAT-01,Copiers,18.24,10.75
+PROD-1460,Ergonomic Office Chair Gen-4,CAT-02,Chairs,768.26,512.73
+PROD-1461,L-Shaped Corner Desk Gen-3,CAT-02,Tables,108.93,72.55
+PROD-1462,Drafting Stool Gen-5,CAT-02,Chairs,737.03,502.85
+PROD-1463,Metal Frame Bookshelf Gen-4,CAT-02,Bookcases,277.23,228.67
+PROD-1464,Nokia G310 Gen-2,CAT-01,Phones,351.34,229.7
+PROD-1465,Drafting Table Adjustable Gen-5,CAT-02,Tables,200.15,108.59
+PROD-1466,Ruled Notepad Set 5-Pack Gen-4,CAT-03,Paper,235.87,185.3
+PROD-1467,Sticky Notes 3x3 Pack Gen-2,CAT-03,Paper,735.95,432.95
+PROD-1468,Folding Chair Set 4-Pack Gen-4,CAT-02,Chairs,675.18,509.74
+PROD-1469,Desktop Organizer Tiered Gen-2,CAT-03,Storage,262.85,200.72
+PROD-1470,Wall Clock Modern Gen-2,CAT-02,Furnishings,585.08,314.64
+PROD-1471,Desktop Organizer Tiered Gen-4,CAT-03,Storage,772.45,518.27
+PROD-1472,Xerox Altalink Copier Gen-4,CAT-01,Copiers,608.97,462.94
+PROD-1473,Pocket Folder Pack 10-Pack Gen-2,CAT-03,Binders,84.07,59.02
+PROD-1474,USB Flash Drive 128GB Gen-2,CAT-01,Accessories,374.63,188.54
+PROD-1475,Wireless Mouse Gen-5,CAT-01,Accessories,229.54,130.35
+PROD-1476,Writing Desk Wood Gen-3,CAT-02,Tables,255.63,194.23
+PROD-1477,Sheet Protectors 100-Pack Gen-2,CAT-03,Binders,553.43,349.4
+PROD-1478,Conference Room Table Gen-3,CAT-02,Tables,673.57,533.09
+PROD-1479,Mesh Task Chair Gen-5,CAT-02,Chairs,609.35,449.35
+PROD-1480,Pocket Folder Pack 10-Pack Gen-5,CAT-03,Binders,108.52,68.9
+PROD-1481,Monitor Mount Arm Gen-2,CAT-02,Furnishings,478.51,304.83
+PROD-1482,Wall Clock Modern Gen-5,CAT-02,Furnishings,32.97,18.41
+PROD-1483,OnePlus 12 Gen-2,CAT-01,Phones,327.84,264.24
+PROD-1484,Floating Shelf Set 3-Pack Gen-5,CAT-02,Bookcases,468.19,326.1
+PROD-1485,LED Desk Lamp USB Gen-5,CAT-02,Furnishings,483.5,343.65
+PROD-1486,Graph Paper Notebook Gen-3,CAT-03,Paper,56.26,34.71
+PROD-1487,L-Shaped Corner Desk Gen-5,CAT-02,Tables,633.01,431.11
+PROD-1488,Cash Register Terminal Gen-3,CAT-01,Machines,269.27,175.54
+PROD-1489,Plastic Storage Totes 4-Pack Gen-4,CAT-03,Storage,482.6,365.56
+PROD-1490,Cash Register Terminal Gen-5,CAT-01,Machines,517.63,335.13
+PROD-1491,Index Dividers 8-Tab Gen-5,CAT-03,Binders,313.23,219.31
+PROD-1492,OnePlus 12 Gen-2,CAT-01,Phones,296.17,182.76
+PROD-1493,Ruled Notepad Set 5-Pack Gen-4,CAT-03,Paper,561.16,463.16
+PROD-1494,Mechanical Keyboard Gen-2,CAT-01,Accessories,683.66,395.8
+PROD-1495,Heavy Duty Paper Shredder Gen-5,CAT-01,Machines,389.92,254.35
+PROD-1496,Cash Register Terminal Gen-4,CAT-01,Machines,508.62,263.18
+PROD-1497,5-Shelf Bookcase Wood Gen-2,CAT-02,Bookcases,626.37,314.73
+PROD-1498,Drafting Table Adjustable Gen-5,CAT-02,Tables,113.77,72.77
+PROD-1499,Heavy Duty Paper Shredder Gen-3,CAT-01,Machines,64.48,33.53
+PROD-1500,Anti-Fatigue Floor Mat Gen-3,CAT-02,Furnishings,227.73,176.6

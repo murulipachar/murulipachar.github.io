@@ -26,6 +26,50 @@
 
 // --- Project Detailed Database ---
 const PROJECTS_DATA = {
+  "e-commerce-bi-platform": {
+    title: "E-Commerce Business Intelligence Platform",
+    tags: ["SQL/PostgreSQL", "Python", "Power BI", "Chart.js"],
+    category: "sql python powerbi",
+    description: "An end-to-end operational intelligence analytics system modeling 3 years of retail operations (15,308 items). Structured relational dimension schemas, authored 50 production-grade SQL script queries, drafted Power BI relational Star Schemas with advanced DAX KPIs, and compiled a custom client-side web dashboard using Chart.js.",
+    metrics: [
+      { name: "Ingested Operational Rows", value: "15,308 Records" },
+      { name: "Relational Tables", value: "5 Dimension, 1 Fact" },
+      { name: "Analytical SQL Queries", value: "50 Production-Grade" },
+      { name: "Estimated Return Rate", value: "6.64% of Orders" }
+    ],
+    insights: [
+      {
+        title: "The Discount-Margin Squeeze",
+        desc: "Discounts above 20% on all categories severely erode margin; discounts exceeding 30% yield an average net loss of 8.4% per order, indicating a failure to achieve scale economies through price cuts."
+      },
+      {
+        title: "Isolating Southern Logistics Surcharges",
+        desc: "Discovered Southern region margins were compressed to 11.2% (vs 19.4% in the West). Traced root cause to an 8% logistics cost surcharge on shipping, compressed by heavy promotional discount matching in Florida and Texas."
+      },
+      {
+        title: "Shipping Delay Return Multiplier",
+        desc: "Orders experiencing shipping latencies of 5 days or more show a 3x increase in customer return rates, directly driving 38% of all returned products."
+      }
+    ],
+    codeTitle: "SQL Month-over-Month Revenue Growth",
+    code: `-- SQL Query to Calculate Month-over-Month Revenue Growth Rates (LAG Window Function)
+WITH Monthly_Totals AS (
+    SELECT 
+        TO_CHAR(o.Order_Date::DATE, 'YYYY-MM') AS Year_Month,
+        SUM(oi.Sales) AS Month_Sales
+    FROM orders o
+    JOIN order_items oi ON o.Order_ID = oi.Order_ID
+    GROUP BY TO_CHAR(o.Order_Date::DATE, 'YYYY-MM')
+)
+SELECT 
+    Year_Month,
+    ROUND(Month_Sales::NUMERIC, 2) AS Monthly_Revenue,
+    ROUND(LAG(Month_Sales) OVER (ORDER BY Year_Month)::NUMERIC, 2) AS Previous_Month_Revenue,
+    ROUND(((Month_Sales - LAG(Month_Sales) OVER (ORDER BY Year_Month)) / 
+           LAG(Month_Sales) OVER (ORDER BY Year_Month) * 100)::NUMERIC, 2) AS MoM_Growth_Rate_PCT
+FROM Monthly_Totals
+ORDER BY Year_Month;`
+  },
   "sql-retail-analytics": {
     title: "SQL Retail Performance Analytics",
     tags: ["SQL", "MySQL", "SQLite", "Database Design"],
@@ -489,7 +533,8 @@ document.addEventListener("DOMContentLoaded", () => {
         card.style.opacity = "0";
         
         setTimeout(() => {
-          if (filterValue === "all" || card.getAttribute("data-category") === filterValue) {
+          const cardCats = (card.getAttribute("data-category") || "").split(" ");
+          if (filterValue === "all" || cardCats.includes(filterValue)) {
             card.classList.remove("hidden");
             setTimeout(() => {
               card.style.transform = "scale(1)";
