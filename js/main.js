@@ -26,6 +26,61 @@
 
 // --- Project Detailed Database ---
 const PROJECTS_DATA = {
+  "banking-risk-loan-analytics": {
+    title: "Banking Risk & Loan Analytics Platform",
+    tags: ["SQL/PostgreSQL", "Python", "Power BI", "Risk Modeling"],
+    category: "sql python powerbi",
+    description: "An end-to-end banking credit risk system modeling 4 years of retail loan operations (74,799 rows). Structured relational schemas, compiled a stateful 0-100 credit risk scoring algorithm (Low, Medium, High, Critical tiers), authored 52 production-grade SQL audit queries, and designed an interactive dashboard using Chart.js.",
+    metrics: [
+      { name: "Ingested Operational Rows", value: "74,799 Records" },
+      { name: "Lending Portfolio Yield", value: "14.2% Net" },
+      { name: "Average Credit Score", value: "664 Points" },
+      { name: "Defaults Tracked", value: "913 Accounts" }
+    ],
+    insights: [
+      {
+        title: "Deep Subprime Default Concentration",
+        desc: "Borrowers with credit scores below 580 represent only 12.4% of approved capital, but account for 58.2% of default losses, verifying the critical predictive power of credit score tiering."
+      },
+      {
+        title: "Delinquency Escalation Thresholds",
+        desc: "Borrowers who record a single missed payment show a 14.2% default rate. Once missed payments reach two consecutive billing cycles, the default probability jumps to 78.4%, signifying a clear pre-collections intervention trigger."
+      },
+      {
+        title: "Adverse Pricing Selection Risk",
+        desc: "Lending products carrying interest rates above 14% experience a 22.5% default rate, indicating that high pricing terms attract borrowers with lower structural repayment capacities."
+      }
+    ],
+    codeTitle: "SQL Expected Credit Loss (ECL) Calculation",
+    code: `-- SQL Query to Calculate Expected Credit Loss (ECL) by Branch (PD * LGD * EAD)
+WITH Loan_PD AS (
+    SELECT 
+        l.Branch_ID,
+        l.Loan_Amount,
+        CASE 
+            WHEN c.Credit_Score < 580 THEN 0.45 
+            WHEN c.Credit_Score < 680 THEN 0.12 
+            ELSE 0.02 
+        END AS PD
+    FROM loans l
+    JOIN customers c ON l.Customer_ID = c.Customer_ID
+    WHERE l.Approval_Status = 'Approved'
+),
+Branch_ECL AS (
+    SELECT 
+        Branch_ID,
+        SUM(Loan_Amount * PD * 0.85) AS Expected_Credit_Loss
+    FROM Loan_PD
+    GROUP BY Branch_ID
+)
+SELECT 
+    b.Branch_Name,
+    b.Region,
+    ROUND(be.Expected_Credit_Loss::NUMERIC, 2) AS ECL_Reserves_Needed
+FROM Branch_ECL be
+JOIN branches b ON be.Branch_ID = b.Branch_ID
+ORDER BY ECL_Reserves_Needed DESC;`
+  },
   "e-commerce-bi-platform": {
     title: "E-Commerce Business Intelligence Platform",
     tags: ["SQL/PostgreSQL", "Python", "Power BI", "Chart.js"],

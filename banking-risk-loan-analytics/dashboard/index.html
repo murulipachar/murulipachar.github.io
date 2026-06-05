@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Risk & Loan Analytics Platform | Executive Control Board</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="dashboard.css?v=1.0.0">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation & Filters -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-shield-halved brand-icon"></i>
+                <div class="brand-text">
+                    <h1>Risk Shield</h1>
+                    <span>Banking Credit Analytics</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <div class="menu-label">Risk Dashboards</div>
+                <a href="#" class="menu-item active"><i class="fa-solid fa-gauge-high"></i> Credit Overview</a>
+                <a href="../insights/insights_recommendations.md" target="_blank" class="menu-item"><i class="fa-solid fa-file-contract"></i> Risk Score Model</a>
+                <a href="../sql/banking_analysis.sql" target="_blank" class="menu-item"><i class="fa-solid fa-code"></i> SQL Risk Engine</a>
+            </nav>
+
+            <div class="divider"></div>
+
+            <!-- Interactive Filters -->
+            <div class="filters-section">
+                <div class="menu-label">Credit Filters</div>
+                
+                <div class="filter-group">
+                    <label for="filter-branch"><i class="fa-solid fa-building-columns"></i> Branch</label>
+                    <select id="filter-branch">
+                        <option value="ALL">All Branches</option>
+                        <option value="Downtown Plaza">Downtown Plaza</option>
+                        <option value="Metro North">Metro North</option>
+                        <option value="Pacific Coast">Pacific Coast</option>
+                        <option value="Valley View">Valley View</option>
+                        <option value="Gulf Shore">Gulf Shore</option>
+                        <option value="Peach Tree">Peach Tree</option>
+                        <option value="Lakeshore Central">Lakeshore Central</option>
+                        <option value="Windy City East">Windy City East</option>
+                        <option value="Sunset Boulevard">Sunset Boulevard</option>
+                        <option value="Wall Street Annex">Wall Street Annex</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-loan-type"><i class="fa-solid fa-hand-holding-dollar"></i> Loan Type</label>
+                    <select id="filter-loan-type">
+                        <option value="ALL">All Loan Types</option>
+                        <option value="Personal Loan">Personal Loan</option>
+                        <option value="Auto Loan">Auto Loan</option>
+                        <option value="Home Loan">Home Loan</option>
+                        <option value="Education Loan">Education Loan</option>
+                        <option value="Business Loan">Business Loan</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-age-group"><i class="fa-solid fa-user-clock"></i> Age Group</label>
+                    <select id="filter-age-group">
+                        <option value="ALL">All Ages</option>
+                        <option value="18-25">18-25 (Young Adult)</option>
+                        <option value="26-35">26-35 (Early Career)</option>
+                        <option value="36-50">36-50 (Mid Career)</option>
+                        <option value="50+">50+ (Late Career/Retired)</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-credit-band"><i class="fa-solid fa-sliders"></i> Credit Band</label>
+                    <select id="filter-credit-band">
+                        <option value="ALL">All Credit Scores</option>
+                        <option value="Super Prime">Super Prime (>=750)</option>
+                        <option value="Prime">Prime (680-749)</option>
+                        <option value="Near Prime">Near Prime (620-679)</option>
+                        <option value="Subprime">Subprime (580-619)</option>
+                        <option value="Deep Subprime">Deep Subprime (<580)</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-approval"><i class="fa-solid fa-stamp"></i> Approval Status</label>
+                    <select id="filter-approval">
+                        <option value="ALL">All Applications</option>
+                        <option value="Approved">Approved</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+                
+                <button id="btn-reset-filters" class="btn-reset">
+                    <i class="fa-solid fa-rotate-left"></i> Reset Filter Set
+                </button>
+            </div>
+            
+            <div class="sidebar-footer">
+                <a href="../../index.html" class="portfolio-back-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Body -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="breadcrumb">Banking Risk / Credit Control Board</div>
+                    <h2>Risk &amp; Portfolio Analytics</h2>
+                </div>
+                <div class="header-right">
+                    <div class="status-indicator">
+                        <span class="status-dot animate-pulse"></span>
+                        <span class="status-text">Connected to Core Banking DB (74,799 records)</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- KPI Cards Strip -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Active Customers</span>
+                        <h3 id="kpi-customers">0</h3>
+                        <span class="kpi-sub" id="kpi-customers-sub">Borrower profiles</span>
+                    </div>
+                    <div class="kpi-icon-wrapper customer-accent">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Approval Rate %</span>
+                        <h3 id="kpi-approval">0.0%</h3>
+                        <span class="kpi-sub" id="kpi-approval-sub">Application approvals</span>
+                    </div>
+                    <div class="kpi-icon-wrapper approval-accent">
+                        <i class="fa-solid fa-stamp"></i>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Default Rate %</span>
+                        <h3 id="kpi-default" class="text-alert-red">0.0%</h3>
+                        <span class="kpi-sub" id="kpi-default-sub">Loans written-off/missed</span>
+                    </div>
+                    <div class="kpi-icon-wrapper default-accent">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Repayment Success %</span>
+                        <h3 id="kpi-repayment">0.0%</h3>
+                        <span class="kpi-sub" id="kpi-repayment-sub">On-time payment rate</span>
+                    </div>
+                    <div class="kpi-icon-wrapper repayment-accent">
+                        <i class="fa-solid fa-check-double"></i>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Avg Credit Score</span>
+                        <h3 id="kpi-credit">0</h3>
+                        <span class="kpi-sub" id="kpi-credit-sub">Borrower score average</span>
+                    </div>
+                    <div class="kpi-icon-wrapper credit-accent">
+                        <i class="fa-solid fa-shield-heart"></i>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Interest Revenue</span>
+                        <h3 id="kpi-revenue">$0.00</h3>
+                        <span class="kpi-sub" id="kpi-revenue-sub">Collected net interest</span>
+                    </div>
+                    <div class="kpi-icon-wrapper revenue-accent">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-info">
+                        <span class="kpi-label">Risk Exposure</span>
+                        <h3 id="kpi-exposure" class="text-alert-red">$0.00</h3>
+                        <span class="kpi-sub" id="kpi-exposure-sub">Def./Written-off capital</span>
+                    </div>
+                    <div class="kpi-icon-wrapper exposure-accent">
+                        <i class="fa-solid fa-burst"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chart Layout Grid -->
+            <section class="dashboard-grid">
+                <!-- Line/Bar Chart: Monthly Approval trends -->
+                <div class="grid-item col-span-2">
+                    <div class="card-header">
+                        <h4>Application Approval &amp; Default Timelines</h4>
+                        <span class="card-subtitle">Monthly approved loans count against default occurrences</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-timelines"></canvas>
+                    </div>
+                </div>
+
+                <!-- Doughnut Chart: Risk Categories -->
+                <div class="grid-item">
+                    <div class="card-header">
+                        <h4>Portfolio Capital Share by Risk Category</h4>
+                        <span class="card-subtitle">Loan amount split across custom Risk Tiers</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-risk-categories"></canvas>
+                    </div>
+                </div>
+
+                <!-- Bar Chart: Credit Score Distribution -->
+                <div class="grid-item">
+                    <div class="card-header">
+                        <h4>Loan Volatility by Credit Score Band</h4>
+                        <span class="card-subtitle">Approved loan amounts and default counts by credit tier</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-credit-distribution"></canvas>
+                    </div>
+                </div>
+
+                <!-- Bar Chart: Branch Lending & Default Exposure -->
+                <div class="grid-item col-span-2">
+                    <div class="card-header">
+                        <h4>Branch Lending and Risk Diagnostics</h4>
+                        <span class="card-subtitle">Total disbursed capital vs. defaulted volume by physical location</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-branch-performance"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom Data Tables -->
+            <section class="dashboard-tables-section">
+                <div class="table-card">
+                    <div class="table-card-header">
+                        <h4>Top 10 High-Risk Borrowers (High/Critical Risk Tiers)</h4>
+                        <span class="table-subtitle">Borrowers flagged with low credit scores or active delinquency counts</span>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-high-risk-borrowers">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Customer ID</th>
+                                    <th>Name</th>
+                                    <th>Monthly Income</th>
+                                    <th>Credit Score</th>
+                                    <th>Loan Type</th>
+                                    <th>Loan Amount</th>
+                                    <th>Risk Score</th>
+                                    <th>Risk Category</th>
+                                    <th>Delinq. Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS Populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Ingest data.js first, then dashboard script -->
+    <script src="data.js?v=1.0.0"></script>
+    <script src="dashboard.js?v=1.0.0"></script>
+</body>
+</html>
